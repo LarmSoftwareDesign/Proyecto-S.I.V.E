@@ -1,0 +1,18 @@
+body{
+    background-color:#24303C;
+}
+
+.caja-producto{
+    margin: 6em;
+}
+.MC {
+    padding: 2em;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    text-align: left;
+    width: 560px;
+    border-color: aliceblue;
+
+}
+
+

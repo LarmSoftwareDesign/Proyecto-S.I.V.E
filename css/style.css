@@ -1,0 +1,88 @@
+body{
+    background-color:#24303C;
+}
+
+/**espacio del section productos y reseñas */ 
+.productos {
+    
+    margin: 1em;
+}
+.reseñas{
+    margin: 1em;
+}
+
+/** ajuste del swipe*/
+.d-block{
+    width: auto;
+    height: 560px;
+
+}
+
+
+.Stockline{
+    margin-top: 2em;
+    padding: 2em 1em;
+    background-color: #f3f3f3;
+    border-radius: 20px;
+}
+/*? ajuste de productos*/
+
+.PC{
+    margin: 4em 0.5em;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+}
+
+
+.carousel-item .container{
+    padding: 2em;
+}
+/* ! alineamentos y ajustes de cards */
+.card {
+    text-align: center;
+}
+.card-img{
+    
+    text-align: center;
+    width: 160px;
+    height: 160px;
+}
+.card-img-overlay {
+    font-size: 25px;
+    text-align: center;
+}
+.card-img-overlay  a{
+    text-decoration: none;
+    color:white;
+}
+.card-img-overlay  a:hover{
+    color: #6cfffa;
+}
+
+.LSM a{
+    text-decoration: none;
+    color:#1900ff;
+}
+ .LSM a:hover{
+    color: #0094f7;
+}
+.carousel-inner .row .card{
+    height:auto;
+    width: auto;
+}
+/** tamaño de la caja del producto*/
+.PC .row .card{
+    
+    height:350px;
+    
+}
+
+
+
+.card-group .card {
+    margin: 1em;
+    text-align: center;
+}
+
+

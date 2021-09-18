@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- css de boostrap-->
+    <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <!--otros-->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <title>login</title>
+</head>
+<body>
+    <header>
+       <script src="js/header.js"></script>
+    </header>
+
+
+
+
+    <!--inicio de secion-->
+    <section class="caja-ingreso">
+        <!--caja-->
+        <div class="MS container">
+            <!--formulario-->
+            <h1>Inicio de Sesión</h1>
+            <br>
+            <!--cambio de registro-->
+          <ul class="nav nav-pills nav-fill">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Cliente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="login E.html">Empresa</a>
+            </li>
+            
+          </ul>
+          <br>
+            <form action="php/login Em.php" method="post">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control"  placeholder="name@example.com" name="email">
+                <label >Email:</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" placeholder="Password" name="cont">
+                <label >Contraseña:</label>
+              </div>
+              <br>
+              <div class="Opt mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" >Iniciar sesión</button>
+                
+              </form>
+              <div id="Btn-HelpBlock" class="form-text">
+                Si no te registraste aun....
+              </div>
+              <br>
+              <button type="submit" class="btn btn-outline-primary" onclick="location.href='register E.html'">Registrarse</button>
+        </div>
+        <div class="container">
+            <p class="terminos">
+                licensias
+            </p>
+        </div>
+
+    </section>
+    
+
+    <!--footer-->
+    <footer>
+      <script src="js/footer.js"></script>
+    </footer>
+    
+
+
+
+
+    <!-- scripts de boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
