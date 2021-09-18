@@ -21,13 +21,7 @@
 			$producto["nacionalidad"] = $_POST["nacionalidad"];
 			ingresarProducto($conexion, $producto);
 			
-			if ($listo ){
-				header("Location: ../vender.html");	
-				
-			}else{
 			
-			header("Location: ../productos.php");	
-			}
 			
 
 			
