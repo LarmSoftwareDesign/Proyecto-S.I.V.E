@@ -96,6 +96,27 @@
 			
 		}
 	}
+	function obtenerempresaR($conexion){
+		$sql = "SELECT * FROM producto LAST_INSERT_ID()";
+		$resultado = $conexion->query($sql);
+	
+		if ( $resultado){ 
+			if($resultado->num_rows > 0){
+				$fila = $resultado->fetch_assoc();
+			   
+				return $fila;
+	
+			}else{
+				return false;
+			}
+			
+		}else{
+			$ls ="Error in ".$resultado."<br>".$conexion->error;
+		   return $ls;
+			
+		}
+	}
+
 
 	
 
