@@ -20,8 +20,10 @@
 			$producto["categoria"] = $_POST["categoria"];
 			$producto["nacionalidad"] = $_POST["nacionalidad"];
 			ingresarProducto($conexion, $producto);
-			
-			
+			$fila = obtenerempresaR($conexion);
+			if ($fila == false){
+				header ('Location: ../productos.php');
+			}
 			
 
 			
