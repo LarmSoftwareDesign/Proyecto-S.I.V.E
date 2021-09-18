@@ -28,6 +28,7 @@
       <?php
       include("php/productF.php");
       $conexion=abrirConexion($conexion);
+
       
       ?>
         <script src="js/header.js"></script>
@@ -214,5 +215,10 @@
     <!-- scripts de boostrap-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+
+
+    <?php
+    cerrarConexion($conexion);
+    ?>
 </body>
 </html>
