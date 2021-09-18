@@ -1,0 +1,56 @@
+body{
+    background-color: #24303C;
+}
+.logo-perfil{
+    background-color:black;
+    padding: 1em;
+    width: 128px;
+    height: 128px;
+    border-radius: 10px;
+}
+.span{
+    font-size: 28px;
+}
+.caja{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+
+.MS {
+    padding: 3em;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    text-align: left;
+    width: 560px;
+
+}
+
+.ls {
+    
+    text-align: center;
+   
+  
+}
+.lC{
+    background-color:white;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+
+th {
+    font-size:24px;
+}
+
+
+.item{
+    font-size: 7px;
+    
+}
+.item-C{
+    font-size: 12px;
+    
+}
+
+

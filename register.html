@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- css de boostrap-->
+    <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    
+    <!--css-->
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <script src="js/funciones.js"></script>
+    <title>Registro</title>
+</head>
+<body>
+    <header>
+      <script src ="js/header.js"> </script>
+    </header>
+    <!--registro-->
+    <section class="caja-registro">
+
+      
+        <div class="MS container">
+          <!--cambio de Registro-->
+          <h1>Registro</h1>
+          <br>
+          <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="register.html">Cliente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register E.html">Empresa</a>
+            </li>
+            
+          </ul>
+          <br>
+            
+            <form action="php/registeragenda.php" method="post" class="row g-3">
+                <div class="col-12">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="example@gmail.com" required="" name="email">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputFname" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" placeholder="Andres" required="" name="nombre">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputLname" class="form-label">Apellido:</label>
+                    <input type="text" class="form-control" placeholder="Torres" required="" name="apellido" >
+                </div>
+                
+                <div class="col-md-6">
+                    <label for="inputCi" class="form-label">Ci:</label>
+                    <input type="text" class="form-control" maxlength="9" required="" name="ci">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputCi" class="form-label">Fecha de Nacimiento:</label>
+                  <input type="date" class="form-control" maxlength="9" required="" name="fnac">
+                </div>
+
+
+                <div class="col-lg-12">
+                  <label for="inputAddress" class="form-label">Dirección:</label>
+                  <input type="text" class="form-control" placeholder="1234 calle principal" required="" name ="direccion">
+                </div>
+                
+                
+                <div class="col-md-8">
+                    <label class="form-label">Contraseña:</label>
+                    <input type="password" class="form-control" name="cont" id="myInput" >
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" onclick="myFunction()" >
+                      <label class="form-check-label">
+                        Mostrar
+                      </label>
+                    </div>
+                 
+                    <div id="passwordHelpBlock" class=" form-text" required="">
+                      Debe tener de 8 a 20 caracteres de largo, contar con numeros y letras, sin espacios y contar con un caracter especial como:! $ %
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <label  class="form-label">Verificar Contraseña:</label>
+                    <input type="password" class="form-control" required="" name="ver" id ="myInput1">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" onclick="myFunction1()" >
+                      <label class="form-check-label">
+                        Mostrar
+                      </label>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Acepto los Terminos y Condiciones.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Registrarse</button>
+                  <div id="Btn-HelpBlock" class="form-text">
+                    Si ya te registraste....
+                  </div><br>
+                  <button type="submit" class="btn btn-outline-primary" onclick="location.href='login.html'">Iniciar sesión</button>  
+                  
+                </div>
+                
+              </form>
+        </div>
+
+    </section>
+
+     <!--footer-->
+     <footer>
+     <script src="js/footer.js"></script>
+      </footer>  
+    <!-- scripts de boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -10,26 +10,12 @@
     <!--Css-->
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <?php
-      include("php/registerp.php");
-      $conexion = abrirConexion();
-      
-      $titulo= $fila["Nombre_Producto"];
-      $precio = $fila["Precio"];
-      $descripcion= $fila["Descripcion"];
-      cerrarConexion($conexion);
-      ?>
     <!--js-->
     <script src="js/funciones.js"></script>
-    <title>Comprar:</title>
+    <title>Comprar: ------</title>
 </head>
 <body>
     <header>
-      <?php
-      include("php/productF.php");
-      $conexion=abrirConexion($conexion);
-      
-      ?>
         <script src="js/header.js"></script>
     </header>
     <section class="caja-productos" >
