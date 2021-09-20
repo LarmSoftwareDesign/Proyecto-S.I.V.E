@@ -63,31 +63,37 @@
                     <label class="form-label">Codicion del producto:</label>
                     <input class="form-control" list="datalistOptions" placeholder="Nuevo, renovado, etc.." name="condicion">
                     <datalist id="datalistOptions">
-                      <option value="Nuevo">
-                      <option value="Restaurado">
-                      <option value="Usado">
+                      <option value="Nuevo">Nuevo</option>
+                      <option value="Restaurado">Restaurado</option>
+                      <option value="Usado">Usado</option>
                     </datalist>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                  <!--condicion de producto-->
+                  <label class="form-label">Nacionalidad:</label>
+                  <select class="form-select" name="nacionalidad">
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Ecuador">Ecuador</option></select>
+                  </datalist>
+              </div>
+                <div class="col-md-4">
                     <label class="form-label">Precio:</label>
                     <input type="text" class="form-control" maxlength="9" name="precio">
-                  </div>
-                  <div class="col-md-6">
-                    <!--condicion de producto-->
-                    <label class="form-label">Nacionalidad del producto:</label>
-                    <select class="form-select" name="nacionalidad">
-                      <option value="Uruguay">Uruguay</option>
-                      <option value="Argentina">Argentina</option>
-                      <option value="Brasil">Brasil</option>
-                      <option value="Paraguay">Paraguay</option>
-                      <option value="Chile">Chile</option>
-                      <option value="Peru">Peru</option>
-                      <option value="Colombia">Colombia</option>
-                      <option value="Bolivia">Bolivia</option>
-                      <option value="Venezuela">Venezuela</option>
-                      <option value="Ecuador">Ecuador</option></select>
-                    </datalist>
                 </div>
+                
+                <div class="col-md-4">
+                  <label class="form-label">Cantidad:</label>
+                  <input type="text" class="form-control" maxlength="9" name="precio">
+                </div>
+                
                 <div class="col-mb-3">
                     <label class="form-label">Descripción:</label>
                     <textarea class="form-control" rows="3" name="descripcion"></textarea>
