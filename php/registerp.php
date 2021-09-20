@@ -13,6 +13,7 @@
 <body>
 	<?php
 	include("productF.php");
+	include("empresF.php");
 	$conexion = abrirConexion();
 	if (isset($_POST['idproducto'] ) ) {
 		$producto['idproducto']=intval($_POST['idproducto']);
@@ -25,11 +26,9 @@
 		$producto['cantidad']=intval($_POST['cantidad']);
 		$producto['terminos']=$_POST['terminos'];
 		if ($producto ['terminos']){
-			//? ahora revisamos si cantidad no tiene letras
-			
+			ingresarProducto($conexion, $producto);	
 		}else {
-			echo "no lo aceptaste : ( ";
-			echo "regresa <a href = \"../vender.html\"> AHORA</a>";
+			header('Location:../vender.html');
 		}
 
 	}
@@ -41,6 +40,13 @@
 	<section class="caja-producto">
 		<div class="MC container">
 			<?php
+			$fila =obtenerempresaR($conexion);
+			session_start();
+    		$EMAIL=$_SESSION['emailE'];
+     		$NCE = obtenerempresa($conexion, $EMAIL );
+     		$nomE= $NCE["Nompresa"];
+			$carpetaE='Archivos/'.$nomE;
+			$carpetaP='/'.$fila['Nombre_Producto'];
 			
 			?>
 
