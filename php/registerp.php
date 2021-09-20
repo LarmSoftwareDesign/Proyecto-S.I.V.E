@@ -14,8 +14,17 @@
 	<?php
 	include("productF.php");
 	$conexion = abrirConexion();
+	if (isset($_POST['idproducto'] ) ) {
+		$producto['idproducto']=intval($_POST['idproducto']);
+		$producto['nombreproducto']=$_POST['nombre_producto'];
+		$producto['precio']=floatval($_POST['precio']);
+		$producto['condicion']=$_POST['condicion'];
+		$producto['descripcion']=$_POST['descripcion'];
+		$producto['categoria']=$_POST['categoria'];
+		$producto['nacionalidad']=$_POST['nacionalidad'];
+		 
+	}
 
-	
 	?>
 	<header>
       <script src="js/header.js"></script>
