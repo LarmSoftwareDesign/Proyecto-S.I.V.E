@@ -97,7 +97,7 @@
 		}
 	}
 	function obtenerProductoR($conexion){
-		$sql = "SELECT LAST_INSERT_ID() FROM producto ";
+		$sql = "SELECT * FROM producto order by IdProducto desc limit 1";
 		$resultado = $conexion->query($sql);
 	
 		if ($resultado){ 
