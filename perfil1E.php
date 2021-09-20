@@ -21,7 +21,7 @@
     session_start();
     $EMAIL=$_SESSION['emailE'];
      $NCE = obtenerempresa($conexion, $EMAIL );
-     $nomE= $NCE["Nompresa"];
+     $nomE= $NCE["Nomempresa"];
      $pasword = $NCE["Contrasena"];
      $E='Empresa';
      cerrarConexion($conexion);
@@ -33,9 +33,10 @@
         es: '<?php echo $E;?>'   
       };
       sessionStorage.setItem('es', MYAPP.es);
-    ;
+    
     </script>
-        <script src="js/header.js"></script>
+        <script src="js/header.js">
+      </script>
         <script src="js/funciones.js"></script>
     </header>
     <!--form-->
@@ -47,7 +48,7 @@
                     <img src="img/login.png" class="logo-perfil">
                 </div>
                 <div class="col">
-                    <h1><?php echo $nomE ; ?></h1>
+                    <h1><?php echo $nomE; ?></h1>
                 </div>
             </div>
             <br>

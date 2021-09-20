@@ -1,9 +1,9 @@
 <?php
 	//* Funciones sobre el producto
-	include("conexion.php");
+	
 	function ingresarProducto($conexion, $producto){
 		
-		$dml = "INSERT INTO producto (IdProducto, Nombre_Producto, Precio, Condicion, Cantegorias, Descripcion, Nacionalidad, Cantidad)";
+		$dml = "INSERT INTO producto (IdProducto, Nombre_Producto, Precio, Condicion, Categorias, Descripcion, Nacionalidad, Cantidad)";
 		$dml .= " VALUES (" . $producto["idproducto"];
 		$dml .= ", '" . $producto["nombre_producto"];
 		$dml .= "', " . $producto["precio"];
@@ -16,7 +16,6 @@
 		if ($conexion->query($dml) === TRUE){
 			//Es exactamente igual a TRUE
 			echo "Producto ingresado";
-
 		}else{
 			die("Error al ingresar: $dml. Error: " . $conexion->connect_error);
 		}
@@ -98,14 +97,13 @@
 		}
 	}
 	function obtenerProductoR($conexion){
-		$sql = "SELECT * FROM producto LAST_INSERT_ID()";
+		$sql = "SELECT LAST_INSERT_ID() FROM producto ";
 		$resultado = $conexion->query($sql);
 	
-		if ( $resultado){ 
+		if ($resultado){ 
 			if($resultado->num_rows > 0){
-				$fila = $resultado->fetch_assoc();
-			   
-				return $fila;
+				$LS = $resultado->fetch_assoc();
+				return $LS;
 	
 			}else{
 				return false;

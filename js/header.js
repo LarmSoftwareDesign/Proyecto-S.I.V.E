@@ -546,7 +546,7 @@ let headerE =`
 
 switch(Es){
   case 'Cliente':
-    document.write(headerC);   
+    document.write(headerC); 
   break;
 
   case 'Empresa':
