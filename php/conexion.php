@@ -7,10 +7,10 @@
 	define('BD', "larmsoftwaredesign");
 
 	function abrirConexion(){
-		// todo Crear una nueva conexión
+		// Crear una nueva conexión
 		$conexion = new mysqli(SERVIDOR, USUARIO, CONTRA, BD);
 
-		// * Verificar el estado de la conexión
+		// Verificar el estado de la conexión
 		if ($conexion->connect_error){
 			die("Error en la conexión con la BD: " . $conexion->connect_error);
 		}
