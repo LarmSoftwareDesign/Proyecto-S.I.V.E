@@ -7,7 +7,7 @@
 <body>
 
 	<?php 
-
+		include("conexion.php");
 		include("empresF.php");
 		$conexion = abrirConexion();
 		

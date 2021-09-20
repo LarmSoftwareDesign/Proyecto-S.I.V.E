@@ -77,7 +77,7 @@
 			echo "<tr><td>Sin Productos ingresados</td></tr>";
 		}
 	}
-	function obtenerempresa($conexion, $ID ){
+	function obtenerProducto($conexion, $ID ){
 		$sql = "SELECT * FROM producto WHERE IdProducto='".$ID . "'";
 		$resultado = $conexion->query($sql);
 	
@@ -97,7 +97,7 @@
 			
 		}
 	}
-	function obtenerempresaR($conexion){
+	function obtenerProductoR($conexion){
 		$sql = "SELECT * FROM producto LAST_INSERT_ID()";
 		$resultado = $conexion->query($sql);
 	

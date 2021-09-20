@@ -1,4 +1,5 @@
 <?php
+include("conexion.php");
 include("empresF.php");
 if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	# code...

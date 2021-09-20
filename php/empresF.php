@@ -1,5 +1,5 @@
 <?php
-include ("conexion.php");
+
 	//! Funciones sobre la empresa
 
 	function ingresarEmpresa($conexion, $empresa){
