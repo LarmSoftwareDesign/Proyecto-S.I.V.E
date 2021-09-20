@@ -42,13 +42,16 @@
 	<section class="caja-producto">
 		<div class="MC container">
 			<?php
+			session_start();//iniciando 
+			$EMAIL=$_SESSION['emailE'];
+			$conexion = abrirConexion();
 			$fila =obtenerProductoR($conexion);
      		$NCE = obtenerempresa($conexion, $EMAIL);
      		$nomE= $NCE["Nompresa"];
 			$carpetaE='Archivos/'.$nomE.'/';
 			$carpetaP='/'.$fila['Nombre_Producto'].'/';
 			echo "$carpetaE y $carpetaP";
-			
+			cerrarConexion($conexion);
 			?>
 
 		</div>
