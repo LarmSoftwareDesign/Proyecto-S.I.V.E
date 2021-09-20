@@ -3,14 +3,15 @@
 	include("conexion.php");
 	function ingresarProducto($conexion, $producto){
 		
-		$dml = "INSERT INTO producto (IdProducto, Nombre_Producto, Precio, Condicion, Cantegorias, Descripcion, Nacionalidad)";
+		$dml = "INSERT INTO producto (IdProducto, Nombre_Producto, Precio, Condicion, Cantegorias, Descripcion, Nacionalidad, Cantidad)";
 		$dml .= " VALUES (" . $producto["idproducto"];
 		$dml .= ", '" . $producto["nombre_producto"];
 		$dml .= "', " . $producto["precio"];
 		$dml .= ", '" . $producto["condicion"];
-		$dml .= "','" . $producto["categoria"];
-		$dml .= "','" . $producto["descripcion"];
-		$dml .= "','" . $producto["nacionalidad"]. "')";
+		$dml .= "', '" . $producto["categoria"];
+		$dml .= "', '" . $producto["descripcion"];
+		$dml .= "', '" . $producto["nacionalidad"];
+		$dml .= "',".$producto['cantidad'] . ")";
 		
 		if ($conexion->query($dml) === TRUE){
 			//Es exactamente igual a TRUE
