@@ -13,12 +13,17 @@
     <?php
       include("php/conexion.php");
       include("php/registerp.php");
-      $conexion = abrirConexion();
-      
-      $titulo= $fila["Nombre_Producto"];
-      $precio = $fila["Precio"];
-      $descripcion= $fila["Descripcion"];
-      cerrarConexion($conexion);
+      include("php/empresF.php");
+      session_start();
+      $EMAIL=$_SESSION['emailE'];
+			$conexion = abrirConexion();
+			$LS =obtenerProductoR($conexion);
+     	$NCE = obtenerempresa($conexion, $EMAIL);
+     	$nomE= $NCE["Nomempresa"];
+			$carpetaE='Archivos/'.$nomE.'/';
+			$carpetaP='/'.$LS['IdProducto']."-".$LS['Nombre_Producto']."/";
+			echo "$carpetaE y $carpetaP";
+			
       ?>
     <!--js-->
     <script src="js/funciones.js"></script>
@@ -26,12 +31,6 @@
 </head>
 <body>
     <header>
-      <?php
-      include("php/productF.php");
-      $conexion=abrirConexion($conexion);
-
-      
-      ?>
         <script src="js/header.js"></script>
     </header>
     <section class="caja-productos" >
