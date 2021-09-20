@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <!-- css de boostrap-->
@@ -12,6 +12,7 @@
 </head>
 <body>
     <header>
+      <script src="js/funciones.js"></script>
       <script src="js/header.js"></script>
     </header>
     <section class="caja-producto">
@@ -26,7 +27,8 @@
                 </div>
                 <div class="col-mb-3">
                     <label class="form-label">imagenes del producto</label>
-                    <input class="form-control" type="file"  multiple accept="image/*,.webp" name="imagenes[]" multiple>
+                    <input class="form-control" id ="Files"type="file"  multiple accept="image/*,.webp" name="imagenes[]" multiple>
+                   
                   </div>
                 <div class="col-md-6">
                   <!--tipo de producto-->
@@ -99,7 +101,9 @@
                     <textarea class="form-control" rows="3" name="descripcion"></textarea>
                   </div>
 
-                
+                <div>
+                  <input type="checkbox" onclick ="images()">
+                </div>
                 <div class="col-12">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="terminos">
@@ -109,13 +113,13 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Publicar</button>
+                  <button type="submit" class="btn btn-primary" >Publicar</button>
                 </div>
               </form>
 
         </div>
     </section>
-
+    
     <!--footer-->
     <footer>
         <script src="js/footer.js"></script>

@@ -44,4 +44,11 @@ function cambio( num ) {
   
 }
 
-
+/// ? siandlksnadj
+function images()​{
+  let x = document.getElementById("Files");
+  let cant = parseInt(x.files.length);
+  if (cant > 5){
+    alert("You can only upload a maximum of 5 files");
+   }
+}
