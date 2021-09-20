@@ -1,41 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<title>Registro de productos</title>
+    <meta charset="UTF-8">
+    <!-- css de boostrap-->
+    <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+	<!--otros css-->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/vender.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Document</title>
 </head>
 <body>
-
-	<?php 
-
-		include("productF.php");
-		$conexion = abrirConexion();
-		
-		if (isset($_POST["idproducto"])){
-			$producto["idproducto"] = intval($_POST["idproducto"]);
-			$producto["nombre_producto"] = $_POST["nombre_producto"];
-			$producto["precio"] = floatval($_POST["precio"]);
-			$producto["condicion"] = $_POST["condicion"];
-			$producto["descripcion"] = $_POST["descripcion"];
-			$producto["categoria"] = $_POST["categoria"];
-			$producto["nacionalidad"] = $_POST["nacionalidad"];
-			ingresarProducto($conexion, $producto);
-			$fila = obtenerempresaR($conexion);
-			if ($fila == false){
-				header ('Location: ../productos.php');
-			}
+	<header>
+      <script src="js/header.js"></script>
+    </header>
+	<section class="caja-producto">
+		<div class="MC container">
 			
-
-			
-			
-
-		}
-		cerrarConexion($conexion);
-
-	?>
+		</div>
+	</section>
 	
-		
-	
+    
 
+
+
+	<!--footer-->
+    <footer>
+        <script src="js/footer.js"></script>
+    </footer>
+    <!-- scripts de boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
