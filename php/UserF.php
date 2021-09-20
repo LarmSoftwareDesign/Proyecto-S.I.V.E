@@ -1,6 +1,5 @@
 <?php
 
-include("conexion.php");
 //? Funciones sobre el usuario
 
 function ingresarUsuario($conexion, $usuario){

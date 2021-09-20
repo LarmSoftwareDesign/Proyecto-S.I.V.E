@@ -6,7 +6,7 @@
 </head>
 <body>
 	<?php 
-
+		include("conexion.php");
 		include("UserF.php");
 		$conexion = abrirConexion();
 		

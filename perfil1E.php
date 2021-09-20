@@ -15,6 +15,7 @@
   
     <header>
     <?php 
+    include("php/conexion.php");
     include("php/empresF.php");
     $conexion = abrirConexion();
     session_start();

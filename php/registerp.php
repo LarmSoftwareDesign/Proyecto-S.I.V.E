@@ -12,6 +12,7 @@
 </head>
 <body>
 	<?php
+	include("conexion.php");
 	include("productF.php");
 	include("empresF.php");
 	$conexion = abrirConexion();
@@ -30,6 +31,7 @@
 		}else {
 			header('Location:../vender.html');
 		}
+		cerrarConexion($conexion);
 
 	}
 
@@ -40,13 +42,12 @@
 	<section class="caja-producto">
 		<div class="MC container">
 			<?php
-			$fila =obtenerempresaR($conexion);
-			session_start();
-    		$EMAIL=$_SESSION['emailE'];
-     		$NCE = obtenerempresa($conexion, $EMAIL );
+			$fila =obtenerProductoR($conexion);
+     		$NCE = obtenerempresa($conexion, $EMAIL);
      		$nomE= $NCE["Nompresa"];
-			$carpetaE='Archivos/'.$nomE;
-			$carpetaP='/'.$fila['Nombre_Producto'];
+			$carpetaE='Archivos/'.$nomE.'/';
+			$carpetaP='/'.$fila['Nombre_Producto'].'/';
+			echo "$carpetaE y $carpetaP";
 			
 			?>
 
