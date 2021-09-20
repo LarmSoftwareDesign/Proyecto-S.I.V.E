@@ -1,8 +1,8 @@
 <?php
 include("UserF.php");
+$conexion = abrirConexion();
 if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
-	# code...
-	$conexion = abrirConexion();
+	# code...	
 	$email = $_POST['email'];
 	$contra = $_POST['cont'];
 	$fila = VerificarUsuarios($conexion, $email, $contra);

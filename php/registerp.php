@@ -8,15 +8,21 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/vender.css">
     <link rel="stylesheet" href="css/footer.css">
-    <title>Document</title>
+    <title>guardado</title>
 </head>
 <body>
+	<?php
+	include("productF.php");
+	$conexion = abrirConexion();
+
+	
+	?>
 	<header>
       <script src="js/header.js"></script>
     </header>
 	<section class="caja-producto">
 		<div class="MC container">
-			
+
 		</div>
 	</section>
 	
