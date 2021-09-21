@@ -53,11 +53,11 @@
                         $u=1;
                         echo"<ul class = 'fila'>";
                         for ($i=1; $i< 5;$i++ ){
-                          echo "<ul>";
+                          echo "<li>";
                           $nomA='archivo'.$u;
                           echo "<a href='#' onclick='cambio(".$i.")' class='position'>";
                           echo "<img src=".$_SESSION[$nomA]." class='item' id='G".$i;
-                          echo "' id='G".$i."'></a></ul>";
+                          echo "' id='G".$i."'></a></li>";
                           
                          $u++;
                          
@@ -75,10 +75,11 @@
 
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-8">
                     
                     <div class="content">
-                        <h1><?php echo $nomP;?></h1>
+                    
+                      <h1><?php echo $nomP;?></h1>
                         <br>
                         <h3>Precio:<?php echo $precio; ?></h3> 
                         <br>
@@ -86,10 +87,13 @@
                         
                         <p><?php echo $descripción; ?></p>
                         <br>
-                        <div class="col-sm-4 ">
+
+                      </div>
+                        
+                        <div class="col-sm-4">
                             
                             <label class="ll form-label">Disponibles</label> 
-                            <input type="number" value="<?php echo $cantidadL; ?>" class="form-control" disabled>
+                            <input type="number" value="<?php echo $cantidad; ?>" class="form-control" disabled>
                         </div>
                         <br>
                         <form action="" method="get">
