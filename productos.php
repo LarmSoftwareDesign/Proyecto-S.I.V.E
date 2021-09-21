@@ -12,23 +12,27 @@
     <link rel="stylesheet" href="css/footer.css">
     <?php
       include("php/conexion.php");
-      include("php/empresF.php");
       include("php/productF.php");
-      session_start();
-      $EMAIL=$_SESSION['emailE'];
-			$conexion = abrirConexion();
-			$LS =obtenerProductoR($conexion);
-     	$NCE = obtenerempresa($conexion, $EMAIL);
-     	$nomE= $NCE["Nomempresa"];
-			$carpetaE='Archivos/'.$nomE.'/';
-      $carpetaName='Archivos/'.$nomE.'/'.$LS['IdProducto']."-".$LS['Nombre_Producto']."/";
-      $direction='Archivos/'.$nomE.'/'.$LS['IdProducto']."-".$LS['Nombre_producto'].'/';
-
-			
+      include("php/empresF.php");
+      session_start();//iniciando
+      $conexion = abrirConexion();
+        $EMAIL=$_SESSION['emailE'];
+      $conexion = abrirConexion();
+      $LS =obtenerProductoR($conexion);
+      $NCE = obtenerempresa($conexion, $EMAIL);
+    
+      //! variables de carpetas
+      $nomE= $NCE["Nomempresa"];
+      $nomP=$LS['Nombre_Producto'];
+      $idP=$LS['IdProducto'];
+      $precio=$LS['Precio'];
+      $carpetaE='Archivos/'.$nomE.'/';
+      $carpetaName='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP."/";
+      $direction='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP.'/';
       ?>
     <!--js-->
     <script src="js/funciones.js"></script>
-    <title>Comprar:</title>
+    <title>Comprar: <?php echo $nomP;?></title>
 </head>
 <body>
     <header>
@@ -43,24 +47,37 @@
 
                         <?php
                         
+                        $u=1;
+                        echo"<ul class = 'fila'>";
+                        for ($i=1; $i< 5;$i++ ){
+                          echo "<ul>";
+                          $nomA='archivo'.$u;
+                          echo "<a href='#' onclick='cambio(".$i.")' class='position'>";
+                          echo "<img src=".$_SESSION[$nomA]." class='item' id='G".$i;
+                          echo "' id='G".$i."'></a></ul>";
+                          
+                         $u++;
+                         
+                         }
+                         echo "</ul>";
                           ?>
-                            
+                        
                        
 
                       </div>
                 </div>
                 <div class="col">
                     <div class="imagen">
-                        <img src="img/G1.png" class="item-principal" id="F">
+                        <img src="<?php  echo $_SESSION['archivo1']; ?>" class="item-principal" id="F">
 
                     </div>
                 </div>
                 <div class="col">
                     
                     <div class="content">
-                        <h1>Nombre del producto</h1>
+                        <h1><?php echo $nomP;?></h1>
                         <br>
-                        <h3>Precio:0.00$</h3> 
+                        <h3>Precio:<?php echo $precio; ?></h3> 
                         <br>
                         <h2>Descripcion:</h2> 
                         
