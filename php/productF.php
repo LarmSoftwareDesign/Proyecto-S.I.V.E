@@ -115,8 +115,14 @@
 			
 		}
 	}
-
-
+	function crearCarpetaproducto($carpetaName){
+		mkdir($carpetaName, 0777);
+		if (file_exists($carpetaName)){
+			echo "se creo $carpetaName";
+		}else {
+			echo "fallo";
+		}
+	}
 	
 
 ?>
