@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="css/footer.css">
     <?php
       include("php/conexion.php");
-      include("php/registerp.php");
       include("php/empresF.php");
+      include("php/productF.php");
       session_start();
       $EMAIL=$_SESSION['emailE'];
 			$conexion = abrirConexion();
@@ -21,8 +21,9 @@
      	$NCE = obtenerempresa($conexion, $EMAIL);
      	$nomE= $NCE["Nomempresa"];
 			$carpetaE='Archivos/'.$nomE.'/';
-			$carpetaP='/'.$LS['IdProducto']."-".$LS['Nombre_Producto']."/";
-			echo "$carpetaE y $carpetaP";
+      $carpetaName='Archivos/'.$nomE.'/'.$LS['IdProducto']."-".$LS['Nombre_Producto']."/";
+      $direction='Archivos/'.$nomE.'/'.$LS['IdProducto']."-".$LS['Nombre_producto'].'/';
+
 			
       ?>
     <!--js-->
@@ -35,23 +36,16 @@
     </header>
     <section class="caja-productos" >
         <div class="PS container">
+          
             <div class="row">
                 <div class=" col-sm-2">
                     <div class="galeria">
-                        <ul class="fila">
-                            <li>
-                                <a href="#" onclick="cambio(1)" class="position"><img src="img/G1.png" class="item" id="G1"></a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="cambio(2)" class="position"><img src="img/G2.jpg" class="item" id="G2"></a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="cambio(3)" class="position"><img src="img/G3.jpg" class="item" id="G3"></a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="cambio(4)" class="position"><img src="img/G4.jpg" class="item" id="G4" ></a>
-                            </li>
-                        </ul>
+
+                        <?php
+                        
+                          ?>
+                            
+                       
 
                       </div>
                 </div>
