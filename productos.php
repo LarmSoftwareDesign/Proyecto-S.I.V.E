@@ -26,9 +26,12 @@
       $nomP=$LS['Nombre_Producto'];
       $idP=$LS['IdProducto'];
       $precio=$LS['Precio'];
+      $cantidad=$LS['Cantidad'];
+      $descripción=$LS['Descripcion'];
       $carpetaE='Archivos/'.$nomE.'/';
       $carpetaName='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP."/";
       $direction='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP.'/';
+    
       ?>
     <!--js-->
     <script src="js/funciones.js"></script>
@@ -81,14 +84,12 @@
                         <br>
                         <h2>Descripcion:</h2> 
                         
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat voluptatum animi,
-                            unde laboriosam, dolor, necessitatibus in nesciunt magnam maxime sit dignissimos at. Dolores 
-                            amet repudiandae pariatur delectus hic nam!</p>
+                        <p><?php echo $descripción; ?></p>
                         <br>
                         <div class="col-sm-4 ">
                             
                             <label class="ll form-label">Disponibles</label> 
-                            <input type="number" value="4100" class="form-control" disabled>
+                            <input type="number" value="<?php echo $cantidadL; ?>" class="form-control" disabled>
                         </div>
                         <br>
                         <div class="col-sm-4 ">
