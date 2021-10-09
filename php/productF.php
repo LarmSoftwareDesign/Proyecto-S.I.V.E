@@ -2,7 +2,9 @@
 	//* Funciones sobre el producto
 	
 	function ingresarProducto($conexion, $producto){
+		//todo: en esta variable $dml estaran los comando con los cuales manipularemos la base de datos
 		
+		//* comando de insertar valores en la base de datos 
 		$dml = "INSERT INTO producto (IdProducto, Nombre_Producto, Precio, Condicion, Categorias, Descripcion, Nacionalidad, Cantidad)";
 		$dml .= " VALUES (" . $producto["idproducto"];
 		$dml .= ", '" . $producto["nombre_producto"];
@@ -13,6 +15,8 @@
 		$dml .= "', '" . $producto["nacionalidad"];
 		$dml .= "',".$producto['cantidad'] . ")";
 		
+
+		//? si al llamar la funcion query 
 		if ($conexion->query($dml) === TRUE){
 			//Es exactamente igual a TRUE
 			echo "Producto ingresado";

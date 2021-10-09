@@ -1,6 +1,9 @@
 <?php
 
-//? Funciones sobre el usuario
+//todo Funciones sobre el usuario
+
+
+//* funcion de ingreso de usuario
 
 function ingresarUsuario($conexion, $usuario){
 		
@@ -23,6 +26,8 @@ function ingresarUsuario($conexion, $usuario){
 
 }
 
+//! funcion para eliminar usuario
+
 function eliminarUsuario($conexion, $ci){
     $dml = "DELETE FROM usuario WHERE ci = " . $ci;
     
@@ -33,6 +38,8 @@ function eliminarUsuario($conexion, $ci){
     }		
 }
 
+
+//* modificar un perfil de un usuario
 function modificarUsuario($conexion, $usuario){
 
     $dml = "UPDATE usuario set ci = ". $usuario["ci"];
@@ -51,6 +58,8 @@ function modificarUsuario($conexion, $usuario){
         die("Error al modificar: $dml. Error: " . $conexion->connect_error);
     }		
 }
+
+//? funcion para verificar un usuario
 function VerificarUsuarios($conexion, $email, $contra){
     //SQL: SELECT * FROM tabla
     $sql = "SELECT * FROM usuario WHERE Email='".$email . "'";
@@ -71,6 +80,7 @@ function VerificarUsuarios($conexion, $email, $contra){
         
     }
 }
+//todo funcion obtener los datos de un usuario
 function obtenerusuario($conexion, $EMAIL ){
     $sql = "SELECT * FROM usuario WHERE Email='".$EMAIL . "'";
     $resultado = $conexion->query($sql);
