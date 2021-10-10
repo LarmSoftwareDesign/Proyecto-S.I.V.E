@@ -9,26 +9,30 @@
 		include("conexion.php");
 		include("UserF.php");
 		$conexion = abrirConexion();
-		
+		//? si se existe el valor de la cedula fue insertada
 		if (isset($_POST["ci"])){
 			$usuario["email"] = $_POST["email"];
 			$usuario["nombre"] = $_POST["nombre"];
 			$usuario["apellido"] = $_POST["apellido"];
-            //! pasar de string a int
+            //todo pasar de string a int
 			$usuario["ci"] = intval($_POST["ci"]);
+
 			$usuario["fnac"] = $_POST["fnac"];
 			$usuario["direccion"] = $_POST["direccion"];
 			$usuario["contraseña"] = $_POST["cont"];
 			$usuario["verificarC"] = $_POST["ver"];
             $usuario["es"] = 'Cliente';
 			
-            //! verificar contraseña
+            //? si la contraseña y la verificacion dela contraseña son iguales  
             if (strcmp ($usuario["contraseña"] , $usuario["verificarC"] ) == 0) {
+
+				//* se llamara la funcion ingresarUsuario para crear un usuario en la base de datos
                 ingresarUsuario($conexion, $usuario);
-				//? a perfil
+				// a perfil
 				header('Location:..\login.html');
                 
-            }elseif (strcmp($usuario["contraseña"] , $usuario["verificarC"] ) != 0) {
+            }elseif (strcmp($usuario["contraseña"] , $usuario["verificarC"] ) != 0) { 
+				//! de lo contrario volvera al registro
 				header('Location: ..\register.html');
 			}
             

@@ -17,12 +17,11 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	$_SESSION['email'] = $email; //* esta sera igual al valor de email 
 
 
-	//? si el no tiene el 
+	//? si la consulta fallo o no hay nadie con el correo de la variable email sera igual a false 
 	if ($fila == false) { 
-		//* si la consulta fallo o no hay nadie con el correo de la variable email sera igual a false 
 		//! se mostrara error
 		echo "Error";
-	}else{
+	}else{//* de lo contrario
 		//* se ira la pagina perfil 
 		header('Location: ../perfil.php');
 	}
