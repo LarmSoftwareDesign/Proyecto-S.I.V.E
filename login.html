@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- css de boostrap-->
+    <!--* css de boostrap-->
     <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
-    <!--otros-->
+    <!--* otros-->
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -19,59 +19,59 @@
 
 
 
-    <!--inicio de secion-->
+    <!--* section inicio de secion-->
     <section class="caja-ingreso">
-        <!--caja-->
+        <!--* caja contenedora-->
         <div class="MS container">
-            <!--formulario-->
+            <!--! titulo de formulario-->
             <h1>Inicio de Sesión</h1>
             <br>
-            <!--cambio de registro-->
+            <!--todo: Switch del registro-->
           <ul class="nav nav-pills nav-fill">
-            
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="login.html">Cliente</a>
+              <a class="nav-link active" aria-current="page" href="login.html">Cliente</a> <!--? registro cliente o comun (actual)-->
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="login E.html">Empresa</a>
+              <a class="nav-link"  href="login E.html">Empresa</a><!--* registro de empresa-->
             </li>
             
           </ul>
           <br>
+
             <form action="php/login.php" method="post">
+              <!--* input de email-->
               <div class="form-floating mb-3">
                 <input type="email" class="form-control"  placeholder="name@example.com" name="email">
                 <label >Email:</label>
               </div>
+              <!--* input de contreseña-->
               <div class="form-floating">
                 <input type="password" class="form-control" placeholder="Password" name="cont">
                 <label >Contraseña:</label>
               </div>
               <br>
+              <!--? boton de recordarme-->
               <div class="Opt mb-3 form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Recordarme</label>
                 </div>
-                
+                <!--* boton de inicio de secion-->
                 <button type="submit" class="btn btn-primary" >Iniciar sesión</button>
                 
               </form>
               <div id="Btn-HelpBlock" class="form-text">
                 Si no te registraste aun....
-              </div>
+             </div>
+             <!--* boton de registro -->
               <br>
               <button type="submit" class="btn btn-outline-primary" onclick="location.href='register.html'">Registrarse</button>
         </div>
-        <div class="container">
-            <p class="terminos">
-                licensias
-            </p>
-        </div>
+      
 
     </section>
     
 
-    <!--footer-->
+    <!--todo script de footer-->
     <footer>
       <script src="js/footer.js"></script>
     </footer>
