@@ -124,7 +124,7 @@
 		 echo $_SESSION['archivo2'];
 		 echo $_SESSION['archivo3'];
 		 echo $_SESSION['archivo4'];
-			header('Location:productos.php');
+			header('Location:productoC.php');
 		}else {
 			header('Location:vender.html');
 		}
