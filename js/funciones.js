@@ -7,6 +7,8 @@ function myFunction() {
       x.type = "password";
     }
   }
+
+ // ! funcion de mostrar verificar contraseña
   function myFunction1() {
     var x = document.getElementById("myInput1");
     if (x.type === "password") {
@@ -17,7 +19,6 @@ function myFunction() {
   }
 
 // ? funcion de galeria
-
 
 function cambio( num ) {
  
@@ -43,4 +44,3 @@ function cambio( num ) {
   
   
 }
-
