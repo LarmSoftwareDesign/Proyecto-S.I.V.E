@@ -4,16 +4,27 @@ body{
 
 .categorys{
     background-color:white;
+    border-radius: 24px;
     padding: 1em;
+    padding-bottom: 0.5em;
+}
+.categorys .menu{
+    display: inline-block;
 }
 .menu .item{
     display:inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .Mar{
     margin-top: 1em;
 }
 
-.container .op{
-    background-color: rgb(255, 127, 127);
-    border-radius:50%;
+.resultado{
+    background-color:navy;
+    color:white;
+    padding: 0.5em;
+    border-radius:10px;
+    font-size: 16px;
 }
+
