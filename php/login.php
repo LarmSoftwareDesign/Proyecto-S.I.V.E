@@ -18,12 +18,13 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 
 
 	//? si la consulta fallo o no hay nadie con el correo de la variable email sera igual a false 
-	if ($fila == false) { 
-		//! se mostrara error
-		echo "Error";
-	}else{//* de lo contrario
+	if ($fila == true) { //* de lo contrario
 		//* se ira la pagina perfil 
 		header('Location: ../perfil.php');
+		
+	}else{
+		//! se mostrara error
+		echo $fila;
 	}
 	
 	cerrarConexion($conexion);

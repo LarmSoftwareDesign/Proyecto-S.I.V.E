@@ -8,13 +8,13 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	$contra = $_POST['cont'];
 	$fila = Verificarempresa($conexion, $email, $contra);
 	
-	if ($fila == false) {
-		echo "error";
-	}else{
-		
+	if ($fila == true) {
 		header('Location: ../perfil1E.php');
 		session_start();//iniciando 
 		$_SESSION['emailE'] = $email;
+	}else{
+		echo $fila;
+		
 		
 	}
 	

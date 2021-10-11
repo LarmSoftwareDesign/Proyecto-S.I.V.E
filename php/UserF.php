@@ -66,35 +66,26 @@ function VerificarUsuarios($conexion, $email, $contra){
     $sql .= " AND Contraseña = PASSWORD ('". $contra . "')";
     $resultado = $conexion->query($sql);
 
-    if ( $resultado){ 
+    
         if($resultado->num_rows > 0){
 		
 			return true;
         }else{
-            return false;
-        }
-        
-    }else{
         $ls ="Error in ".$resultado."<br>".$conexion->error;
        return $ls;
         
     }
 }
+
 //todo funcion obtener los datos de un usuario
 function obtenerusuario($conexion, $EMAIL ){
     $sql = "SELECT * FROM usuario WHERE Email='".$EMAIL . "'";
     $resultado = $conexion->query($sql);
 
-    if ( $resultado){ 
-        if($resultado->num_rows > 0){
-            $fila = $resultado->fetch_assoc();
-           
-            return $fila;
-
-        }else{
-            return false;
-        }
-        
+    
+    if($resultado->num_rows > 0){
+        $fila = $resultado->fetch_assoc();
+        return $fila;   
     }else{
         $ls ="Error in ".$resultado."<br>".$conexion->error;
        return $ls;
