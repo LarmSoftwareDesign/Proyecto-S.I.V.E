@@ -69,10 +69,9 @@
 	function obtenerempresa($conexion, $EMAIL ){
 		$sql = "SELECT * FROM empresa WHERE Email='".$EMAIL . "'";
 		$resultado = $conexion->query($sql);
-		
+
 			if($resultado->num_rows > 0){
 				$fila = $resultado->fetch_assoc();
-			   
 				return $fila;	
 		}else{
 			$ls ="Error in ".$resultado."<br>".$conexion->error;
