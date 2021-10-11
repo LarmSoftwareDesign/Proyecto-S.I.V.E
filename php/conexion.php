@@ -1,8 +1,8 @@
 <?php
 	
 	// ? Definimos constantes para almacenar los datos de la conexión
-	define('SERVIDOR', "localhost");
-	define('USUARIO', "root");
+	define('SERVIDOR', "192.168.2.195");
+	define('USUARIO', "alando");
 	define('CONTRA', "257902Yita04");
 	define('BD', "larmsoftwaredesign");
 
