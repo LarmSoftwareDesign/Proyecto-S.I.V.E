@@ -84,16 +84,11 @@
 		$sql = "SELECT * FROM producto WHERE IdProducto='".$ID . "'";
 		$resultado = $conexion->query($sql);
 	
-		if ( $resultado){ 
-			if($resultado->num_rows > 0){
-				$fila = $resultado->fetch_assoc();
-			   
-				return $fila;
+		
+		if($resultado->num_rows > 0){
+			$fila = $resultado->fetch_assoc();
+			return $fila;
 	
-			}else{
-				return false;
-			}
-			
 		}else{
 			$ls ="Error in ".$resultado."<br>".$conexion->error;
 		   return $ls;
@@ -104,16 +99,10 @@
 		$sql = "SELECT * FROM producto order by IdProducto desc limit 1";
 		$resultado = $conexion->query($sql);
 	
-		if ($resultado){ 
 			if($resultado->num_rows > 0){
 				$LS = $resultado->fetch_assoc();
 				return $LS;
-	
 			}else{
-				return false;
-			}
-			
-		}else{
 			$ls ="Error in ".$resultado."<br>".$conexion->error;
 		   return $ls;
 			
