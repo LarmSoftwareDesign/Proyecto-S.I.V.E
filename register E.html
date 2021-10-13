@@ -17,9 +17,9 @@
        <script src="js/header.js"></script>
     </header>
     <!--registro-->
-    <section class="caja-registro">
+    <section class="container">
 
-        <div class="MS container">
+        <div class="caja-registro">
           <h1>Registro</h1>
           <br>
           <!--cambio de registro-->
@@ -31,81 +31,162 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="register E.html">Empresa</a>
             </li>
-            
           </ul>
           <br>
-
-            <form action="php/registerEagenda.php" method="post" class="row g-3">
-                
-                <div class="col-md-12">
-                    <label  class="form-label">Email:</label>
-                    <input type="text" class="form-control" placeholder="example@gmail.com" name = "email">
-                </div>
-                <div class="col-md-12">
-                  <label  class="form-label">Nombre de la Empresa:</label>
-                  <input type="text" class="form-control" placeholder="" name="nomempresa">
-                </div>
-                <div class="col-md-6">
-                    <label  class="form-label">RUt:</label>
-                    <input type="text" class="form-control" maxlength="9" name = "rut">
-                </div>
-                <div class="col-md-6">
-                  <label  class="form-label">Telefono:</label>
-                  <input type="text" class="form-control" maxlength="9" name = "telefono">
+          <form action="php/registerEagenda.php" method="post" class="row g-3 needs-validation" novalidate>
+            <div class="col-md-12">
+              <label for="validationCustomUsername" class="form-label">Email:</label>  
+              <input type="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required placeholder="example@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$">
+              <div class="valid-feedback">
+                OK!
               </div>
-  
+              <div class="invalid-feedback">
+              Este no es un correo no es valido
+              </div>
+            </div>
 
-                <div class="col-12">
-                  <label for="inputAddress" class="form-label">Dirección</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 calle principal" name="direccion">
-                </div>
-                
-                
-                <div class="col-md-8">
-                    <label for="inputPassword4" class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id ="myInput" name="cont">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" onclick="myFunction()" >
-                      <label class="form-check-label">
-                        Mostrar
-                      </label>
-                    </div>
-                    <div id="passwordHelpBlock" class="CM form-text">
-                      Debe tener de 8 a 20 caracteres de largo, contar con numeros y letras, sin espacios y contar con un caracter especial como:! $ %
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <label for="inputPassword4" class="form-label">Verificar Contraseña:</label>
-                    <input type="password" class="form-control" id ="myInput1" name="ver">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" onclick="myFunction1()" >
-                      <label class="form-check-label">
-                        Mostrar
-                      </label>
-                    </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                      Acepto los terminos y condiciones
-                    </label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Registrarse</button>
-                  <div id="Btn-HelpBlock" class="form-text">
-                    Si ya te registraste....
-                  </div>
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label">Nombre de la empresa:</label>
+              <!--* Al ingresar el required en el input nos enviará una alerta si detecta el campo vacio -->
+              <!--* Con el pattern="[a-z]{3,20}" restringimos los rangos de caracteres a chequear y solo letras -->
+              <!--* Autofus permite posicionar el cursos en un input al cargar el formulario -->
+              <input type="text" class="form-control" id="validationCustom01" value="" required pattern="[a-z]{3,20}" placeholder="George" autofocus name="nomempresa">
+              <div class="valid-feedback">
+                Nombre Valido!
+              </div>
+              <div class="invalid-feedback">
+                Los nombres solo pueden contener letras minusculas con un minimo de 3 caracteres
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="validationCustom02" class="form-label">Telefono:</label>
+              <input type="text" name="telefono" class="form-control" id="validationCustom02" required placeholder="097132846" pattern="[0-9]{9,}">
+              <div class="valid-feedback">
+                OK!
+              </div>
+              <div class="invalid-feedback">
+              La cedula son solo 7 numeros sin guion
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom03" class="form-label">Rut:</label>
+              <input type="text" name="rut" class="form-control" id="validationCustom03" required placeholder="" pattern="[0-9]{7}">
+              <div class="valid-feedback">
+                OK!
+              </div>
+              <div class="invalid-feedback">
+              La cedula son solo 7 numeros sin guion
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <label for="form-label" class="validationCustom04">Dirección:</label>
+              <input type="text" class="form-control" name="direccion" id="validationCustom04" required pattern="[a-z,A-Z]{10,30}" placeholder="" autofocus>
+              <div class="valid-feedback">
+                 OK!
+              </div>
+              <div class="invalid-feedback">
+                Ponga su direccion Correctamente.
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="validationCustom06" class="form-label">Contraseña:</label>
+              <input type="password" class="form-control" id ="validationCustom06" name="contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" placeholder="" autofocus>
               
-              </form>
-            </div><br>
-            <button type="submit" class="btn btn-outline-primary" onclick="location.href='login E.html'">Iniciar sesión</button>  
+              <div class="valid-feedback">
+                Cumple con los Requisitos
+              </div>
+              <div class="invalid-feedback">
+                No cumple con los Requisitos !
+              </div>
+              <!--*boton de mostrar-->
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" onclick="myFunction()" >
+                <label class="form-check-label">
+                  Mostrar
+                </label>
+              </div>
+              <div id="passwordHelpBlock" class="CM form-text">
+                Debe tener de 8 a 20 caracteres de largo, contar con numeros y letras, sin espacios y contar con un caracter especial como:! $ %
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Verificar Contraseña:</label>
+              <input type="password" class="form-control" id ="validationCustom07" name="ver" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" placeholder="" autofocus>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" onclick="myFunction1()">
+                <label class="form-check-label">
+                  Mostrar
+                </label>
+              </div>
+              <div class="valid-feedback">
+                
+              </div>
+              <div class="invalid-feedback">
+                
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Agregue los y Condiciones
+                </label>
+                
+                <div class="invalid-feedback">
+                  Debes estar de acuerdo con los terminos y condiciones, Sino no podra registrar su empresa!
+                </div>
+      
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Registrarse</button>
+            </div>
+          </form>
+          <br>
+          <div>
+            <button class="btn btn-outline-primary" onclick="location.href='login E.html'" > Iniciar sesión</button>
+          </div>
+        </div>
+
+          </div>
+              
             
           </div>
         </div>
 
     </section>
+
+    <script>
+      // Ejemplo de JavaScript de inicio para deshabilitar el envío de formularios si hay campos no válidos
+      (function () {
+        'use strict'
+
+        //Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+        // Buscamos la clase .needs-validation en el DOM (documento)
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Bucle sobre ellos y evitar la presentación
+        Array.prototype.slice.call(forms)
+          .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }else{
+                       alert('Datos Validados Correctamente !!')
+              }
+
+              form.classList.add('was-validated')
+            }, false)
+          })
+        })()
+
+      </script>
+
+
 
      <!--footer-->
      <footer>

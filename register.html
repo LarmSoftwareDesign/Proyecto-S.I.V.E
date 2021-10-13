@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <!-- css de boostrap-->
@@ -35,12 +35,17 @@
           <br> 
           <form action="php/registeragenda.php" method="post" class="row g-3 needs-validation" novalidate>
             <div class="col-md-12">
-              <label for="validationCustomUsername" class="form-label">Correo</label>
-              
+              <label for="validationCustomUsername" class="form-label">Email:</label>  
               <input type="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required placeholder="Incerte su Mail" pattern="[a-zA-Z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$">
+              <div class="valid-feedback">
+                OK!
+              </div>
+              <div class="invalid-feedback">
+              Este no es un correo no es valido
+              </div>
             </div>
             <div class="col-md-4">
-              <label for="validationCustom01" class="form-label">Ci</label>
+              <label for="validationCustom01" class="form-label">Ci:</label>
               <input type="text" name="ci" class="form-control" id="validationCustom01" required placeholder="999999" pattern="[0-9]{7}">
               <div class="valid-feedback">
                 OK!
