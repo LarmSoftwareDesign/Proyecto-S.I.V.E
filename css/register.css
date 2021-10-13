@@ -2,8 +2,12 @@ body{
     background-color:#24303C;
 }
 
+.container{
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
 .caja-registro {
-    padding: 2em;
+    padding: 1em;
     background-color: whitesmoke;
     border-radius: 20px;
     
@@ -11,22 +15,3 @@ body{
 
 }
 
-.terminos{
-    margin-top: 1em;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-}
-
-input[type="number"]
-{
-    -webkit-appearance: textfield !important;
-    margin: 0;
-    -moz-appearance:textfield !important;
-}
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
-  }
-  
-  input[type=number] { -moz-appearance:textfield; }

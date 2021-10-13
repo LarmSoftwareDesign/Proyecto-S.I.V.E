@@ -1,6 +1,6 @@
 // ! funcion de mostrar contraseña
 function myFunction() {
-    var x = document.getElementById("validationDefault07");
+    var x = document.getElementById("validationCustom06");
     if (x.type === "password") {
       x.type = "text";
     } else {
@@ -10,7 +10,7 @@ function myFunction() {
 
  // ! funcion de mostrar verificar contraseña
   function myFunction1() {
-    var x = document.getElementById("validationDefault08");
+    var x = document.getElementById("validationCustom07");
     if (x.type === "password") {
       x.type = "text";
     } else {
