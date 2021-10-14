@@ -3,7 +3,7 @@
 	// ? Definimos constantes para almacenar los datos de la conexión
 	define('SERVIDOR', "localhost");
 	define('USUARIO', "root");
-	define('CONTRA', "257902Yita04");
+	define('CONTRA', "250279Yita04");
 	define('BD', "larmsoftwaredesign");
 
 	function abrirConexion(){

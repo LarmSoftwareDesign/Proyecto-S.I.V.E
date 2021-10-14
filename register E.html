@@ -36,7 +36,7 @@
           <form action="php/registerEagenda.php" method="post" class="row g-3 needs-validation" novalidate>
             <div class="col-md-12">
               <label for="validationCustomUsername" class="form-label">Email:</label>  
-              <input type="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required placeholder="example@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$">
+              <input type="text" name="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required placeholder="example@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$">
               <div class="valid-feedback">
                 OK!
               </div>
@@ -50,7 +50,7 @@
               <!--* Al ingresar el required en el input nos enviará una alerta si detecta el campo vacio -->
               <!--* Con el pattern="[a-z]{3,20}" restringimos los rangos de caracteres a chequear y solo letras -->
               <!--* Autofus permite posicionar el cursos en un input al cargar el formulario -->
-              <input type="text" class="form-control" id="validationCustom01" value="" required pattern="[a-z]{3,20}" placeholder="George" autofocus name="nomempresa">
+              <input type="text" class="form-control" id="validationCustom01" value="" required pattern="[a-z,A-Z]{3,20}" placeholder="Empresa 100" autofocus name="nomempresa">
               <div class="valid-feedback">
                 Nombre Valido!
               </div>
@@ -61,12 +61,12 @@
 
             <div class="col-md-6">
               <label for="validationCustom02" class="form-label">Telefono:</label>
-              <input type="text" name="telefono" class="form-control" id="validationCustom02" required placeholder="097132846" pattern="[0-9]{9,}">
+              <input type="text" name="telefono" class="form-control" id="validationCustom02" required placeholder="097132846" pattern="[0-9]{9}">
               <div class="valid-feedback">
                 OK!
               </div>
               <div class="invalid-feedback">
-              La cedula son solo 7 numeros sin guion
+              El telefono son solo 9 numeros sin guion
               </div>
             </div>
             <div class="col-md-4">
@@ -81,8 +81,8 @@
             </div>
 
             <div class="col-md-8">
-              <label for="form-label" class="validationCustom04">Dirección:</label>
-              <input type="text" class="form-control" name="direccion" id="validationCustom04" required pattern="[a-z,A-Z]{10,30}" placeholder="" autofocus>
+              <label for="form-label" class="validationCustom05">Dirección:</label>
+              <input type="text" class="form-control" name="direccion" id="validationCustom04" required pattern="{9,30}" placeholder="" autofocus>
               <div class="valid-feedback">
                  OK!
               </div>
@@ -93,7 +93,7 @@
 
             <div class="col-md-6">
               <label for="validationCustom06" class="form-label">Contraseña:</label>
-              <input type="password" class="form-control" id ="validationCustom06" name="contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" placeholder="" autofocus>
+              <input type="password" class="form-control" id ="validationCustom06" name="cont" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" placeholder="" autofocus>
               
               <div class="valid-feedback">
                 Cumple con los Requisitos
