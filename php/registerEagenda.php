@@ -25,9 +25,9 @@
 			}else{
 				if (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) == 0) {
 					ingresarEmpresa($conexion, $empresa);
-					// header("Location:../login E.html");
+					header("Location:../perfil1E.html");
 				}else if (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) != 0) {
-					// header('Location: ..\register E.html');
+					header('Location: ..\register E.html');
 				}
 			}
 			

@@ -21,7 +21,7 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	if ($fila == false) { 
 		//! se mostrara error
 		echo "Error";
-	}else{//* de lo contrario
+	}elseif($fila == true){//* de lo contrario
 		//* se ira la pagina perfil 
 		header('Location: ../perfil.php');
 	}

@@ -4,27 +4,26 @@ body{
 }
 
 
-/* caja de */
 
-.caja-ingreso{
-   margin: 5em;
-   text-align: center;
-   height: 540px;
+.container{
+    margin-top: 1em;
+    margin-bottom: 2em;
+    width:650px;
 
 }
-.MS {
-    padding: 2em;
+.caja-ingreso {
+    padding: 1.5em;
     background-color: whitesmoke;
     border-radius: 20px;
+    
+   
+
+}
+.Ms{
     text-align: left;
-    width: 450px;
+
 }
-/*terminos*/
-.terminos{
-    margin-top: 1em;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-}
+
+
 
 

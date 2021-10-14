@@ -10,7 +10,7 @@
 		$dml .= "','" . $empresa["email"];
 		$dml .= "','" . $empresa["direccion"];
 		$dml .= "'," . $empresa["telefono"];
-		$dml .= "," . $empresa["contraseña"] . ")";
+		$dml .= ",'" . $empresa["contraseña"] . "')";
 		
 		if ($conexion->query($dml) === TRUE){
 			echo "Empresa ingresada";

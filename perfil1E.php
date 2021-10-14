@@ -22,7 +22,7 @@
     $EMAIL=$_SESSION['emailE'];
      $NCE = obtenerempresa($conexion, $EMAIL );
      $nomE= $NCE["Nomempresa"];
-     $pasword = $NCE["Contrasena"];
+     $pasword = $NCE["Contraseña"];
      $E='Empresa';
      cerrarConexion($conexion);
     ?>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-md-6" >
                     <span class="span">Contraseña:</span>
-                    <input type="password" value="<?php echo $pasword; ?>" class="form-control" disabled id="myInput1">
+                    <input type="password" value="<?php echo $pasword; ?>" class="form-control" disabled id ="validationCustom06">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" onclick="myFunction1()" >
                       <label class="form-check-label">
