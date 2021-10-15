@@ -36,7 +36,7 @@
           <form action="php/registeragenda.php" method="post" class="row g-3 needs-validation" novalidate>
             <div class="col-md-12">
               <label for="validationCustomUsername" class="form-label">Email:</label>  
-              <input type="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required placeholder="Incerte su Mail" pattern="[a-zA-Z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$">
+              <input type="email" name="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required placeholder="Incerte su Mail" pattern="[a-zA-Z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$">
               <div class="valid-feedback">
                 OK!
               </div>
@@ -91,7 +91,7 @@
 
             <div class="col-md-8">
               <label for="form-label" class="validationCustom05">Dirección:</label>
-              <input type="text" class="form-control" name="direccion" id="validationCustom05" required pattern="[a-z,A-Z]{10,30}" placeholder="" autofocus>
+              <input type="text" class="form-control" name="direccion" id="validationCustom05" required pattern="{,30}" placeholder="" autofocus>
               <div class="valid-feedback">
                  OK!
               </div>
