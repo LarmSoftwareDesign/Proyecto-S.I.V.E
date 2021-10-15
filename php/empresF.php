@@ -10,7 +10,7 @@
 		$dml .= "','" . $empresa["email"];
 		$dml .= "','" . $empresa["direccion"];
 		$dml .= "'," . $empresa["telefono"];
-		$dml .= ",'" . $empresa["contraseña"] . "')";
+		$dml .= ",MD5('" . $empresa["contraseña"] . "'))";
 		
 		if ($conexion->query($dml) === TRUE){
 			echo "Empresa ingresada";
@@ -52,8 +52,8 @@
 
 	function VerificarEmpresa($conexion, $email, $contra){
 		//SQL: SELECT * FROM tabla
-		$sql = "SELECT * FROM empresa WHERE Email='".$email . "'";
-		$sql .= " AND Contraseña = PASSWORD ('". $contra . "')";
+		$sql = "SELECT * FROM empresa WHERE Email='".$email. "'";
+		$sql .=" AND Contraseña = PASSWORD ('".$contra. "')";
 		$resultado = $conexion->query($sql);
 	
 		if ( $resultado){ 

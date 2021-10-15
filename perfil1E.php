@@ -61,7 +61,7 @@
                     <span class="span">Contraseña:</span>
                     <input type="password" value="<?php echo $pasword; ?>" class="form-control" disabled id ="validationCustom06">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" onclick="myFunction1()" >
+                      <input class="form-check-input" type="checkbox" onclick="myFunction()" >
                       <label class="form-check-label">
                         Mostrar
                       </label>

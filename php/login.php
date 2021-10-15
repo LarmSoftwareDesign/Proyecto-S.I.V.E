@@ -21,9 +21,9 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	if ($fila == false) { 
 		//! se mostrara error
 		echo "Error";
-	}elseif($fila == true){//* de lo contrario
+	}else{//* de lo contrario
 		//* se ira la pagina perfil 
-		header('Location: ../perfil.php');
+		echo $fila;
 	}
 	
 	cerrarConexion($conexion);

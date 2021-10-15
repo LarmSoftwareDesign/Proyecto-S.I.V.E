@@ -10,10 +10,11 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	
 	if ($fila == false) {
 		echo "error";
-		header('Location: ../register E.html')
+		
+		// header('Location: ../register E.html')
 		}else{
 		
-		header('Location: ../perfil1E.php');
+		// header('Location: ../perfil1E.php');
 		session_start();//iniciando 
 		$_SESSION['emailE'] = $email;
 		
