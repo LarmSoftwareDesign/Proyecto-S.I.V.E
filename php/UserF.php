@@ -62,8 +62,8 @@ function modificarUsuario($conexion, $usuario){
 //? funcion para verificar un usuario
 function VerificarUsuarios($conexion, $email, $contra){
     //* SQL: SELECT * FROM tabla
-    $sql = "SELECT * FROM usuarios WHERE usuario='".$email . "'";
-	$sql .= " AND Contraseña = PASSWORD('". $contra . "') ";
+    $sql = "SELECT * FROM usuarios WHERE Email='".$email . "'";
+	$sql .= " AND Contraseña = PASSWORD ('". $contra . "') ";
 	$resultado = $conexion->query($sql);
 
     if ( $resultado){ 

@@ -24,6 +24,8 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	}else{//* de lo contrario
 		//* se ira la pagina perfil 
 		echo $fila;
+		echo $email;
+		echo "<br>$contra";
 	}
 	
 	cerrarConexion($conexion);
