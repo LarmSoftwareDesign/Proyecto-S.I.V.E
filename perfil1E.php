@@ -48,6 +48,7 @@
                     <img src="img/login.png" class="logo-perfil">
                 </div>
                 <div class="col">
+                  
                     <h1><?php echo $nomE; ?></h1>
                 </div>
             </div>

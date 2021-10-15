@@ -25,7 +25,9 @@
 			}else{
 				if (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) == 0) {
 					ingresarEmpresa($conexion, $empresa);
-					header("Location:../perfil1E.html");
+					session_start();//iniciando 
+					$_SESSION['emailE'] = $empresa['email'];
+					header("Location:../perfil1E.php");
 				}else if (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) != 0) {
 					header('Location: ..\register E.html');
 				}
