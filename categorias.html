@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="css/footer.css">
     <title>S.I.V.E: busqueda</title>
 </head>
-<body>
+<body onload="cargarCategorias()">
   <!--? script de header o la caberezera-->
 <header>
     <script src="js/header.js"></script>
 </header>
+<script src="js/funcionesP.js"></script>
 <section>
   
     <div class="container-fluid">
@@ -30,46 +31,41 @@
                 </div>
               </li>
 
-              <li class="item">
-                <div class="row justify-content-between">
-                  <div class="col-sm-2 col-form-label">
-                    <label for="">Categorias</label>
-                  </div>
-                  <div class="col-sm-8" id="selSeleccion" >
+              <li class="item" >
+                <div class="row ">
+                  
+                  <div class="col-sm-12" >
+                    <div class="" id="selSeleccion">
+
+                    </div>
                     
                   </div>
                 </div> 
               </li>
+              
               <li class="item">
-                <div class="row justify-content-between">
-                  <div class="col-sm-2 col-form-label">
-                   <label for="">Orden</label> 
-                  </div>                              
-                  <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-sm-12">
                     <select name="" class="form-select" id="">
+                      <option value="">Condición...</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+              <li class="item">
+                <div class="row ">
+                                              
+                  <div class="col-sm-12">
+                    <select name="" class="form-select" id="">
+                      <option value="">Orden...</option>
                       <option value="">Precio menor</option>
                       <option value="">Precio mayor</option>
-                      <option value=""></option>
-                      <option value=""></option>
                     </select>
                   </div>
                   
                 </div>
               </li>
-              <li class="item">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <select name="" class="form-select" id="">
-                      <option value="">Marcas...</option>
-                      <option value=""></option>
-                      <option value=""></option>
-                      <option value=""></option>
-                    </select>
-                  </div>
-                </div>
-              </li>
-              <li class="item"></li>
-              <li class="item"></li>
+              
             </ul>
 
           
