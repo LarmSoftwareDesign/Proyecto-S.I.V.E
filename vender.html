@@ -15,26 +15,41 @@
       <script src="js/funciones.js"></script>
       <script src="js/header.js"></script>
     </header>
-    <section class="caja-producto">
-        <div class="MC container">
+    <section class="container">
+        <div class="caja-producto">
             <h1>Nuevo Producto</h1>
-            <form class="row g-3" action="registerp.php" method="POST" enctype="multipart/form-data">
+            <form action="registerp.php" method="post" class="row g-3 needs-validation" novalidate>
               <input type="hidden" name="idproducto" value="0">
-                
                 <div class="col-12">
-                  <label class="form-label">Nombre del Producto:</label>
-                  <input type="text" class="form-control" placeholder="ProductoX" name="nombre_producto">
+                  <label class="form-label" for="validationCustom01">Nombre del Producto:</label>
+                  <!--* Al ingresar el required en el input nos enviará una alerta si detecta el campo vacio -->
+                  <!--* Con el pattern="[a-z]{3,20}" restringimos los rangos de caracteres a chequear y solo letras -->
+                  <!--* Autofus permite posicionar el cursos en un input al cargar el formulario -->
+                  <input type="text" class="form-control" id="validationCustom01" autofocus required pattern="[a-z]{10,25}" placeholder="ProductoX" name="nombre_producto">
+                  <div class="valid-feedback">
+                    Nombre OK!
+                  </div>
+                  <div class="invalid-feedback">
+                    Los nombres solo pueden contener letras minusculas con un minimo de 5 caracteres y un maximo de 50 caracteres
+                  </div>  
                 </div>
+
                 <div class="col-mb-3">
-                    <label class="form-label">imagenes del producto</label>
+                    <label class="form-label" for="validationCustom02">Imagenes del Producto:</label>
                     <input type="Hidden" name="MAX_FILE_SIZE" value="5120000">
-                    <input class="form-control" id ="Files" type="file" accept="image/*,.webp" name="imagenes[]" multiple required="">
-                   
+                    <input id="validationCustom02" class="form-control" type="file" accept="image/*,.webp" autofocus name="imagenes[]" multiple required="">
+                    <div class="valid-feedback">
+                      OK!
+                    </div>
+                    <div class="invalid-feedback">
+                      Por lo menos debe tener una imagen para tu producto
+                    </div> 
                   </div>
                 <div class="col-md-6">
                   <!--tipo de producto-->
-                  <label class="form-label">Tipo de Producto:</label>
-                  <select class="form-select" name="categoria">
+                  <label class="form-label" for="validationCustom03">Tipo de Producto:</label>
+                  <select id="validationCustom03" class="form-select" name="categoria" required>
+                    <option selected disabled value="">Categoria...</option>
                     <!--1-->
                       <option value ="hogar">Productos Domesticos</option>
                     <!--2-->
@@ -60,21 +75,34 @@
                     <!--12-->
                       <option value ="arte">Artes</option>
                   </select>
+                  <div class="valid-feedback">
+                   
+                  </div>
+                  <div class="invalid-feedback">
+                    Debes ponerle una Categoria a tu producto
+                  </div>
                 </div>
                 <div class="col-md-6">
                     <!--condicion de producto-->
-                    <label class="form-label">Codicion del producto:</label>
-                    <input class="form-control" list="datalistOptions" placeholder="Nuevo, renovado, etc.." name="condicion">
-                    <datalist id="datalistOptions">
+                    <label class="form-label" for="validationCustom04">Codición del producto:</label>
+                    
+                    <select class="form-select" id="validationCustom04" name="condicion" required>
+                      <option selected disabled value="">Condición...</option>
                       <option value="Nuevo">Nuevo</option>
                       <option value="Restaurado">Restaurado</option>
                       <option value="Usado">Usado</option>
-                    </datalist>
+                    </select>
+                    <div class="valid-feedback">
+                    </div>
+                    <div class="invalid-feedback">
+                     Ponerle una Condicion a tu producto es Obligatorio
+                    </div>
                 </div>
                 <div class="col-md-4">
                   <!--condicion de producto-->
-                  <label class="form-label">Nacionalidad:</label>
-                  <select class="form-select" name="nacionalidad">
+                  <label class="form-label" for="validationCustom05">Nacionalidad:</label>
+                  <select class="form-select" name="nacionalidad" id="validationCustom05" required>
+                    <option selected disabled value="">El pais...</option>
                     <option value="Uruguay">Uruguay</option>
                     <option value="Argentina">Argentina</option>
                     <option value="Brasil">Brasil</option>
@@ -84,42 +112,93 @@
                     <option value="Colombia">Colombia</option>
                     <option value="Bolivia">Bolivia</option>
                     <option value="Venezuela">Venezuela</option>
-                    <option value="Ecuador">Ecuador</option></select>
-                  </datalist>
+                    <option value="Ecuador">Ecuador</option>
+                  </select>
+                 
+                  <div class="valid-feedback">
+                  </div>
+                  <div class="invalid-feedback">
+                  Es Obligatorio su Nacionalidad
+                  </div>
               </div>
                 <div class="col-md-4">
-                    <label class="form-label">Precio:</label>
-                    <input type="text" class="form-control"name="precio" accept="text">
+                    <label class="form-label" for="validationCustom06">Precio:</label>
+                    <input type="text" class="form-control" id="validationCustom06" name="precio" pattern="[0-9]{1,}.[0-9]{1,2}" required autofocus>
+                    <div class="valid-feedback">
+                    </div>
+                    <div class="invalid-feedback">
+                    Debes establecer un precio en numeros decimales. 
+                    Ejemplo: 10.00
+                    </div>
                 </div>
                 
                 <div class="col-md-4">
-                  <label class="form-label">Cantidad:</label>
-                  <input type="text" class="form-control" maxlength="9" name="cantidad">
+                  <label class="form-label" for="validationCustom07" >Cantidad:</label>
+                  <input type="text" class="form-control" id="validationCustom07" pattern="[0-9]{1,9}" maxlength="9" name="cantidad" required autofocus>
+                  <div class="valid-feedback">
+                  </div>
+                  <div class="invalid-feedback">
+                  la minima es de 1 y la maxima es de 999999999
+                  </div>
                 </div>
                 
                 <div class="col-mb-3">
-                    <label class="form-label">Descripción:</label>
-                    <textarea class="form-control" rows="3" name="descripcion"></textarea>
+                    <label class="form-label" for="validationTextarea" >Descripción:</label>
+                    <textarea class="form-control is-invalidCheck" rows="3" name="descripcion" id="validationTextarea" pattern="{,400}" required placeholder="Descripcion..........."></textarea>
+                    <div class="valid-feedback">
+                    </div>
+                    <div class="invalid-feedback">
+                     Debe dar una descripcion simple del producto
+                    </div>
                   </div>
-
-                <div>
-                  <input type="checkbox" onclick ="images()">
-                </div>
                 <div class="col-12">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="terminos">
-                    <label class="form-check-label" >
-                      Terminos y Condiciones
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                      Acepto los Terminos y Condiciones
                     </label>
+                    
+                    <div class="invalid-feedback">
+                      Debes estar de acuerdo con los terminos y condiciones, Sino no podes Registrar un Producto!
+                    </div>
+          
                   </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary" >Publicar</button>
+                </div> 
+                <div class="d-grid gap-2" style="text-align: center;">
+                  <button type="submit" class="btn btn-lg btn-primary" >Publicar</button>
                 </div>
               </form>
-
+              <br>
+              
+            </div>
         </div>
     </section>
+    <script>
+      // Ejemplo de JavaScript de inicio para deshabilitar el envío de formularios si hay campos no válidos
+      (function () {
+        'use strict'
+
+        //Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+        // Buscamos la clase .needs-validation en el DOM (documento)
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Bucle sobre ellos y evitar la presentación
+        Array.prototype.slice.call(forms)
+          .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }else{
+                       alert('Datos Validados Correctamente !!')
+              }
+
+              form.classList.add('was-validated')
+            }, false)
+          })
+        })()
+
+      </script>
     
     <!--footer-->
     <footer>
