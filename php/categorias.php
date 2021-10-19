@@ -6,7 +6,7 @@ $conexion = abrirConexion();
 $sql="SELECT  Categorias FROM producto group by Categorias";
 $resultado = $conexion->query($sql);
 
-echo "<select name=\"selecciones\" class=\"form-select\" onchange=\"mostrarJugadores(this.value)\">";
+echo "<select name=\"selecciones\" class=\"form-select\" onchange=\"mostrarp(this.value)\">";
 echo "<option value=\"\">Categorias</option>";
 
 
