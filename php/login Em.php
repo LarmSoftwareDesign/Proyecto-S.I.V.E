@@ -14,10 +14,9 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 		header('Location: ../login Em.html');
 		}else{
 		
-		// header('Location: ../perfil1E.php');
+		header('Location: ../perfil1E.php');
 		session_start();//iniciando 
 		$_SESSION['emailE'] = $email;
-		echo $fila;
 		
 	}
 	

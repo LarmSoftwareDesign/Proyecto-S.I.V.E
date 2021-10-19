@@ -7,12 +7,12 @@
 
 function ingresarUsuario($conexion, $usuario){
 		
-    $dml = "INSERT INTO usuario (Ci, Nombre, Apellido, Contraseña, Fnac, Email , Direccion, Es)";
+    $dml = "INSERT INTO usuario (Ci, Nombre, Apellido, Contrasena, Fnac, Email , Direccion, Es)";
     $dml .= " VALUES ( ". $usuario["ci"];
     $dml .= ",'" . $usuario["nombre"];
     $dml .= "','" . $usuario["apellido"];
-    $dml .= "',password('" . $usuario["contraseña"];
-    $dml .= "'),'" . $usuario["fnac"];
+    $dml .= "',UPPER(SHA1(UNHEX(SHA1('" . $usuario["contraseña"];
+    $dml .= "')))),'" . $usuario["fnac"];
     $dml .= "','" . $usuario["email"];
     $dml .= "','" . $usuario["direccion"];
     $dml .= "','" . $usuario["es"] . "')";
@@ -62,8 +62,8 @@ function modificarUsuario($conexion, $usuario){
 //? funcion para verificar un usuario
 function VerificarUsuarios($conexion, $email, $contra){
     //* SQL: SELECT * FROM tabla
-    $sql = "SELECT * FROM usuarios WHERE Email='".$email . "'";
-	$sql .= " AND Contraseña = PASSWORD ('". $contra . "') ";
+    $sql = "SELECT * FROM usuario WHERE Email='".$email . "'";
+	$sql .= " AND Contrasena = UPPER(SHA1(UNHEX(SHA1(\"". $contra ."\"))))";
 	$resultado = $conexion->query($sql);
 
     if ( $resultado){ 

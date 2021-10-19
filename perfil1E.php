@@ -22,7 +22,7 @@
     $EMAIL=$_SESSION['emailE'];
      $NCE = obtenerempresa($conexion, $EMAIL );
      $nomE= $NCE["Nomempresa"];
-     $pasword = $NCE["Contraseña"];
+     $pasword = $NCE["Contrasena"];
      $E='Empresa';
      cerrarConexion($conexion);
     ?>

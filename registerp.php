@@ -41,6 +41,7 @@
 		$producto['precio']=floatval($_POST['precio']);
 		$producto['cantidad']=intval($_POST['cantidad']);
 		$producto['terminos']=$_POST['terminos'];
+		echo $_POST['terminos'];
 		
 
 		if ($producto ['terminos']){
@@ -124,9 +125,9 @@
 		 echo $_SESSION['archivo2'];
 		 echo $_SESSION['archivo3'];
 		 echo $_SESSION['archivo4'];
-			header('Location:productoC.php');
+			// header('Location:productoC.php');
 		}else {
-			header('Location:vender.html');
+			// header('Location:vender.html');
 		}
 		cerrarConexion($conexion);
 

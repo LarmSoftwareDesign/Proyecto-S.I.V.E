@@ -22,7 +22,7 @@
     $EMAIL=$_SESSION['email'];
      $NC = obtenerusuario($conexion, $EMAIL );
      $nombre= $NC["Nombre"]. " ". $NC["Apellido"];
-     $pasword = $NC["Contraseña"];
+     $pasword = $NC["Contrasena"];
      $E=$_SESSION['es'];
      cerrarConexion($conexion);
     ?>
