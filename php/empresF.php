@@ -4,18 +4,18 @@
 
 	function ingresarEmpresa($conexion, $empresa){
 		
-		$dml = "INSERT INTO empresa (Rut, Nomempresa, Email, Direccion, Telefono, Contraseña)";
+		$dml = "INSERT INTO empresa (Rut, Nomempresa, Email, Direccion, Telefono, Contrasena)";
 		$dml .= " VALUES (" . $empresa["rut"];
 		$dml .= ",'" . $empresa["nomempresa"];
 		$dml .= "','" . $empresa["email"];
 		$dml .= "','" . $empresa["direccion"];
 		$dml .= "'," . $empresa["telefono"];
-		$dml .= ",'" . $empresa["contraseña"] . "')";
+		$dml .= ", PASSWORD('" . $empresa["contraseña"] . "'))";
 		
 		if ($conexion->query($dml) === TRUE){
 			echo "Empresa ingresada";
 		}else{
-			die("Error al ingresar: $dml. Error: " . $conexion->connect_error);
+			die("<br>Error al ingresar: $dml Error: " . $conexion->connect_error);
 		}
 
 	}
@@ -53,7 +53,7 @@
 	function VerificarEmpresa($conexion, $email, $contra){
 		//SQL: SELECT * FROM tabla
 		$sql = "SELECT * FROM empresa WHERE Email='".$email . "'";
-		$sql .= " AND contra = PASSWORD ('". $contra . "')";
+		$sql .= " AND contra = PASSWORD('". $contra . "')";
 		$resultado = $conexion->query($sql);
 	
 		if ( $resultado){ 

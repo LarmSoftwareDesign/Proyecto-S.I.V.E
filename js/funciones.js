@@ -17,6 +17,15 @@ function myFunction() {
       x.type = "password";
     }
   }
+   // ! funcion de mostrar verificar contraseña
+  function myFunction2() {
+    var x = document.getElementById("floatingPassword");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
 
 // ? funcion de galeria
 

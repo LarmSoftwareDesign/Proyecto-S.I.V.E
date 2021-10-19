@@ -11,8 +11,8 @@ function ingresarUsuario($conexion, $usuario){
     $dml .= " VALUES ( ". $usuario["ci"];
     $dml .= ",'" . $usuario["nombre"];
     $dml .= "','" . $usuario["apellido"];
-    $dml .= "','" . $usuario["contraseña"];
-    $dml .= "','" . $usuario["fnac"];
+    $dml .= "',password('" . $usuario["contraseña"];
+    $dml .= "'),'" . $usuario["fnac"];
     $dml .= "','" . $usuario["email"];
     $dml .= "','" . $usuario["direccion"];
     $dml .= "','" . $usuario["es"] . "')";
