@@ -18,7 +18,7 @@
     <section class="container">
         <div class="caja-producto">
             <h1>Nuevo Producto</h1>
-            <form action="registerp.php" method="post" class="row g-3 needs-validation" novalidate>
+            <form enctype="multipart/form-data" action="registerp.php" method="post" class="row g-3 needs-validation" novalidate>
               <input type="hidden" name="idproducto" value="0">
                 <div class="col-12">
                   <label class="form-label" for="validationCustom01">Nombre del Producto:</label>
@@ -37,7 +37,7 @@
                 <div class="col-mb-3">
                     <label class="form-label" for="validationCustom02">Imagenes del Producto:</label>
                     <input type="Hidden" name="MAX_FILE_SIZE" value="5120000">
-                    <input id="validationCustom02" class="form-control" type="file" accept="image/*,.webp" autofocus name="imagenes[]" multiple required="">
+                    <input id="validationCustom02" class="form-control" autofocus required name="archivo[]" type="file" accept="image/*,.webp" multiple="">
                     <div class="valid-feedback">
                       OK!
                     </div>
@@ -153,7 +153,7 @@
                   </div>
                 <div class="col-12">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="invalidCheck" required name="terminos">
+                    <input class="form-check-input" type="checkbox" value="true"id="invalidCheck" required name="terminos">
                     <label class="form-check-label" for="invalidCheck">
                       Acepto los Terminos y Condiciones
                     </label>

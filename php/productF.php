@@ -101,7 +101,7 @@
 		}
 	}
 	function obtenerProductoR($conexion){
-		$sql = "SELECT * FROM producto order by IdProducto desc limit 1";
+		$sql = "SELECT LAST_INSERT_ID() num , Idproducto, Nombre_Producto from producto limit 1";
 		$resultado = $conexion->query($sql);
 	
 		if ($resultado){ 
@@ -120,12 +120,17 @@
 		}
 	}
 	function crearCarpetaproducto($carpetaName){
+		if (file_exists($carpetaName)){
+			echo "<br>la carpeta $carpetaName existe<br>";
+		}else{
 		mkdir($carpetaName, 0777);
 		if (file_exists($carpetaName)){
-			echo "se creo $carpetaName";
+			echo "<br>se creo $carpetaName<br>";
 		}else {
 			echo "fallo";
 		}
 	}
+	}
 
+	
 ?>

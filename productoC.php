@@ -17,215 +17,28 @@
       session_start();//iniciando
       $conexion = abrirConexion();
         $EMAIL=$_SESSION['emailE'];
+        $ID =$_SESSION['idp'];
       $conexion = abrirConexion();
-      $LS =obtenerProductoR($conexion);
+      $producto= obtenerProducto($conexion, $ID );
       $NCE = obtenerempresa($conexion, $EMAIL);
     
       //! variables de carpetas
-      $nomE= $NCE["Nomempresa"];
-      $nomP=$LS['Nombre_Producto'];
-      $idP=$LS['IdProducto'];
-      $precio=$LS['Precio'];
-      $cantidad=$LS['Cantidad'];
-      $descripción=$LS['Descripcion'];
-      $carpetaE='Archivos/'.$nomE.'/';
-      $carpetaName='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP."/";
-      $direction='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP.'/';
-    
+      
       ?>
     <!--js-->
     <script src="js/funciones.js"></script>
-    <title>Comprar: <?php echo $nomP;?></title>
+    <title>Comprar: <?php echo $producto['Nombre_Producto'];?></title>
 </head>
 <body>
     <header>
         <script src="js/header.js"></script>
     </header>
-    <section class="caja-productos" >
-        <div class="PS container">
-          
-            <div class="row">
-                <div class=" col-sm-2">
-                    <div class="galeria">
+    <section class="container">
+      <div class="caja-ingreso">
 
-                        <?php
-                        
-                        $u=1;
-                        echo"<ul class = 'fila'>";
-                        for ($i=1; $i< 5;$i++ ){
-                          echo "<li>";
-                          $nomA='archivo'.$u;
-                          echo "<a href='#' onclick='cambio(".$i.")' class='position'>";
-                          echo "<img src=".$_SESSION[$nomA]." class='item' id='G".$i;
-                          echo "' id='G".$i."'></a></li>";
-                          
-                         $u++;
-                         
-                         }
-                         echo "</ul>";
-                          ?>
-                        
-                       
-
-                      </div>
-                </div>
-                <div class="col">
-                    <div class="imagen">
-                        <img src="<?php  echo $_SESSION['archivo1']; ?>" class="item-principal" id="F">
-
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    
-                    <div class="content">
-                    
-                      <h1><?php echo $nomP;?></h1>
-                        <br>
-                        <h3>Precio:<?php echo $precio; ?></h3> 
-                        <br>
-                        <h2>Descripcion:</h2> 
-                        
-                        <p><?php echo $descripción; ?></p>
-                        <br>
-
-                      </div>
-                        
-                        <div class="col-sm-4">
-                            
-                            <label class="ll form-label">Disponibles</label> 
-                            <input type="number" value="<?php echo $cantidad; ?>" class="form-control" disabled>
-                        </div>
-                        <br>
-                        <form action="" method="get">
-                          <div class="col-sm-4 ">
-                              <label class="form-label">Cantidad</label> 
-                              <input type="number" name="cant" min="0" maxlength="2" max="99" class="form-control">
-                          </div>
-                          <br>
-                          <div class="cus gap-2 mx-auto">
-                              <button class="btn btn-outline-success btn-lg">
-                                  <svg src="bootstrap-5.1.0-dist/SVG/currency-dollar.svg" width="32" height="32" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
-                                      <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
-                                  </svg>
-                                  Comprar
-                              </button>
-                              <button class="btn btn-outline-info btn-lg">
-                                  <svg src="bootstrap-5.1.0-dist/SVG/bag-plus.svg" width="32" height="32" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
-                                      <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                                      <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                                  </svg>
-                                  Agregar al carrito
-                              </button>
-                        </form>
-                        
-                        </div>
-                    </div>
-                    
-
-                </div>
-            </div>
-            
-            
-        </div>
+      </div>
     </section>
 
-
-
-
-
-    <section class="productos">
-        <!-- contenedor -->  
-        <div class="PC">
-          <h4>Productos</h4>
-  
-  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <div class="container">
-         
-          <div class="row justify-content-between">
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-            
-          </div>
-      </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <div class="container">
-         
-          <div class="row justify-content-between">
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-            
-          </div>
-      </div>
-      
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-        
-        </div>
-                   
-        </div>  
-        
-  
-      </div>
-                 
-      </div>  
-  
-      </section>
   
     <footer>
         <script src="js/footer.js"></script>

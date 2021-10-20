@@ -12,6 +12,8 @@
 </head>
 <body>
 	<?php
+	
+
 
 	include("php/conexion.php");
 	include("php/productF.php");
@@ -20,17 +22,15 @@
 	$conexion = abrirConexion();
     $EMAIL=$_SESSION['emailE'];
 	$conexion = abrirConexion();
-	$LS =obtenerProductoR($conexion);
-	$NCE = obtenerempresa($conexion, $EMAIL);
+	
 
 	//! variables de carpetas
-	$nomE= $NCE["Nomempresa"];
-	$nomP=$LS['Nombre_Producto'];
-	$idP=$LS['IdProducto'];
-	$carpetaE='Archivos/'.$nomE.'/';
+	
 
-    $carpetaName='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP."/";
-    $direction='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP.'/';
+    
+    // $direction='Archivos/'.$nomE.'/'.strval($idP)."-".$nomP.'/';
+
+	// * ingreso de datos de un producto 
 	if (isset($_POST['idproducto'] ) ) {
 		$producto['idproducto']=intval($_POST['idproducto']);
 		$producto['nombre_producto']=$_POST['nombre_producto'];
@@ -41,96 +41,58 @@
 		$producto['precio']=floatval($_POST['precio']);
 		$producto['cantidad']=intval($_POST['cantidad']);
 		$producto['terminos']=$_POST['terminos'];
-		
-
-		if ($producto ['terminos']){
-			
-			ingresarProducto($conexion, $producto);
-			//?  verificando si existe la carpeta de la empresa 
-			if (file_exists($carpetaE)) {
-				//* crear carpeta del producto
-				echo $carpetaE ? 'true' : 'false';
-				//* y ahora se crea el archivo
-				if (!file_exists($carpetaName)){
-					crearCarpetaproducto($carpetaName);
-					$num=1;
-					foreach ( $_FILES['imagenes']['tmp_name'] as $imagen => $tmp_name ) {
-					  $el_archivo = $_FILES['imagenes']['name'][$imagen];
-					  $ruta_archivo = $carpetaName.basename($el_archivo);
-					  $nomA='archivo'.$num;
-					  if (move_uploaded_file($_FILES['imagenes']['tmp_name'][$imagen], $ruta_archivo)){
-						echo "El archivo es válido y se cargó correctamente.<br><br>";
-						$_SESSION[$nomA]=$ruta_archivo;
-						$num++;
-						}else{
-						echo "Error al intentar subir el archivo";
-					   }
-					} 
-				}else{
-					$num=1;
-					foreach ( $_FILES['imagenes']['tmp_name'] as $imagen => $tmp_name ) {
-						$el_archivo = $_FILES['imagenes']['name'][$imagen];
-						$ruta_archivo = $carpetaName.basename($el_archivo);
-						$nomA='archivo'.$num;
-						if (move_uploaded_file($_FILES['imagenes']['tmp_name'][$imagen], $ruta_archivo)){
-						  echo "El archivo es válido y se cargó correctamente.<br><br>";
-						  $_SESSION[$nomA]=$ruta_archivo;
-						  $num++;
-						  }else{
-						  echo "Error al intentar subir el archivo";
-						 }
-					} 
-				}
-			} else {
-				echo "El fichero $carpetaE no existe";
-				
-				crearCarpetaproducto($carpetaE);
-				//* y ahora se crea el archivo
-				if (!file_exists($carpetaName)){
-					crearCarpetaproducto($carpetaName);
-					$num=1;
-					foreach ( $_FILES['imagenes']['tmp_name'] as $imagen => $tmp_name ) {
-					  $el_archivo = $_FILES['imagenes']['name'][$imagen];
-					  $ruta_archivo = $carpetaName.basename($el_archivo);
-					  $nomA='archivo'.$num;
-					  if (move_uploaded_file($_FILES['imagenes']['tmp_name'][$imagen], $ruta_archivo)){
-						echo "El archivo es válido y se cargó correctamente.<br><br>";
-						$_SESSION[$nomA]=$ruta_archivo;
-						$num++;
-						}else{
-						echo "Error al intentar subir el archivo";
-					   }
-					} 
-				}else{
-					$num=1;
-					foreach ( $_FILES['imagenes']['tmp_name'] as $imagen => $tmp_name ) {
-						$el_archivo = $_FILES['imagenes']['name'][$imagen];
-						$ruta_archivo = $carpetaName.basename($el_archivo);
-						$nomA='archivo'.$num;
-						if (move_uploaded_file($_FILES['imagenes']['tmp_name'][$imagen], $ruta_archivo)){
-						  echo "El archivo es válido y se cargó correctamente.<br><br>";
-						  $_SESSION[$nomA]=$ruta_archivo;
-						  $num++;
-						  }else{
-						  echo "Error al intentar subir el archivo";
-						 }
-					} 
-				}
-
-				} 
-			}
-				
-		 echo $_SESSION['archivo1'];
-		 echo $_SESSION['archivo2'];
-		 echo $_SESSION['archivo3'];
-		 echo $_SESSION['archivo4'];
-			header('Location:productoC.php');
-		}else {
-			header('Location:vender.html');
-		}
-		cerrarConexion($conexion);
-
+		ingresarProducto($conexion, $producto);
+	}else{
+		header('Location:vender.html');
+	}
 	
+	$LS=obtenerProductoR($conexion);
+	$nomP=$LS['Nombre_Producto'];
+	
+	if (strcmp($nomP , $producto['nombre_producto'])==0){
+		
+		$NCE = obtenerempresa($conexion, $EMAIL);
+		$nomE= $NCE["Nomempresa"];
+		$idP =$LS['Idproducto'];
+		$carpetaE='Archivos/'.$nomE.'/';
+		$carpetaName="Archivos/".$nomE.'/'.strval($idP)."-".$nomP."/";
+		
+		crearCarpetaEmpresa($carpetaE);
+		crearCarpetaproducto($carpetaName);
+		$num=1;
+		foreach ( $_FILES['archivo']['tmp_name'] as $imagen => $tmp_name ) {
+		$el_archivo = $_FILES['archivo']['name'][$imagen];
+		$ruta_archivo = $carpetaName.basename($el_archivo);
+		$nomA='archivo'.$num;
+		
+		if (move_uploaded_file($_FILES['archivo']['tmp_name'][$imagen], $ruta_archivo)){
+			echo "El archivo es válido y se cargó correctamente.<br><br>";
+			$extension = pathinfo($ruta_archivo, PATHINFO_EXTENSION);
+			$nuevaR=$carpetaName.$nomA.'.'.$extension;
+			rename ($ruta_archivo, $nuevaR);
+			$num++;
+		}else{
+			echo "Error al intentar subir el archivo";
+			}
+			
+		} 
+		// $t=$carpetaName."/*.*";
+		// foreach (glob($t) as $imagen){
+		// 	echo "<img src='$imagen' width='150'><br>";
+		// }
+		$_SESSION['idp']=$idP;
+		header('Location:productoC.php');
+	}else{
+		
+	}
+
+
+
+
+
+
+
+	cerrarConexion($conexion);
 
 	?>
 	

@@ -50,12 +50,12 @@
               <!--* Al ingresar el required en el input nos enviará una alerta si detecta el campo vacio -->
               <!--* Con el pattern="[a-z]{3,20}" restringimos los rangos de caracteres a chequear y solo letras -->
               <!--* Autofus permite posicionar el cursos en un input al cargar el formulario -->
-              <input type="text" class="form-control" id="validationCustom01" value="" required pattern="[a-z,A-Z]{3,20}" placeholder="Empresa 100" autofocus name="nomempresa">
+              <input type="text" class="form-control" id="validationCustom01" value="" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,20}" placeholder="Empresa 100" autofocus name="nomempresa">
               <div class="valid-feedback">
                 Nombre Valido!
               </div>
               <div class="invalid-feedback">
-                Los nombres solo pueden contener letras minusculas con un minimo de 3 caracteres
+                Los nombres solo pueden contener letras  con un minimo de 3 caracteres
               </div>
             </div>
 
@@ -109,7 +109,8 @@
                 </label>
               </div>
               <div id="passwordHelpBlock" class="CM form-text">
-                Debe tener de 8 a 20 caracteres de largo, contar con numeros y letras, sin espacios y contar con un caracter especial como:! $ %
+                Debe tener de 8 a 20 caracteres de largo, contar con numeros, letras y sin espacios<br>
+                Es opcional poner simbolos($%.!?)             
               </div>
             </div>
             <div class="col-md-6">
@@ -132,7 +133,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                 <label class="form-check-label" for="invalidCheck">
-                  Agregue los y Condiciones
+                  Acepto los y Condiciones
                 </label>
                 
                 <div class="invalid-feedback">

@@ -46,12 +46,12 @@
             </div>
             <div class="col-md-4">
               <label for="validationCustom01" class="form-label">Ci:</label>
-              <input type="text" name="ci" class="form-control" id="validationCustom01" required placeholder="999999" pattern="[0-9]{7}">
+              <input type="text" name="ci" class="form-control" id="validationCustom01" required placeholder="999999" pattern="[0-9]{8}">
               <div class="valid-feedback">
                 OK!
               </div>
               <div class="invalid-feedback">
-              La cedula son solo 7 numeros sin guion
+              La cedula son solo 8 numeros sin guion
               </div>
             </div>
             <div class="col-md-4">
@@ -59,23 +59,23 @@
               <!--* Al ingresar el required en el input nos enviará una alerta si detecta el campo vacio -->
               <!--* Con el pattern="[a-z]{3,20}" restringimos los rangos de caracteres a chequear y solo letras -->
               <!--* Autofus permite posicionar el cursos en un input al cargar el formulario -->
-              <input type="text" class="form-control" id="validationCustom02" value="" required pattern="[a-z]{3,20}" placeholder="George" autofocus name="nombre">
+              <input type="text" class="form-control" id="validationCustom02" value="" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,20}" placeholder="George" autofocus name="nombre">
               <div class="valid-feedback">
                 Nombre OK!
               </div>
               <div class="invalid-feedback">
-                Los nombres solo pueden contener letras minusculas con un minimo de 3 caracteres
+                Los nombres solo pueden contener letras con un minimo de 3 caracteres
               </div>
             </div>
 
             <div class="col-md-4">
               <label for="validationCustom03" class="form-label">Apellido:</label>
-              <input type="text" class="form-control" id="validationCustom03" value="" required pattern="[a-z]{3,20}" placeholder="Torres" autofocus name="apellido">
+              <input type="text" class="form-control" id="validationCustom03" value="" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,20}" placeholder="Torres" autofocus name="apellido">
               <div class="valid-feedback">
                 Apellido OK!
               </div>
               <div class="invalid-feedback">
-                Complete el Apellido!
+                Los Apellidos solo pueden contener letras con un minimo de 3 caracteres
               </div>
             </div>
             <div class="col-md-4">
@@ -91,7 +91,7 @@
 
             <div class="col-md-8">
               <label for="form-label" class="validationCustom05">Dirección:</label>
-              <input type="text" class="form-control" name="direccion" id="validationCustom05" required pattern="{,30}" placeholder="" autofocus>
+              <input type="text" class="form-control" name="direccion" id="validationCustom05" required pattern="[a-zA-Z0-9]{5,30}" placeholder="" autofocus>
               <div class="valid-feedback">
                  OK!
               </div>
@@ -117,7 +117,8 @@
                 </label>
               </div>
               <div id="passwordHelpBlock" class="CM form-text">
-                Debe tener de 8 a 20 caracteres de largo, contar con numeros y letras, sin espacios y contar con un caracter especial como:! $ %
+                Debe tener de 8 a 20 caracteres de largo, contar con numeros, letras y sin espacios<br>
+                Es opcional poner simbolos($%.!?)             
               </div>
             </div>
             <div class="col-md-6">

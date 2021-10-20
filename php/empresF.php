@@ -90,4 +90,16 @@
 			
 		}
 	}
+	function crearCarpetaEmpresa($carpetaE){
+		if (file_exists($carpetaE)){
+			echo "<br>la carpeta $carpetaE existe<br>";
+		}else{
+		mkdir($carpetaE, 0777);
+		if (file_exists($carpetaE)){
+			echo "<br>se creo $carpetaE <br>";
+		}else {
+			echo "fallo";
+		}
+	}
+	}
 ?>
