@@ -15,12 +15,17 @@
       include("php/productF.php");
       include("php/empresF.php");
       session_start();//iniciando
+      
+      if(isset($_SESSION['idp'])){
+      $EMAIL=$_SESSION['emailE'];
+      $ID =$_SESSION['idp'];
       $conexion = abrirConexion();
-        $EMAIL=$_SESSION['emailE'];
-        $ID =$_SESSION['idp'];
       $conexion = abrirConexion();
       $producto= obtenerProducto($conexion, $ID );
       $NCE = obtenerempresa($conexion, $EMAIL);
+
+      }
+      
     
       //! variables de carpetas
       
@@ -34,8 +39,40 @@
         <script src="js/header.js"></script>
     </header>
     <section class="container">
-      <div class="caja-ingreso">
+      <div class="caja-registro">
+        <div class="row alig">
+          <div class="col-sm-3">
+            <div class="galeria">
+              <?php
+          echo "<ul class = \"fila\">";
+            $u=1;
+            $t ='Archivos/'.$NCE['Nomempresa'].'/'.$producto['IdProducto'].'-'.$producto['Nombre_Producto'].'/*.*';
+            foreach (glob($t) as $imagen){
+              echo "<a href='#' onclick='cambio(".$u.")' class='position'>";
+              echo "<img src='$imagen' width='150";
+              if ($u==1){
+                $ruta=$imagen;
+              }
+              echo "' id='G".$u."'></a></li><br>";
 
+              $u++;
+            }
+            echo "</ul>"
+             
+            ?>
+            </div>
+          
+          </div>
+          <div class="col-sm-6">
+            <div class="imagen">
+            <img src="<?php  echo $ruta; ?>" class="item-principal" id="F">
+              
+            </div>
+            
+
+          </div>
+          <div class="col"></div>
+        </div>
       </div>
     </section>
 
