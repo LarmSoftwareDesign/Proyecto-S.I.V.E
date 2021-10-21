@@ -40,9 +40,9 @@
     </header>
     <section class="container">
       <div class="caja-registro">
-        <div class="row alig">
-          <div class="col-sm-3">
-            <div class="galeria">
+        <div class="row justify-content-between">
+          <div class="col-auto me-auto" style="background-color: #2090ff; border-radius: 10px;">
+            
               <?php
           echo "<ul class = \"fila\">";
             $u=1;
@@ -60,13 +60,17 @@
             echo "</ul>"
              
             ?>
-            </div>
+            
           
           </div>
-          <div class="col-sm-6">
+          <div class="col-md-6 float-md-end mb-3 ms-md-3">
             <div class="imagen">
             <img src="<?php  echo $ruta; ?>" class="item-principal" id="F">
               
+            </div>
+            <div class="conten">
+              <?php
+              ?>
             </div>
             
 

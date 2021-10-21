@@ -48,7 +48,8 @@
 	
 	$LS=obtenerProductoR($conexion);
 	$nomP=$LS['Nombre_Producto'];
-	
+	echo "$nomP <br>";
+	echo $producto['nombre_producto'];
 	if (strcmp($nomP , $producto['nombre_producto'])==0){
 		
 		$NCE = obtenerempresa($conexion, $EMAIL);
