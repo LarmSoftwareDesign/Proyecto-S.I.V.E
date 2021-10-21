@@ -5,7 +5,6 @@ body{
 .container{
     margin-top: 1em;
     margin-bottom: 2em;
-    width: 640px;
 }
 .caja-registro{
     padding: 1.5em;
@@ -26,19 +25,36 @@ body{
 
     }
 
-
+h4{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 .position img {
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 0.2em;
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     width: 128px;
 }
 
 .position img:hover {
-    
-    
-    background-color:#a4eff5;
+    -webkit-box-shadow: inset -5px 9px 80px 62px rgba(164,239,245,0.61);
+    -moz-box-shadow: inset -5px 9px 80px 62px rgba(164,239,245,0.61);
+    box-shadow: inset -5px 9px 80px 62px rgba(164,239,245,0.61);
+    padding: 0.2em;
+    margin-top: 5px;
+    margin-bottom: 5px;
     width: 128px;
+}
+#c1{
+    background-color: #2090ff; 
+    border-radius: 10px;
+    margin:0.5em;
+}
+#c3{
+   
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 3em;
+    margin-top: 0.5em;
 }

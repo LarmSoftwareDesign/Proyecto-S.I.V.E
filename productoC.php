@@ -25,14 +25,11 @@
       $NCE = obtenerempresa($conexion, $EMAIL);
 
       }
-      
-    
-      //! variables de carpetas
-      
+     
       ?>
     <!--js-->
     <script src="js/funciones.js"></script>
-    <title>Comprar: <?php echo $producto['Nombre_Producto'];?></title>
+    <title>Comprar <?php echo $producto['Nombre_Producto'];?></title>
 </head>
 <body>
     <header>
@@ -41,7 +38,7 @@
     <section class="container">
       <div class="caja-registro">
         <div class="row justify-content-between">
-          <div class="col-auto me-auto" style="background-color: #2090ff; border-radius: 10px;">
+          <div class="col-auto" style="" id="c1">
             
               <?php
           echo "<ul class = \"fila\">";
@@ -64,18 +61,32 @@
           
           </div>
           <div class="col-md-6 float-md-end mb-3 ms-md-3">
+            <div class="">
+              <h2><?php echo $producto['Nombre_Producto'];?></h2>
+            </div>
             <div class="imagen">
             <img src="<?php  echo $ruta; ?>" class="item-principal" id="F">
               
             </div>
-            <div class="conten">
+            <br>
+            <div>
               <?php
+                if ($producto['Cantidad'] == 0){
+                  echo "<h4>Disponibilidad: <span style=\"color:red;\">Agotado </span></h4>";
+                }else{
+                  echo "<h4>Disponibilidad: <span style=\"color:green;\">En Stock </span></h4>";
+                }
+                echo "<h5>Marca: <a href = \"#\">".$NCE['Nomempresa']."</a></h5>";
+                echo "<h5>Nacionalidad: ".$producto['Nacionalidad']."</h5>";
               ?>
             </div>
             
 
           </div>
-          <div class="col"></div>
+          <div class="col-auto" id= "c3">
+            <h2><?php echo "Precio:".$producto['Precio'];?></h2>
+            <h5></h5>
+          </div>
         </div>
       </div>
     </section>

@@ -38,7 +38,7 @@
 		$producto['descripcion']=$_POST['descripcion'];
 		$producto['categoria']=$_POST['categoria'];
 		$producto['nacionalidad']=$_POST['nacionalidad'];
-		$producto['precio']=floatval($_POST['precio']);
+		$producto['precio']=(float) $_POST['precio'];
 		$producto['cantidad']=intval($_POST['cantidad']);
 		$producto['terminos']=$_POST['terminos'];
 		ingresarProducto($conexion, $producto);
