@@ -1,4 +1,5 @@
-function mostrarpC(categorias) {
+//? filtro catagorias
+function mostrarpC1(categorias) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200){
@@ -6,11 +7,19 @@ function mostrarpC(categorias) {
       }
     };
     xmlhttp.open("GET","php/MostrarProductos.php?categorias="+categorias,true);
-    xmlhttp.send();
-     
-    
-    
+    xmlhttp.send();   
+}
 
+// ! filtro Condicion
+function mostrarpC2(condicion) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("txtSeleccion").innerHTML = this.responseText;
+    }
+  };
+  xmlhttp.open("GET","php/MostrarProductos.php?condicion="+condicion,true);
+  xmlhttp.send();
 }
 
 
