@@ -57,8 +57,9 @@
 		$idP =$LS['Idproducto'];
 		$carpetaE='Archivos/'.$nomE.'/';
 		$carpetaName="Archivos/".$nomE.'/'.strval($idP)."-".$nomP."/";
-		
+		//* carpeta empresa
 		crearCarpetaEmpresa($carpetaE);
+		//* carpeta producto
 		crearCarpetaproducto($carpetaName);
 		$num=1;
 		foreach ( $_FILES['archivo']['tmp_name'] as $imagen => $tmp_name ) {

@@ -15,12 +15,10 @@ if (isset($_GET['categorias'])){
     $_SESSION['condicion']= $condicion;
 }
 
-if (isset($_SESSION['condicion']) && isset($_SESSION['categorias'])){
-    $sql="SELECT * FROM producto WHERE Condicion='".$condicion."'";
-    $resultado = $conexion->query($sql);
-}
-
-
+// if (isset($_SESSION['condicion']) && isset($_SESSION['categorias'])){
+//     $sql="SELECT * FROM producto WHERE Condicion='".$condicion."'";
+//     $resultado = $conexion->query($sql);
+// }
 
     
 

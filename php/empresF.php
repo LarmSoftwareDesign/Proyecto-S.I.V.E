@@ -98,7 +98,7 @@
 		if (file_exists($carpetaE)){
 			echo "<br>se creo $carpetaE <br>";
 		}else {
-			echo "fallo";
+			echo "falló";
 		}
 	}
 	}

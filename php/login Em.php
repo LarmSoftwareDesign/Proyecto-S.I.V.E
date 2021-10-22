@@ -11,7 +11,7 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	if ($fila == false) {
 		echo "error";
 		
-		header('Location: ../login Em.html');
+		header('Location: ../login E.html');
 		}else{
 		
 		header('Location: ../perfil1E.php');

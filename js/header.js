@@ -1,5 +1,5 @@
 
-
+// ! determina  almacena el tipo de usuario
 const Es =sessionStorage.getItem('es');
 let headerV =`
 <!--nav-->
@@ -545,12 +545,14 @@ let headerE =`
 
 
 switch(Es){
+  // ? usuario cliente 
   case 'Cliente':
     document.write(headerC); 
   break;
-
+  //* usuario empresa
   case 'Empresa':
     document.write(headerE);
   break;
+  // Usario visitante
   default: document.write(headerV);
 }

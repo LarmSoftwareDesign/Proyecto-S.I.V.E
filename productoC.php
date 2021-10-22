@@ -20,9 +20,11 @@
       $EMAIL=$_SESSION['emailE'];
       $ID =$_SESSION['idp'];
       $conexion = abrirConexion();
-      $conexion = abrirConexion();
       $producto= obtenerProducto($conexion, $ID );
       $NCE = obtenerempresa($conexion, $EMAIL);
+
+      }if (isset($_GET['id'])){
+        
 
       }
      
