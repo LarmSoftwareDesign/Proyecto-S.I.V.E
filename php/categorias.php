@@ -21,7 +21,7 @@ $resultadoc=obtenerCategorias($conexion);
 if ($resultadoc == false){
   echo "Error";
 }else{
-    echo "<select name=\"categorias\" class=\"form-select\" onchange=\"mostrarpC(this.value)\">>";
+    echo "<select name=\"categorias\" class=\"form-select\" onchange=\"mostrarpC(this.value)\">";
     echo "<option value=\"\">Categorias....</option>";
     while($fila = $resultadoc->fetch_assoc()) {
         echo "<option value=\"" . $fila['Categorias'] . "\">" . $fila['Categorias'] . "</option>";
@@ -38,7 +38,7 @@ $resultadoc=obtenerCondicion($conexion);
 if ($resultadoc == false){
     echo "Error";
   }else{
-      echo "<select name=\"condicion\" class=\"form-select\" >";
+      echo "<select name=\"condicion\" class=\"form-select\" onchange=\"mostrarpC(this.value)\">";
       echo "<option value=\"\">Condición...</option>";
       while($fila = $resultadoc->fetch_assoc()) {
           echo "<option value=\"" . $fila['Condicion'] . "\">" . $fila['Condicion'] . "</option>";

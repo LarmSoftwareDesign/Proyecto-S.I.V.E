@@ -5,8 +5,6 @@ function mostrarpC(categorias) {
         document.getElementById("txtSeleccion").innerHTML = this.responseText;
       }
     };
-   
-    
     xmlhttp.open("GET","php/MostrarProductos.php?categorias="+categorias,true);
     xmlhttp.send();
      

@@ -1,20 +1,15 @@
 <?php
 include("conexion.php");
 $conexion = abrirConexion();
-
-if (isset ($_GET ['categorias'])){
-    $categorias =$_GET ['categorias'];
-}else{
-    $categorias=null;
-}
 $num=1;
 
-$sql="SELECT * FROM producto WHERE Categorias='". $categorias."'";
-$resultado = $conexion->query($sql);
-
-
-
-
+if (is_null($categorias)){    
+    echo "<p style = 'color:white;'><p>";
+}elseif (isset ($categorias)) {
+    $sql="SELECT * FROM jugador WHERE Categorias=". $categorias;
+    $resultado = $conexion->query($sql);
+}
+echo $categorias;
 echo "<div class=\"container\">";    
 if($resultado){
     while($fila = $resultado->fetch_assoc()) {
