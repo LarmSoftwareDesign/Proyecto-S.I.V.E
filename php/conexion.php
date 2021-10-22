@@ -14,7 +14,7 @@
 		if ($conexion->connect_error){
 			die("Error en la conexión con la BD: " . $conexion->connect_error);
 		}
-		echo "Conexión realizada con éxito!";
+		// echo "Conexión realizada con éxito!";
 		return $conexion;
 	}
 	//! cerrar conexion

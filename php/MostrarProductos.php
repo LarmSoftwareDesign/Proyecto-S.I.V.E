@@ -1,12 +1,14 @@
 <?php
 include("conexion.php");
 $conexion = abrirConexion();
-$seleccion = $_GET['seleccion'];
-
+var_dump($_GET);
 
 $num=1;
-$sql="SELECT * FROM producto WHERE Categorias='". $seleccion."'";
-$resultado = $conexion->query($sql);
+// $sql="SELECT * FROM producto WHERE Categorias='". $categorias."'";
+// $resultado = $conexion->query($sql);
+
+
+
 
 echo "<div class=\"container\">";    
 if($resultado){
@@ -14,6 +16,7 @@ if($resultado){
         if ($num == 1){
             echo "<div class=\"Mar row justify-content-between\">";
         }
+        $id = 0;
         if ($num <= 4){
             echo "<div class=\"card\" style=\"width: 220px;\"> ";
             echo "<img src=\"img/producto.png\" class=\"card-img-top\">";
@@ -21,10 +24,10 @@ if($resultado){
             echo "<h5 class=\"LSM card-title\"><a href = \"#\" >".$fila['Nombre_Producto']."</a></h5>";
             echo "<p class=\"card-text\">".$fila['Precio']."</p>";
             echo "</div>";
-            echo "<div class=\"card-footer\"><a href=\"#\">leer mas...</a></div>";
+            echo "<div class=\"card-footer\"><a href=\"productoC.php?id=$id\">leer mas...</a></div>";
             echo "</div>";
             $num++;
-            
+            $id++;
         }else{
             echo "</div>";
             $num=1;

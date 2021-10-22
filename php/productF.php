@@ -119,6 +119,7 @@
 			
 		}
 	}
+
 	function crearCarpetaproducto($carpetaName){
 		if (file_exists($carpetaName)){
 			echo "<br>la carpeta $carpetaName existe<br>";
@@ -131,6 +132,45 @@
 		}
 	}
 	}
-
+	function obtenerCategorias($conexion)
+	{
+		$sql="SELECT  Categorias FROM producto group by Categorias";
+		$resultado = $conexion->query($sql);
+	
+		if ($resultado){ 
+			if($resultado->num_rows > 0){
+				
+				return $resultado;
+	
+			}else{
+				return false;
+			}
+			
+		}else{
+			$ls ="Error in ".$resultado."<br>".$conexion->error;
+		   return $ls;
+			
+		}
+	}
+	function obtenerCondicion($conexion)
+	{
+		$sql="SELECT Condicion FROM producto group by Condicion";
+		$resultado = $conexion->query($sql);
+	
+		if ($resultado){ 
+			if($resultado->num_rows > 0){
+				
+				return $resultado;
+	
+			}else{
+				return false;
+			}
+			
+		}else{
+			$ls ="Error in ".$resultado."<br>".$conexion->error;
+		   return $ls;
+			
+		}
+	}
 	
 ?>
