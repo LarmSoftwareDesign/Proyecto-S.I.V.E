@@ -1,11 +1,16 @@
 <?php
 include("conexion.php");
 $conexion = abrirConexion();
-var_dump($_GET);
 
+if (isset ($_GET ['categorias'])){
+    $categorias =$_GET ['categorias'];
+}else{
+    $categorias=null;
+}
 $num=1;
-// $sql="SELECT * FROM producto WHERE Categorias='". $categorias."'";
-// $resultado = $conexion->query($sql);
+
+$sql="SELECT * FROM producto WHERE Categorias='". $categorias."'";
+$resultado = $conexion->query($sql);
 
 
 

@@ -21,7 +21,7 @@ $resultadoc=obtenerCategorias($conexion);
 if ($resultadoc == false){
   echo "Error";
 }else{
-    echo "<select id=\"categorias\" class=\"form-select\" >";
+    echo "<select name=\"categorias\" class=\"form-select\" onchange=\"mostrarpC(this.value)\">>";
     echo "<option value=\"\">Categorias....</option>";
     while($fila = $resultadoc->fetch_assoc()) {
         echo "<option value=\"" . $fila['Categorias'] . "\">" . $fila['Categorias'] . "</option>";
@@ -38,7 +38,7 @@ $resultadoc=obtenerCondicion($conexion);
 if ($resultadoc == false){
     echo "Error";
   }else{
-      echo "<select id=\"condicion\" class=\"form-select\" >";
+      echo "<select name=\"condicion\" class=\"form-select\" >";
       echo "<option value=\"\">Condición...</option>";
       while($fila = $resultadoc->fetch_assoc()) {
           echo "<option value=\"" . $fila['Condicion'] . "\">" . $fila['Condicion'] . "</option>";
@@ -47,19 +47,22 @@ if ($resultadoc == false){
   }
   echo "</div></div></div></li>";
 
+  //* orden
   echo "<li class=\"item\">";
   echo "<div class=\"row\">";
   echo "<div class=\"col-sm-12\">";
   echo "<select class=\"form-select\" id=\"orden\">";
   echo "<option value=\"\">Orden...</option>";
-  echo "<option value=\"\">Precio menor</option>";
-  echo "<option value=\"\">Precio mayor</option>";
+  echo "<option value=\"0\">Precio menor</option>";
+  echo "<option value=\"1\">Precio mayor</option>";
+  echo "</select>";
   echo "</div></div></div></li>";
 
+  //* boton de filtro
   echo "<li class=\"item\">";
   echo "<div class=\"row\">";
   echo "<div class=\"col-sm-12\">";  
-  
+  echo "<button class=\"btn\" onclick=\"filtrar()\">Filtrar</button>";
   echo "</div></div></div></li>";
 
 cerrarConexion($conexion);
