@@ -1,3 +1,4 @@
+
 body{
     background-color: #24303C;
 }
@@ -47,9 +48,13 @@ h4{
     width: 128px;
 }
 #c1{
+    
     background-color: #2090ff; 
     border-radius: 10px;
-    margin:0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 3em;
+    margin-right: 0.5em;
+    margin-top: 0.5em;;
 }
 #c3{
    
@@ -57,4 +62,15 @@ h4{
     margin-left: 0.5em;
     margin-right: 3em;
     margin-top: 0.5em;
+}
+ #boton{
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.contenido{
+    text-align: left;
+    width: auto;
 }
