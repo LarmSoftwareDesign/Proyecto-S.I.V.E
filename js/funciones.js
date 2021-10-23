@@ -48,6 +48,9 @@ function cambio( num ) {
     case 4:
       x.src=ruta;
       break;
+    case 5:
+      x.src=ruta;
+      break;
 
   }
   

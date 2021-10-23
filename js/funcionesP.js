@@ -11,9 +11,7 @@ function mostrarpC1(categorias) {
 }
 
 
-function mostrarEncargos (){
-  
-}
+
 
 // ! filtro Condicion
 function mostrarpC2(condicion) {
@@ -56,4 +54,33 @@ function cargarCategorias() {
   };
   xmlhttp.open("GET","php/categorias.php",true);
   xmlhttp.send();
+}
+function cargarCE(){
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("CE").innerHTML = this.responseText;
+    }
+  };
+  
+  xmlhttp.open("GET","php/cargar C&E.php",true);
+  xmlhttp.send();
+  
+}
+
+function carrito() {
+  let idp =document.querySelector("#IDP").value;
+  let cantidad =document.querySelector("Cantidad").value;
+  
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("txtSeleccion").innerHTML = this.responseText;
+    }
+  };
+  xmlhttp.open("GET","php/MostrarProductos.php?categorias="+categorias,true);
+  xmlhttp.send();   
+
+  
+  
 }
