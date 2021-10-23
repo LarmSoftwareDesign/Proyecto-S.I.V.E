@@ -2,6 +2,17 @@
 include("conexion.php");
 include("productF.php");
 $conexion = abrirConexion();
+
+
+switch ($variable) {
+    case '':
+        # code...
+        break;
+    
+    default:
+        # code...
+        break;
+}
 echo "<nav class=\"navbar navbar-light bg-light fixed-top\">";
 echo "<div class=\"container-fluid\">";
 echo "<a class=\"navbar-brand\" href=\"index.html\"><img src=\"img/logo.png\" alt=\"\" width=\"100\" height=\"50\"></a>";
