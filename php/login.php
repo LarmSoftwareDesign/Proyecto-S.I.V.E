@@ -21,6 +21,7 @@ if (isset($_POST['email'] ) && isset($_POST['cont'] )) {
 	if ($fila == false) { 
 		//! se mostrara error
 		echo "Error";
+		header('Location: ../login.html');
 	}else{//* de lo contrario
 		//* se ira la pagina perfil 
 		session_start();//* iniciando el sesion para una para tener una variable global 

@@ -10,6 +10,11 @@ function mostrarpC1(categorias) {
     xmlhttp.send();   
 }
 
+
+function mostrarEncargos (){
+  
+}
+
 // ! filtro Condicion
 function mostrarpC2(condicion) {
   var xmlhttp = new XMLHttpRequest();

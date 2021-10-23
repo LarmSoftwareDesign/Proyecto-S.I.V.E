@@ -21,7 +21,7 @@
 	session_start();//iniciando
 	$conexion = abrirConexion();
     $EMAIL=$_SESSION['emailE'];
-	$conexion = abrirConexion();
+	
 	
 
 	//! variables de carpetas
@@ -32,6 +32,7 @@
 
 	// * ingreso de datos de un producto 
 	if (isset($_POST['idproducto'] ) ) {
+		$NCE = obtenerempresa($conexion, $EMAIL);
 		$producto['idproducto']=intval($_POST['idproducto']);
 		$producto['nombre_producto']=$_POST['nombre_producto'];
 		$producto['condicion']=$_POST['condicion'];
@@ -41,6 +42,7 @@
 		$producto['precio']=(float) $_POST['precio'];
 		$producto['cantidad']=intval($_POST['cantidad']);
 		$producto['terminos']=$_POST['terminos'];
+		$producto['rut']=$NCE['Rut'];
 		ingresarProducto($conexion, $producto);
 	}else{
 		header('Location:vender.html');
@@ -52,7 +54,7 @@
 	echo $producto['nombre_producto'];
 	if (strcmp($nomP , $producto['nombre_producto'])==0){
 		
-		$NCE = obtenerempresa($conexion, $EMAIL);
+		
 		$nomE= $NCE["Nomempresa"];
 		$idP =$LS['Idproducto'];
 		$carpetaE='Archivos/'.$nomE.'/';

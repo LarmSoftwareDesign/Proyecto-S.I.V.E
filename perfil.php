@@ -46,7 +46,7 @@
                     <img src="img/login.png" class="logo-perfil">
                 </div>
                 <div class="col">
-                    <h1><?php echo $nombre ; ?></h1>
+                    <h1><?php echo $nombre;?></h1>
                 </div>
             </div>
             <br>
@@ -57,9 +57,9 @@
                 </div>
                 <div class="col-md-6" >
                     <span class="span">Contraseña:</span>
-                    <input type="password" value="<?php echo $pasword; ?>" class="form-control" disabled id="myInput1">
+                    <input type="password" value="<?php echo $pasword; ?>" class="form-control" disabled id="validationCustom06">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" onclick="myFunction1()" >
+                      <input class="form-check-input" type="checkbox" onclick="myFunction()" >
                       <label class="form-check-label">
                         Mostrar
                       </label>

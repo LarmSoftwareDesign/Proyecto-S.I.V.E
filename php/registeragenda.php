@@ -29,7 +29,7 @@
 				//* se llamara la funcion ingresarUsuario para crear un usuario en la base de datos
                 ingresarUsuario($conexion, $usuario);
 				// a perfil
-				header('Location:..\login.html');
+				header('Location:..\perfil.php');
                 
             }elseif (strcmp($usuario["contraseña"] , $usuario["verificarC"] ) != 0) { 
 				//! de lo contrario volvera al registro

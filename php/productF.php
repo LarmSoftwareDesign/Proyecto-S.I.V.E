@@ -5,7 +5,7 @@
 		//todo: en esta variable $dml estaran los comando con los cuales manipularemos la base de datos
 		
 		//* comando de insertar valores en la base de datos 
-		$dml = "INSERT INTO producto (IdProducto, Nombre_Producto, Precio, Condicion, Categorias, Descripcion, Nacionalidad, Cantidad)";
+		$dml = "INSERT INTO producto (IdProducto, Nombre_Producto, Precio, Condicion, Categorias, Descripcion, Nacionalidad, Cantidad, Rut)";
 		$dml .= " VALUES (" . $producto["idproducto"];
 		$dml .= ", '" . $producto["nombre_producto"];
 		$dml .= "', " . $producto["precio"];
@@ -13,7 +13,8 @@
 		$dml .= "', '" . $producto["categoria"];
 		$dml .= "', '" . $producto["descripcion"];
 		$dml .= "', '" . $producto["nacionalidad"];
-		$dml .= "',".$producto['cantidad'] . ")";
+		$dml .= "',".$producto['cantidad'];
+		$dml .= ", ".$producto['rut']. ")";
 		
 
 		//? si al llamar la funcion query 
@@ -118,6 +119,27 @@
 		   return $ls;
 			
 		}
+	}
+	function obtenerproductoE($conexion, $idp){
+		$sql="SELECT Nomempresa, IdProducto, Nombre_Producto FROM producto p join empresa e on p.Rut = e.Rut where IdProducto=".$idp;
+		
+		$resultado = $conexion->query($sql);
+	
+		if ($resultado){ 
+			if($resultado->num_rows > 0){
+				$LS = $resultado->fetch_assoc();
+				return $LS;
+	
+			}else{
+				return false;
+			}
+			
+		}else{
+			$ls ="Error in ".$resultado."<br>".$conexion->error;
+		   return $ls;
+			
+		}
+
 	}
 
 	function crearCarpetaproducto($carpetaName){
