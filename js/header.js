@@ -186,6 +186,7 @@ let headerV =`
       </nav>
 
 `;
+
 let headerC =`
 <!--nav-->
         <nav class="navbar navbar-light bg-light fixed-top">
@@ -549,7 +550,8 @@ let headerE =`
 switch(Es){
   // ? usuario cliente 
   case 'Cliente':
-    document.write(headerC); 
+    document.write(headerC);
+    alert(ES); 
   break;
   //* usuario empresa
   case 'Empresa':

@@ -23,7 +23,7 @@
      $NC = obtenerusuario($conexion, $EMAIL );
      $nombre= $NC["Nombre"]. " ". $NC["Apellido"];
      $pasword = $NC["Contrasena"];
-     $E=$_SESSION['es'];
+     $E=$NC['Es'];
      cerrarConexion($conexion);
     ?>
     <script type="text/javascript">
@@ -33,6 +33,7 @@
         es: '<?php echo $E;?>'   };
    
     ;
+    sessionStorage.setItem('es', MYAPP.es);
     </script>
         <script src="js/header.js"></script>
         <script src="js/funciones.js"></script>
