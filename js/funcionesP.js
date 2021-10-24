@@ -89,11 +89,11 @@ function carrito() {
 
 // funciones para la pagina carrita
 
-function cargarCE(){
+function cargarEn(){
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200){
-      document.getElementById("CE").innerHTML = this.responseText;
+      document.getElementById("CED").innerHTML = this.responseText;
     }
   };
   
