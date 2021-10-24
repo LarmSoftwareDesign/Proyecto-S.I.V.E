@@ -10,9 +10,6 @@ function mostrarpC1(categorias) {
     xmlhttp.send();   
 }
 
-
-
-
 // ! filtro Condicion
 function mostrarpC2(condicion) {
   var xmlhttp = new XMLHttpRequest();
@@ -70,15 +67,15 @@ function cargarCE(){
 
 function carrito() {
   let idp =document.querySelector("#IDP").value;
-  let cantidad =document.querySelector("Cantidad").value;
+  let cantidad =document.querySelector("#Cantidad").value;
   
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200){
-      document.getElementById("txtSeleccion").innerHTML = this.responseText;
+      document.getElementById("t").innerHTML = this.responseText;
     }
   };
-  xmlhttp.open("GET","php/MostrarProductos.php?categorias="+categorias,true);
+  xmlhttp.open("GET","php/registrerC.php?id="+idp+"&cantidad="+cantidad,true);
   xmlhttp.send();   
 
   
