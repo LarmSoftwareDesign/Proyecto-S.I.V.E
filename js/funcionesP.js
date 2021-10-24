@@ -1,3 +1,14 @@
+function cargarCategorias() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("selSeleccion").innerHTML = this.responseText;
+    }
+  };
+  xmlhttp.open("GET","php/categorias.php",true);
+  xmlhttp.send();
+}
+
 //? filtro catagorias
 function mostrarpC1(categorias) {
     var xmlhttp = new XMLHttpRequest();
@@ -42,16 +53,9 @@ function mostrarpC2(condicion) {
 // };
 
 
-function cargarCategorias() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200){
-      document.getElementById("selSeleccion").innerHTML = this.responseText;
-    }
-  };
-  xmlhttp.open("GET","php/categorias.php",true);
-  xmlhttp.send();
-}
+
+//* funciones para comprar y encargar productos
+
 function cargarCE(){
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -79,5 +83,21 @@ function carrito() {
   xmlhttp.send();   
 
   
+  
+}
+
+
+// funciones para la pagina carrita
+
+function cargarCE(){
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("CE").innerHTML = this.responseText;
+    }
+  };
+  
+  xmlhttp.open("GET","php/Encargos.php",true);
+  xmlhttp.send();
   
 }
