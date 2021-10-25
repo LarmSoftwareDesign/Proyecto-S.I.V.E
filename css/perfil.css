@@ -8,17 +8,11 @@ body{
     height: 128px;
     border-radius: 10px;
 }
-.span{
-    font-size: 28px;
-}
-.caja{
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
+
 
 
 .MS {
-    padding: 3em;
+    padding: 2em;
     background-color: whitesmoke;
     border-radius: 20px;
     text-align: left;

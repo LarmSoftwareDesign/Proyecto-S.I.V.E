@@ -42,14 +42,13 @@ function eliminarUsuario($conexion, $ci){
 //* modificar un perfil de un usuario
 function modificarUsuario($conexion, $usuario){
 
-    $dml = "UPDATE usuario set ci = ". $usuario["ci"];
-    $dml .= ", nombre = '" . $usuario ["nombre"];
-    $dml .= "', apellido = '" . $usuario ["apellido"];
-    $dml .= "', contraseña = '" . $usuario ["contraseña"];
-    $dml .= "', fnac = '" . $usuario ["fnac"];
-    $dml .= "', email = '" . $usuario ["email"];
-    $dml .= "', direccion '= " . $usuario ["direccion"];
-    $dml .= "'   WHERE ci = " . $usuario ["ci"];
+    $dml = "UPDATE usuario set Nombre = '" . $usuario ["nombre"];
+    $dml .= "', Apellido = '" . $usuario ["apellido"];
+    $dml .= "', Contrasena = UPPER(SHA1(UNHEX(SHA1('" . $usuario ["contraseña"];
+    $dml .= "')))), Fnac = '" . $usuario ["fnac"];
+    $dml .= "', Email = '" . $usuario ["email"];
+    $dml .= "', Direccion = '" . $usuario ["direccion"];
+    $dml .= "'   WHERE Ci = " . $usuario ["ci"];
 
 
     if ($conexion->query($dml) === TRUE){
@@ -59,7 +58,7 @@ function modificarUsuario($conexion, $usuario){
     }		
 }
 
-//? funcion para verificar un usuario
+//* funcion para verificar un usuario
 function VerificarUsuarios($conexion, $email, $contra){
     //* SQL: SELECT * FROM tabla
     $sql = "SELECT * FROM usuario WHERE Email='".$email . "'";
@@ -80,9 +79,29 @@ function VerificarUsuarios($conexion, $email, $contra){
         
     }
 }
-//todo funcion obtener los datos de un usuario
-function obtenerusuario($conexion, $EMAIL ){
+//* funcion obtener los datos de un usuario
+function obtenerusuarioE($conexion, $EMAIL ){
     $sql = "SELECT * FROM usuario WHERE Email='".$EMAIL . "'";
+    $resultado = $conexion->query($sql);
+
+    if ( $resultado){ 
+        if($resultado->num_rows > 0){
+            $fila = $resultado->fetch_assoc();
+           
+            return $fila;
+
+        }else{
+            return false;
+        }
+        
+    }else{
+        $ls ="Error in ".$resultado."<br>".$conexion->error;
+       return $ls;
+        
+    }
+}
+function obtenerusuarioCi($conexion, $CiO ){
+    $sql = "SELECT * FROM usuario WHERE Ci='".$CiO . "'";
     $resultado = $conexion->query($sql);
 
     if ( $resultado){ 
@@ -103,4 +122,25 @@ function obtenerusuario($conexion, $EMAIL ){
 }
 
 
+//* funcion para verificar gmail
+function VerificarEmail($conexion, $email){
+    //* SQL: SELECT * FROM tabla
+    $sql = "SELECT * FROM usuario WHERE Email='".$email . "'";
+	
+	$resultado = $conexion->query($sql);
+
+    if ($resultado){ 
+        if($resultado->num_rows > 0){
+		
+			return true;
+        }else{
+            return false;
+        }
+        
+    }else{
+        $ls ="Error in ".$resultado."<br>".$conexion->error;
+       return $ls;
+        
+    }
+}
 ?>

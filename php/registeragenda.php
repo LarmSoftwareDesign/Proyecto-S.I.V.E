@@ -10,7 +10,51 @@
 		include("UserF.php");
 		$conexion = abrirConexion();
 		//? si se existe el valor de la cedula fue insertada
-		if (isset($_POST["ci"])){
+		
+		if(isset($_POST['ciM'])){
+			$usuario["email"] = $_POST["emailM"];
+			$usuario["nombre"] = $_POST["nombreM"];
+			$usuario["apellido"] = $_POST["apellidoM"];
+            //todo pasar de string a int
+			$usuario["ci"] = intval($_POST["ciM"]);
+			$usuario["fnac"] = $_POST["fnacM"];
+			$usuario["direccion"] = $_POST["direccionM"];
+			$usuario["contraseña"] = $_POST["contM"];
+			$usuario["verificarC"] = $_POST["verM"];
+            
+			
+            //? si la contraseña y la verificacion dela contraseña son iguales  
+            if (strcmp ($usuario["contraseña"] , $usuario["verificarC"] ) == 0) {
+
+				$email =$usuario["email"];
+				$verificacion=VerificarEmail($conexion,$email);
+				if ($verificacion == false) {
+				
+				modificarUsuario($conexion, $usuario);
+				// a perfil
+				header('Location:..\perfil.php');
+				}else{
+					$usuariov =obtenerusuarioE($conexion, $email);
+					if ($usuariov['Ci'] == $usuario["ci"] ) {
+						echo "se modificara";
+						modificarUsuario($conexion, $usuario);
+						//a perfil
+						header('Location:..\perfil.php');
+					}else{
+						echo "<script>alert('el email ya existe en otra cuenta');</script>";
+					}
+					
+					
+					// header('Location: ..\modify.php');
+				}
+                
+                
+            }elseif (strcmp($usuario["contraseña"] , $usuario["verificarC"] ) != 0) { 
+				//! de lo contrario volvera al modify
+				// header('Location: ..\modify.php');
+			}
+
+		}elseif (isset($_POST["email"])){
 			$usuario["email"] = $_POST["email"];
 			$usuario["nombre"] = $_POST["nombre"];
 			$usuario["apellido"] = $_POST["apellido"];
