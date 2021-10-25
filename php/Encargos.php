@@ -59,7 +59,7 @@ if ($verificar){
         echo "<p class = \"text-break\">".$fila['Descripcion']."</p>";
         echo "</div>";
         echo "<div class=\"col-2\">";
-        echo '<h4 class="text-center"><b >U$S'.$fila['Precio'].' </b></h4>';
+        echo '<h4 class="text-center"><b >U$S '.$fila['Precio'].' </b></h4>';
         echo "</div>";
         echo "</div>";
         echo "<div class=\"row\">";
@@ -78,15 +78,38 @@ if ($verificar){
         
     }
     echo "</div>";
-
+    $sql = "SELECT Nombre_Producto, c.IdProducto,Numcompra, Precio, Descripcion, Condicion, Nacionalidad, c.Cantidad Cantidad from compra c join producto p on c.IdProducto = p.IdProducto AND Ci =".$usuario['Ci']." AND Estado ='Procesando pago';";
+    $resultado = $conexion->query($sql);
+    if ( $resultado){ 
+        if($resultado->num_rows > 0){
+    
+            $verificar = true;
+        }else{
+            $verificar = false;
+        }
+    
+    }else{
+        $ls ="Error in ".$resultado."<br>".$conexion->error;
+        echo $ls;
+    
+    }
 
     echo "<div class=\"MS col-sm-4\" >";
     echo "<div class= 'row'><h2 class= 'text-center'>Resumen del pedido:</h2><br>";
     echo "<h4 class= 'text-center'>Resumen del pedido:</h4></div>";
-    while ($fila = $resultado->fetch_assoc()){
-
+    $total=0;
+    while ($fila1 = $resultado->fetch_assoc()){
+        $precio = $fila1['Precio'] * $fila1 ['Cantidad'];
+        if ( $fila1 ['Cantidad'] == 1){
+        echo '<p>'.$fila1['Nombre_Producto']."\t".'U$S'.$precio.'</p>';
+        
+        }else{
+            echo '<p>'.$fila1['Nombre_Producto']."x".$fila1['Cantidad']."\t".'U$S'.$precio.'</p>';
+            
+        }
+        $total+=$precio;
     }
-    
+    echo "<h3><b>Subtotal:  ".$total."</b></h3>";
     echo "</div>";
 }
 
