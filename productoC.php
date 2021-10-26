@@ -136,9 +136,9 @@
               
               <?php
               if (isset($idp)){
-                echo "Costo: ".$NCE['Precio'];
+                echo "Costo: ".'U$S '.$NCE['Precio'];
               }elseif(isset($_SESSION['idp'])){
-                echo "Costo: ".$producto['Precio'];
+                echo "Costo: ".'U$S '.$producto['Precio'];
                 
               } ?>
             </h2>

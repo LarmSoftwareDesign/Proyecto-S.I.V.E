@@ -20,7 +20,7 @@ if (isset($_GET["Numcompra"])) {
 		}
 	}
 $email=$_SESSION['email'];
-$usuario=obtenerusuario($conexion, $email);
+$usuario=obtenerusuarioE($conexion, $email);
 $sql = "SELECT Nombre_Producto, c.IdProducto,Numcompra, Precio, Descripcion, Condicion, Nacionalidad, c.Cantidad Cantidad from compra c join producto p on c.IdProducto = p.IdProducto AND Ci =".$usuario['Ci']." AND Estado ='Procesando pago';";
 $resultado = $conexion->query($sql);
 if ( $resultado){ 
@@ -67,11 +67,11 @@ if ($verificar){
         echo "<input class=\"form-control\" type=\"number\" min=\"1\" name=\"\" id=\"\" value=\"".$fila['Cantidad']."\">";
         echo "</div>";
         echo "<div class=\"col-sm-6\">";
-        echo "<button class=\"btn btn-outline-danger\" onclick='location.href=\"Encargos.php?Numcompra=".$fila['Numcompra']."'>";
+        echo "<a class=\"btn btn-outline-danger\" onclick='location.href=\"Encargos.php?Numcompra=".$fila['Numcompra']."'>";
         echo "<svg src=\/bootstrap-5.1.0-dist/SVG/trash.svg\" width=\"32\" height=\"32\" fill=\"currentColor\" class=\"bi bi-trash\" viewBox=\"0 0 16 16\" >";
         echo "<path d=\"M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z\"></path>";
         echo "<path fill-rule=\"evenodd\" d=\"M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z\"></path>";
-        echo "</svg></button>";                       
+        echo "</svg></a>";                       
         echo "</div>";
         echo "</div>";
         echo "</div>";

@@ -6,7 +6,7 @@ session_start();
 $email = $_SESSION['email'];
 $id = $_GET['id'];
 $cant = $_GET['cantidad'];
-$usuario =obtenerusuario($conexion, $email);
+$usuario =obtenerusuarioE($conexion, $email);
 
 // Verificar si el producto se ingreso antes
 $sql = "SELECT * FROM compra where IdProducto=".$id." AND Ci =".$usuario['Ci']." AND Estado ='Procesando pago';";
