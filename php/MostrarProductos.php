@@ -48,14 +48,15 @@ if($resultado){
                 }
                 $u++;
               }
+              $rutaR=substr($ruta, 1);
             echo "<div class=\"card\" style=\"width: 220px;\"> ";
             echo "<div class=\"card-body\">";
-            echo "<img src=\"".$ruta."\" class=\"card-img-top\">";
-           
-            echo "<h5 class=\"card-title\"><a href = \"#\" >".$nombre."</a></h5>";
-            echo "<p class=\"card-text\">".$unidad." ".$fila['Precio']."</p>";
+            echo "<a href=\"productoC.php?id=$id\" style='text-decoration:none;'><img src=\"".$rutaR."\" class=\"card-img-top\"></a><br>";
+        
+            echo "<h5 class=\"card-title text-center\"><a href=\"productoC.php?id=$id\" style='text-decoration:none;'>".$nombre."</a></h5>";
+            echo "<p class=\"card-text\">".$unidad." ".$fila['Precio']."</p><br>";
+            echo "<p class=\"text-break\">".$fila['Descripcion']."<p>";
             echo "</div>";
-            echo "<div class=\"card-footer\"><a href=\"productoC.php?id=$id\">leer mas...</a></div>";
             echo "</div>";
             $num++;  
         }else{

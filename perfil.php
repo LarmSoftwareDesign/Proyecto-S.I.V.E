@@ -34,6 +34,8 @@
                 cerrarConexion($conexion);
                 echo "<script type=\"text/javascript\"> MYAPP = {es: '$E'}; ";
                 echo "sessionStorage.setItem('es', MYAPP.es);</script>";
+                $fecha_nacimiento= $NC['Fnac'];
+                $Edad = obtener_edad($fecha_nacimiento);
     
             }else{
                 echo "<script>location.href = 'index.html'</script>";
@@ -49,10 +51,10 @@
     <section class ="container">
         <div class="MS col align-self-center">
             <div class="row">
-                <div class="col">
+                <div class="col-md-5">
                     <img src="img/login.png" class="logo-perfil">
                 </div>
-                <div class="col">
+                <div class="col-md-7">
                     <h1 style="font-size: 84px;"><?php echo $nombre;?></h1>
                     
                 </div>
@@ -72,9 +74,13 @@
                     <h3>Ci:</h3>
                     <p style ="font-size: 24px;"><?php echo $NC['Ci'];?></p>
                 </div>
-                <div class="col-md-6">
-                    <h3>Telefono:</h3>
-                    <p style ="font-size: 24px;"><?php echo $NC['Telefono'];?></p>
+                <div class="col-md-4">
+                    <h3>Edad:</h3>
+                    <p style ="font-size: 24px;"><?php echo $Edad; ?></p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Fecha de Nacimiento:</h3>
+                    <p style ="font-size: 24px;"><?php echo $NC['Fnac']; ?></p>
                 </div>
                 <div class="row">
                     <?php $Ci=$NC['Ci'];?>

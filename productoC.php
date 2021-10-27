@@ -148,7 +148,7 @@
               <h5>Descripcion:</h5>
            
             <div class="collapse" id="collapseExample">
-              <p class="text-break text-center"><?php
+              <p class="text-break text-center" style="width: 250px;"><?php
               if (isset($idp)){
                 echo $NCE['Descripcion'];
               }elseif(isset($_SESSION['idp'])){
@@ -174,10 +174,10 @@
               echo "</div>";
 
             }elseif(isset($_SESSION['emailE'])){
-              echo "<inp";
+              echo "<h4>Disponibilidad</h4>";
 
             }else{
-              echo "<h1>Registrate o logeate para Comprar</h1>";
+              echo "<div style= \"width: 250px;\"><h6 >Para Comprar Un producto Registrate o Inicia Sesión</h6></div>";
             }
             ?>
             

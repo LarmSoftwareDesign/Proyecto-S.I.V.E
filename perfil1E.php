@@ -20,7 +20,7 @@
     $conexion = abrirConexion();
     session_start();
     if (isset($_GET['Rut'])){
-      unset($_SESSION['email']);
+      unset($_SESSION['emailE']);
       echo "<script> sessionStorage.removeItem('es');";
       echo "location.href = 'index.html'</script>";
       
