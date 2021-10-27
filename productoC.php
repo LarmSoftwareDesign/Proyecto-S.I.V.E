@@ -27,7 +27,7 @@
       $ID =$_SESSION['idp'];
       $conexion = abrirConexion();
       $producto= obtenerProducto($conexion, $ID );
-      $empresa = obtenerempresa($conexion, $EMAIL);
+      $empresa = obtenerempresaE($conexion, $EMAIL);
       $NCE = $empresa['Nomempresa'];
       $productoid = $producto['IdProducto'];
       $_SESSION['idpV']= $productoid;
@@ -168,8 +168,10 @@
             
             if (isset($_SESSION['email'])) {
               # code...
-              echo "<div class=\"d-grid gap-2  mx-auto\" id=\"CE\"></div>";
-              echo "<div id= "t"></div>";
+              echo "<div class=\"d-grid gap-2  mx-auto\" id=\"CE\">";
+              echo "</div>";
+              echo "<div id= \"t\">";
+              echo "</div>";
 
             }elseif(isset($_SESSION['emailE'])){
               echo "<inp";

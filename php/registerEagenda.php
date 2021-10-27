@@ -11,7 +11,50 @@
 		include("empresF.php");
 		$conexion = abrirConexion();
 		
-		if (isset($_POST["rut"])){
+		if(isset($_POST['rutM'])){
+			$empresa["rut"] = intval($_POST["rutM"]);
+			$empresa["nomempresa"] = $_POST["nomempresaM"];
+			$empresa["email"] = $_POST["emailM"];
+			$empresa["contraseña"] = $_POST["contM"];
+			$empresa["verificar"] = $_POST["verM"];
+			$empresa["telefono"] = intval($_POST["telefonoM"]);
+			$empresa["direccion"] = $_POST["direccionM"];
+            
+			
+            //? si la contraseña y la verificacion dela contraseña son iguales  
+            if (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) == 0) {
+
+				$email =$empresa["email"];
+				$verificacion=VerificarEmail($conexion,$email);
+				if ($verificacion == false) {
+				
+				modificarUsuario($conexion, $usuario);
+				// a perfil
+				header('Location:..\perfil1E.php');
+				}else{
+					$empresav =obtenerempresaE($conexion, $email);
+					if ($empresav['Rut'] == $empresa["rut"] ) {
+						
+						echo "se modificara";
+						modificarEmpresa($conexion, $empresa);
+						//a perfil
+						header('Location:..\perfil1E.php');
+					}else{
+						echo "<script>alert('el email ya existe en otra cuenta');</script>";
+						header('Location: ..\modify E.php');
+					}
+					
+					
+					
+				}
+                
+                
+            }elseif (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) != 0){
+				//! de lo contrario volvera al modify
+				header('Location: ..\modify E.php');
+			}
+		
+		}elseif (isset($_POST["rut"])){
 			
 			$empresa["rut"] = intval($_POST["rut"]);
 			$empresa["nomempresa"] = $_POST["nomempresa"];
@@ -28,7 +71,7 @@
 					session_start();//iniciando 
 					$_SESSION['emailE'] = $empresa['email'];
 					header("Location:../perfil1E.php");
-				}else if (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) != 0) {
+				}elseif (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) != 0) {
 					header('Location: ..\register E.html');
 				}
 			}

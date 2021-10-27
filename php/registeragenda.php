@@ -41,17 +41,19 @@
 						//a perfil
 						header('Location:..\perfil.php');
 					}else{
+						
 						echo "<script>alert('el email ya existe en otra cuenta');</script>";
+						header('Location: ..\modify.php');
 					}
 					
 					
-					// header('Location: ..\modify.php');
+					
 				}
                 
                 
             }elseif (strcmp($usuario["contraseña"] , $usuario["verificarC"] ) != 0) { 
 				//! de lo contrario volvera al modify
-				// header('Location: ..\modify.php');
+				header('Location: ..\modify.php');
 			}
 
 		}elseif (isset($_POST["email"])){
@@ -72,6 +74,7 @@
 
 				//* se llamara la funcion ingresarUsuario para crear un usuario en la base de datos
                 ingresarUsuario($conexion, $usuario);
+				$_SESSION['email'] = $usuario['email'];
 				// a perfil
 				header('Location:..\perfil.php');
                 

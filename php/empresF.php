@@ -38,8 +38,8 @@
 		$dml .= "', Email = '" . $empresa ["email"];
 		$dml .= "', Direccion = '" . $empresa ["direccion"];
 		$dml .= "', Telefono = " . $empresa ["telefono"];
-		$dml .= ", Contraseña = " . $empresa ["contraseña"];
-		$dml .= "   WHERE Rut = " . $empresa ["rut"];
+		$dml .= ", Contrasena = UPPER(SHA1(UNHEX(SHA1('" . $empresa ["contraseña"];
+		$dml .= "'))))   WHERE Rut = " . $empresa ["rut"];
 
 
 		if ($conexion->query($dml) === TRUE){
@@ -90,6 +90,47 @@
 			
 		}
 	}
+	function obtenerusuarioRut($conexion, $Rut){
+		$sql = "SELECT * FROM empresa WHERE Rut='".$Rut. "'";
+		$resultado = $conexion->query($sql);
+	
+		if ( $resultado){ 
+			if($resultado->num_rows > 0){
+				$fila = $resultado->fetch_assoc();
+			   
+				return $fila;
+	
+			}else{
+				return false;
+			}
+			
+		}else{
+			$ls ="Error in ".$resultado."<br>".$conexion->error;
+		   return $ls;
+			
+		}
+	}
+	//* funcion para verificar gmail
+function VerificarEmail($conexion, $email){
+    //* SQL: SELECT * FROM tabla
+    $sql = "SELECT * FROM empresa WHERE Email='".$email . "'";
+	
+	$resultado = $conexion->query($sql);
+
+    if ($resultado){ 
+        if($resultado->num_rows > 0){
+		
+			return true;
+        }else{
+            return false;
+        }
+        
+    }else{
+        $ls ="Error in ".$resultado."<br>".$conexion->error;
+       return $ls;
+        
+    }
+}
 	function crearCarpetaEmpresa($carpetaE){
 		if (file_exists($carpetaE)){
 			echo "<br>la carpeta $carpetaE existe<br>";
