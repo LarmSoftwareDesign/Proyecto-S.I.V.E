@@ -164,15 +164,28 @@
             </a>    
             </p>
             </div>
+            <?php
             
-            <div class="d-grid gap-2  mx-auto" id="CE">
-            
-              
-              
-            </div>
-            <div id= "t">
+            if (isset($_SESSION['email'])) {
+              # code...
+              echo "<div class=\"d-grid gap-2  mx-auto\" id=\"CE\"></div>";
+              echo "<div id= "t"></div>";
 
-            </div>
+            }elseif(isset($_SESSION['emailE'])){
+              echo "<inp";
+
+            }else{
+              echo "<h1>Registrate o logeate para Comprar</h1>";
+            }
+            ?>
+            
+            
+              
+              
+            
+            
+
+            
           </div>
 
         </div>

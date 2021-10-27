@@ -4,47 +4,23 @@ body{
 .logo-perfil{
     background-color:black;
     padding: 1em;
-    width: 128px;
-    height: 128px;
+    width: 40%;
+    height:auto;
     border-radius: 10px;
 }
 
 
 
 .MS {
+    
     padding: 2em;
     background-color: whitesmoke;
     border-radius: 20px;
     text-align: left;
-    width: 560px;
-
-}
-
-.ls {
+    margin-bottom: 4em;
     
-    text-align: center;
-   
-  
+
 }
-.lC{
-    background-color:white;
-    padding: 1em;
-    border-radius: 10px;
+.Esp{
+    margin-top: 10px;
 }
-
-
-th {
-    font-size:24px;
-}
-
-
-.item{
-    font-size: 7px;
-    
-}
-.item-C{
-    font-size: 12px;
-    
-}
-
-

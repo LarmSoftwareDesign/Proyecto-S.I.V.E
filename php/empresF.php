@@ -33,13 +33,13 @@
 
 	function modificarEmpresa($conexion, $empresa){
 	
-		$dml = "UPDATE empresa set rut = ". $empresa["rut"];
-		$dml .= ", nomempresa = '" . $empresa ["nomempresa"];
-		$dml .= "', email = '" . $empresa ["email"];
-		$dml .= "', direccion = '" . $empresa ["direccion"];
-		$dml .= "', telefono = " . $empresa ["telefono"];
-		$dml .= ", contraseña = " . $empresa ["contraseña"];
-		$dml .= "   WHERE rut = " . $empresa ["rut"];
+		$dml = "UPDATE empresa set Rut = ". $empresa["rut"];
+		$dml .= ", Nomempresa = '" . $empresa ["nomempresa"];
+		$dml .= "', Email = '" . $empresa ["email"];
+		$dml .= "', Direccion = '" . $empresa ["direccion"];
+		$dml .= "', Telefono = " . $empresa ["telefono"];
+		$dml .= ", Contraseña = " . $empresa ["contraseña"];
+		$dml .= "   WHERE Rut = " . $empresa ["rut"];
 
 
 		if ($conexion->query($dml) === TRUE){
@@ -70,7 +70,7 @@
 			
 		}
 	}
-	function obtenerempresa($conexion, $EMAIL ){
+	function obtenerempresaE($conexion, $EMAIL ){
 		$sql = "SELECT * FROM empresa WHERE Email='".$EMAIL . "'";
 		$resultado = $conexion->query($sql);
 	

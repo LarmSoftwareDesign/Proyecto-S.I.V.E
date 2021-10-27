@@ -14,124 +14,97 @@
 <body>
   
     <header>
-    <?php 
-    include("php/conexion.php");
-    include("php/UserF.php");
-    $conexion = abrirConexion();
-    session_start();
-    $EMAIL=$_SESSION['email'];
-     $NC = obtenerusuarioE($conexion, $EMAIL );
-     $nombre= $NC["Nombre"]. " ". $NC["Apellido"];
-     $pasword = $NC["Direccion"];
-     $E=$NC['Es'];
-     cerrarConexion($conexion);
-    ?>
-    <script type="text/javascript">
-      
-      
-      MYAPP = {
-        es: '<?php echo $E;?>'   };
-   
-    ;
-    sessionStorage.setItem('es', MYAPP.es);
-    </script>
+        <?php 
+        include("php/conexion.php");
+        include("php/UserF.php");
+        $conexion = abrirConexion();
+        session_start();
+        if (isset($_GET['Ci'])){
+            echo "<script> sessionStorage.removeItem('es');";
+            unset($_SESSION['email']);
+            echo "location.href = 'index.html'</script>";
+            
+            }else{
+            if (isset($_SESSION['email'])){
+                $EMAIL=$_SESSION['email'];
+                $NC = obtenerusuarioE($conexion, $EMAIL);
+                $nombre= $NC["Nombre"]. " ". $NC["Apellido"]; 
+                $pasword = $NC["Direccion"];
+                $E=$NC['Es'];
+                cerrarConexion($conexion);
+                echo "<script type=\"text/javascript\"> MYAPP = {es: '$E'}; ";
+                echo "sessionStorage.setItem('es', MYAPP.es);</script>";
+    
+            }else{
+                echo "<script>location.href = 'index.html'</script>";
+            }
+        }
+
+        ?>
         <script src="js/header.js"></script>
         <script src="js/funciones.js"></script>
     </header>
     <!--form-->
     
     <section class ="container">
-        <div class="MS">
+        <div class="MS col align-self-center">
             <div class="row">
                 <div class="col">
                     <img src="img/login.png" class="logo-perfil">
                 </div>
                 <div class="col">
-                    <h1><?php echo $nombre;?></h1>
+                    <h1 style="font-size: 84px;"><?php echo $nombre;?></h1>
+                    
                 </div>
             </div>
             <br>
             <div class="row justify-content-between">
-                <div class="col">
-                    <span class="span">Gmail:</span>
-                    <span class="span"><?php echo $EMAIL; ?></span>
+                <div class="col-md-6">
+                    <h3>Gmail:</h3>
+                    <p style="font-size: 24px;"><?php echo $EMAIL; ?></p>
                 </div>
                 <div class="col-md-6" >
                     <h3>Direccion</h3>
-                    <p><?php echo $pasword;?></p>
+                    <p style="font-size: 24px;"><?php echo $pasword;?></p>
                     
-                    </div>
-                    <div class="col-md-4">
-                      
-                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Ci:</h3>
+                    <p style ="font-size: 24px;"><?php echo $NC['Ci'];?></p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Telefono:</h3>
+                    <p style ="font-size: 24px;"><?php echo $NC['Telefono'];?></p>
+                </div>
+                <div class="row">
+                    <?php $Ci=$NC['Ci'];?>
+                    <a class="Esp btn btn-outline-info" href="<?php echo "modify.php?Ci=".$Ci;?>">
+                        <svg src="bootstrap-5.1.0-dist/SVG/pencil-square.svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                        </svg>
+                        Editar</a>
+                    <a class="Esp btn btn-outline-danger" href="<?php echo "perfil.php?Ci=".$Ci;?>">
+                        <svg src="bootstrap-5.1.0-dist/SVG/pencil-square.svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                        </svg>
+                        Cerrar Sesión
+                    </a>
+                
+                </div>
+                
                     
-                 </div>
+            </div>
+
 
             
-            <br>
-            <div class="row">
-            <?php $Ci=$NC['Ci'];?>
-                <a class="btn btn-outline-info" href="<?php echo "modify.php?Ci=".$Ci;?>">
-                    <svg src="bootstrap-5.1.0-dist/SVG/pencil-square.svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                      </svg>
-                    Editar</a>
-            </div>
+        
+            
         </div>
 </div>
     </section>
-    <section class="caja-ingreso">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="lC">
-                        <table class=" table table-light">
-                            <thead>
-                                <tr>
-                                    <th scope="col" colspan="4">Pedidos:</th>
-                                </tr>
-                              <tr>
-                                
-                                <th >Nº</th>
-                                <th >Fecha:</th>
-                                <th >Estado</th>
-                                <th >Costo:</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">#1</th>
-                                <td>0:00 0/00/0000</td>
-                                <td>¿?</td>
-                                <td>0.00$</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">#2</th>
-                                <td>0:00 0/00/0000</td>
-                                <td>¿?</td>
-                                <td>0.00$</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">#3</th>
-                                <td>0:00 0/00/0000</td>
-                                <td>¿?</td>
-                                <td>0.00$</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                    </div>
-                   
-                </div>
-               
-
-                </div>
-
-            </div>
-            
-        </div>
-        
-    </section>
+    
     <footer>
         <script src="js/footer.js"></script>
     </footer>

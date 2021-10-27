@@ -19,125 +19,87 @@
     include("php/empresF.php");
     $conexion = abrirConexion();
     session_start();
-    $EMAIL=$_SESSION['emailE'];
-     $NCE = obtenerempresa($conexion, $EMAIL );
-     $nomE= $NCE["Nomempresa"];
-     $pasword = $NCE["Contrasena"];
-     $E='Empresa';
-     cerrarConexion($conexion);
-    ?>
-    <script type="text/javascript">
+    if (isset($_GET['Rut'])){
+      unset($_SESSION['email']);
+      echo "<script> sessionStorage.removeItem('es');";
+      echo "location.href = 'index.html'</script>";
       
-      
-      MYAPP = {
-        es: '<?php echo $E;?>'   
-      };
-      sessionStorage.setItem('es', MYAPP.es);
-    
-    </script>
+      }else{
+        if (isset($_SESSION['emailE'])){
+        $EMAIL=$_SESSION['emailE'];
+        $NCE = obtenerempresaE($conexion, $EMAIL );
+        $nomE= $NCE["Nomempresa"];
+        $E='Empresa';
+        cerrarConexion($conexion);
+        echo "<script type=\"text/javascript\"> MYAPP = {es: '$E'}; ";
+        echo "sessionStorage.setItem('es', MYAPP.es);</script>";
+
+        }else{
+          echo "<script>location.href = 'index.html'</script>";
+        }
+      }
+
+?>
         <script src="js/header.js">
       </script>
         <script src="js/funciones.js"></script>
     </header>
     <!--form-->
     
-    <section class ="caja">
-        <div class="MS container">
+    <section class ="container">
+        <div class="MS">
             <div class="row">
                 <div class="col">
                     <img src="img/login.png" class="logo-perfil">
                 </div>
                 <div class="col">
-                  
-                    <h1><?php echo $nomE; ?></h1>
+                    <h1 style="font-size: 84px;"><?php echo $nomE; ?></h1>
                 </div>
             </div>
             <br>
             <div class="row justify-content-between">
-                <div class="col">
-                    <span class="span">Gmail:</span>
-                    <span class="span"><?php echo $EMAIL; ?></span>
+                <div class="col-md-6">
+                    <h3>Gmail:</h3>
+                    <p style="font-size: 24px;"><?php echo $EMAIL; ?></p>
                 </div>
-                <div class="col-md-6" >
-                    <span class="span">Contraseña:</span>
-                    <input type="password" value="<?php echo $pasword; ?>" class="form-control" disabled id ="validationCustom06">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" onclick="myFunction()" >
-                      <label class="form-check-label">
-                        Mostrar
-                      </label>
-                    </div>
-                    
-                 </div>
-
-            </div>
-            <br>
-            <div class="col">
-            
-                <button class="btn btn-outline-info">
-                    <svg src="bootstrap-5.1.0-dist/SVG/pencil-square.svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <div class="col-md-6">
+                  <h3>Dirección:</h3>
+                  <p style="font-size: 24px;"><?php echo $NCE['Direccion']; ?></p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Rut:</h3>
+                  <p style="font-size: 24px;"><?php echo $NCE['Rut']; ?></p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Telefono:</h3>
+                  <p style="font-size: 24px;"><?php echo $NCE['Telefono']; ?></p>
+                </div>
+                <div class="row">
+                  <?php $Rut=$NCE['Rut'];?>
+                  <a class="Esp btn btn-outline-info btn-lg" href="<?php echo "modify E.php?Rut=".$Rut;?>">
+                      <svg src="bootstrap-5.1.0-dist/SVG/pencil-square.svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                       </svg>
-                    Editar</button>
+                    Editar
+                  </a>
+                    
+                  <a class="Esp btn btn-outline-danger btn-lg" href="<?php echo "perfil1E.php?Rut=".$Rut;?>">
+                      <svg src="bootstrap-5.1.0-dist/SVG/pencil-square.svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                      </svg>
+                    Cerrar Sesión
+                  </a>
+                </div>
+
+            </div>
+
             </div>
         </div>
 
     </section>
-    <section class="caja-ingreso">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="lC">
-                    <table class=" table table-light">
-                            <thead>
-                                <tr>
-                                    <th scope="col" colspan="4">Pedidos:</th>
-                                </tr>
-                              <tr>
-                                
-                                <th >Nº</th>
-                                <th >Fecha:</th>
-                                <th >Estado</th>
-                                <th >Costo:</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            
-                        
-                           
-                              <tr>
-                                <th scope="row">#1</th>
-                                <td>0:00 0/00/0000</td>
-                                <td>¿?</td>
-                                <td>0.00$</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">#2</th>
-                                <td>0:00 0/00/0000</td>
-                                <td>¿?</td>
-                                <td>0.00$</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">#3</th>
-                                <td>0:00 0/00/0000</td>
-                                <td>¿?</td>
-                                <td>0.00$</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                    </div>
-                   
-                </div>
-               
-
-                </div>
-
-            </div>
-            
-        </div>
-        
-    </section>
+    
     <footer>
         <script src="js/footer.js"></script>
     </footer>
