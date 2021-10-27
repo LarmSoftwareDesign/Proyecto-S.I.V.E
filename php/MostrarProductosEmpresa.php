@@ -1,5 +1,7 @@
 <?php
 include("conexion.php");
+include("productF.php");
+
 $conexion = abrirConexion();
 $num=1;
 $unidad='U$S';
@@ -28,6 +30,7 @@ echo "<div class=\"container\">";
 echo "<h3>Tus Productos:</h3>";  
 echo "<br>";
 if($resultado){
+    $cant=0;
     while($fila = $resultado->fetch_assoc()) {
         
         
@@ -71,9 +74,13 @@ if($resultado){
             echo "</div>";
             $num=1;
         }
-        
+        $cant++;
     }
-    
+    if ($cant == 0){
+        echo "<h1>usted no tiene productos</h1>";
+    }
+}else{
+    echo "<h1>usted no tiene productos</h1>";
 }
 
 echo "</div>";

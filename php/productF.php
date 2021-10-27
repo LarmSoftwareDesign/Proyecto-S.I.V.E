@@ -195,6 +195,22 @@
 		}
 	}
 	}
+
+	function eliminarCarpetaproducto($carpetaName){
+		if (file_exists($carpetaName)){
+			if (unlink($carpetaName)) {
+				echo "cambio existoso";
+			}else{
+				echo "error al eliminar";
+			}
+			
+		}else{
+			echo "fallo";
+		}
+	}
+	
+	
+	
 	function obtenerCategorias($conexion)
 	{
 		$sql="SELECT  Categorias FROM producto group by Categorias";

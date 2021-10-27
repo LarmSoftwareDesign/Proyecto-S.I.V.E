@@ -18,9 +18,19 @@
     <?php 
     include("php/conexion.php");
     include("php/empresF.php");
+    include("php/productF.php");
     $conexion = abrirConexion();
     session_start();
-    if (isset($_GET['Rut'])){
+    if (isset($_GET['idpB'])){
+      $idproducto=$_GET['idpB'];
+      $idp=$idproducto;
+      eliminarProducto($conexion,$idproducto);
+      $carpeta=obtenerproductoE($conexion,$idp);
+      $carpetaName ='Archivos/'.$carpeta['Nomempresa'].'/'.$idp.'-'.$carpeta['Nombre_Producto'].'/';
+      eliminarCarpetaproducto($carpetaName);    
+      unset($_GET['idpB']);
+  }
+  if (isset($_GET['Rut'])){
       unset($_SESSION['emailE']);
       echo "<script> sessionStorage.removeItem('es');";
       echo "location.href = 'index.html'</script>";
