@@ -41,19 +41,20 @@
 	function modificarProducto($conexion, $producto){
 	
 		$dml = "UPDATE producto set IdProducto = ". $producto["idproducto"];
-		$dml .= ", nombre_producto = '" . $producto ["nombre_producto"];
-		$dml .= "', precio = " . $producto ["precio"];
-		$dml .= ", condicion '= '" . $producto ["condicion"];
-		$dml .= "', categoria '= '" . $producto ["categoria"];
-		$dml .= "', descripcion '= '" . $producto ["descripcion"];
-		$dml .= "', nacionalidad '= " . $producto ["nacionalidad"];
-		$dml .= "'   WHERE idproducto = " . $producto ["idproducto"];
+		$dml .= ", Nombre_Producto = '" . $producto ["nombre_producto"];
+		$dml .= "', Precio = " . $producto ["precio"];
+		$dml .= ", Condicion = '" . $producto ["condicion"];
+		$dml .= "', Categorias = '" . $producto ["categoria"];
+		$dml .= "', Descripcion = '" . $producto ["descripcion"];
+		$dml .= "', Nacionalidad = '" . $producto ["nacionalidad"];
+		$dml .= "'   WHERE IdProducto = " . $producto ["idproducto"]." AND Rut =".$producto['rut'];
 		$resultado=$conexion->query($dml);
 
 		if ( $resultado === TRUE){
 			//Es exactamente igual a TRUE
 			
 			echo "Producto modificado";
+			
 			
 		}else{
 			die("Error al modificar: $dml. Error: " . $conexion->connect_error);
@@ -120,7 +121,7 @@
 			
 		}
 	}
-	function obtenerproductoE($conexion, $idp){
+	function obtenerproductoE($conexion,$idp){
 		$sql="SELECT Nomempresa, IdProducto, Nombre_Producto FROM producto p join empresa e on p.Rut = e.Rut where IdProducto=".$idp;
 		
 		$resultado = $conexion->query($sql);
@@ -141,8 +142,9 @@
 		}
 
 	}
-	function obtenerproductoRut($conexion, $Rut, $idp){
-		$sql="SELECT Nomempresa, IdProducto, Nombre_Producto FROM producto p join empresa e on p.Rut = e.Rut where IdProducto=".$idp;
+	function obtenerproductoM($conexion, $idp){
+		$sql="SELECT Nomempresa,IdProducto,Nombre_Producto,Descripcion,Categorias,Condicion,Precio,Nacionalidad,Cantidad, p.Rut FROM producto p join empresa e on p.Rut = e.Rut where IdProducto=".$idp;
+		
 		
 		$resultado = $conexion->query($sql);
 	
@@ -166,6 +168,24 @@
 	function crearCarpetaproducto($carpetaName){
 		if (file_exists($carpetaName)){
 			echo "<br>la carpeta $carpetaName existe<br>";
+		}else{
+		mkdir($carpetaName, 0777);
+		if (file_exists($carpetaName)){
+			echo "<br>se creo $carpetaName<br>";
+		}else {
+			echo "fallo";
+		}
+	}
+	}
+
+	function cambiarCarpetaproducto($carpetaName, $carpetaNameN){
+		if (file_exists($carpetaName)){
+			if (rename($carpetaName, $carpetaNameN)) {
+				echo "cambio existoso";
+			}else{
+				echo "error en el cambio";
+			}
+			
 		}else{
 		mkdir($carpetaName, 0777);
 		if (file_exists($carpetaName)){

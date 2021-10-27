@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/vender.css">
     <link rel="stylesheet" href="css/footer.css">
-    <title>crear un producto</title>
+    <title>Modificar el Producto</title>
 </head>
 <body>
     <header>
@@ -17,27 +17,67 @@
     </header>
     <?php
     include("php/conexion.php");
-    include("php/empresF.php");
+    include("php/productF.php");
     session_start();
-     if (isset($_GET['Rut']) && isset($_GET['idp'])){
+    
+    if (isset($_GET['idp'])){
         $conexion = abrirConexion();
-        $Rut = $_GET['Rut'];
         $idp = $_GET['idp'];
-        $datos =obtenerusuarioRut($conexion, $Rut);
-        $oldP = $datos['Contrasena'];
+        $datos =obtenerproductoM($conexion, $idp);
         cerrarConexion($conexion);
+        if (isset($_GET['image']) ){
+          
+          if (unlink($_GET['image'])) {
+            unset($_GET['image']);
+          } else {
+            $info="<script>alert('error al borrarse $imagen');</script>";
+  
+          }
+        }
+        
     ?>
     <section class="container">
         <div class="caja-producto">
-            <h1>Nuevo Producto</h1>
+            <h1>Producto <?php echo $datos['Nombre_Producto']." de ".$datos['Nomempresa'];?></h1>
+            <br>
+            
+            <h5>Imagenes del Producto:</h5>
+            <br>
+            <div class="col-sm-12">
+                  <div class="row justify-content-between">
+
+                                              
+                  <?php
+                  $t ='Archivos/'.$datos['Nomempresa'].'/'.$datos['IdProducto'].'-'.$datos['Nombre_Producto'].'/*.*';
+                  $id= $datos['IdProducto'];
+                  $u=0;
+                  foreach (glob($t) as $imagen){
+                   
+                    echo "<div class= 'Cimg col'>";
+                    echo "<img src='$imagen' class='img'>";
+                    echo "<a class= 'btn btn-outline-danger' href='modify P.php?image=$imagen&idp=$id'>Eliminar<a>";
+                    echo "</div>";
+                   $u++;
+                  }
+                  if($u>= 0){
+                    
+                  }else {echo "<h6> borraste todas las imagenes</h6>";
+                    $in="required";}
+                  ?>
+                  </div>
+            </div>
+            <br>
+
             <form enctype="multipart/form-data" action="registerp.php" method="post" class="row g-3 needs-validation" novalidate>
-              <input type="hidden" name="idproducto" value="0">
-                <div class="col-12">
+              <input type="hidden" name="idproductoM" value="<?php echo $datos['IdProducto']?>">
+              <input type="hidden" name="rut" value="<?php echo $datos['Rut'];?>">
+              
+                <div class="col-md-12">
                   <label class="form-label" for="validationCustom01">Nombre del Producto:</label>
                   <!--* Al ingresar el required en el input nos enviará una alerta si detecta el campo vacio -->
                   <!--* Con el pattern="[a-z]{3,20}" restringimos los rangos de caracteres a chequear y solo letras -->
                   <!--* Autofus permite posicionar el cursos en un input al cargar el formulario -->
-                  <input type="text" class="form-control" id="validationCustom01" autofocus required pattern="[a-zA-Z0-9]{5,50}" placeholder="ProductoX" name="nombre_producto">
+                  <input type="text" class="form-control" id="validationCustom01" autofocus required pattern="[a-zA-Z0-9]{5,50}" placeholder="" value="<?php echo $datos['Nombre_Producto'] ?>" name="nombre_productoM">
                   <div class="valid-feedback">
                     Nombre OK!
                   </div>
@@ -45,11 +85,11 @@
                     Los nombres solo pueden contener letras minusculas con un minimo de 5 caracteres y un maximo de 50 caracteres
                   </div>  
                 </div>
-
-                <div class="col-mb-3">
+                
+                <div class="col-md-12">
                     <label class="form-label" for="validationCustom02">Imagenes del Producto:</label>
                     <input type="Hidden" name="MAX_FILE_SIZE" value="5120000">
-                    <input id="validationCustom02" class="form-control" autofocus required name="archivo[]" type="file" accept="image/*,.webp" multiple="">
+                    <input id="validationCustom02" class="form-control" autofocus name="archivoM[]" type="file" accept="image/*,.webp" multiple="" <?php if (isset($in)){echo $in;}?>>
                     <div class="valid-feedback">
                       OK!
                     </div>
@@ -57,11 +97,11 @@
                       Por lo menos debe tener una imagen para tu producto
                     </div> 
                   </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <!--tipo de producto-->
                   <label class="form-label" for="validationCustom03">Tipo de Producto:</label>
-                  <select id="validationCustom03" class="form-select" name="categoria" required>
-                    <option selected disabled value="">Categoria...</option>
+                  <select id="validationCustom03" class="form-select" name="categoriaM" required >
+                    <option selected disabled value="<?php echo $datos['Categorias']?>"><?php echo $datos['Categorias']?></option>
                     <!--1-->
                       <option value ="hogar">Productos Domesticos</option>
                     <!--2-->
@@ -87,6 +127,7 @@
                     <!--12-->
                       <option value ="arte">Artes</option>
                   </select>
+                  <input type="hidden" name="cat" value="<?php echo $datos['Categorias']?>">
                   <div class="valid-feedback">
                    
                   </div>
@@ -94,16 +135,17 @@
                     Debes ponerle una Categoria a tu producto
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <!--condicion de producto-->
                     <label class="form-label" for="validationCustom04">Codición del producto:</label>
                     
-                    <select class="form-select" id="validationCustom04" name="condicion" required>
-                      <option selected disabled value="">Condición...</option>
+                    <select class="form-select" id="validationCustom04" name="condicionM" required>
+                    <option selected disabled value="<?php echo $datos['Condicion']?>"><?php echo $datos['Condicion']?></option>
                       <option value="Nuevo">Nuevo</option>
                       <option value="Restaurado">Restaurado</option>
                       <option value="Usado">Usado</option>
                     </select>
+                    <input type="hidden" name="cond" value="<?php echo $datos['Condicion']?>">
                     <div class="valid-feedback">
                     </div>
                     <div class="invalid-feedback">
@@ -113,8 +155,8 @@
                 <div class="col-md-4">
                   <!--condicion de producto-->
                   <label class="form-label" for="validationCustom05">Nacionalidad:</label>
-                  <select class="form-select" name="nacionalidad" id="validationCustom05" required>
-                    <option selected disabled value="">El pais...</option>
+                  <select class="form-select" name="nacionalidadM" id="validationCustom05" required>
+                    <option selected disabled value="<?php echo $datos['Nacionalidad']?>"><?php echo $datos['Nacionalidad']?></option>
                     <option value="Uruguay">Uruguay</option>
                     <option value="Argentina">Argentina</option>
                     <option value="Brasil">Brasil</option>
@@ -126,7 +168,7 @@
                     <option value="Venezuela">Venezuela</option>
                     <option value="Ecuador">Ecuador</option>
                   </select>
-                 
+                  <input type="hidden" name="naci" value="<?php echo $datos['Nacionalidad']?>">
                   <div class="valid-feedback">
                   </div>
                   <div class="invalid-feedback">
@@ -135,7 +177,8 @@
               </div>
                 <div class="col-md-4">
                     <label class="form-label" for="validationCustom06">Precio:</label>
-                    <input type="text" class="form-control" id="validationCustom06" name="precio" pattern="[0-9]{1,}.[0-9]{1,2}" required autofocus>
+                    <input type="text" class="form-control" id="validationCustom06" name="precioM" value="<?php echo $datos['Precio']?>" pattern="[0-9]{1,}.[0-9]{1,2}" required autofocus>
+                    
                     <div class="valid-feedback">
                     </div>
                     <div class="invalid-feedback">
@@ -146,7 +189,8 @@
                 
                 <div class="col-md-4">
                   <label class="form-label" for="validationCustom07" >Cantidad:</label>
-                  <input type="text" class="form-control" id="validationCustom07" pattern="[0-9]{1,9}" maxlength="9" name="cantidad" required autofocus>
+                  <input type="text" class="form-control" id="validationCustom07" pattern="[0-9]{1,9}" maxlength="9" name="cantidadM" value="<?php echo $datos['Cantidad']?>"required autofocus>
+                  <input type="hidden" name="cant" value="<?php echo $datos['Cantidad']?>">
                   <div class="valid-feedback">
                   </div>
                   <div class="invalid-feedback">
@@ -156,28 +200,17 @@
                 
                 <div class="col-mb-3">
                     <label class="form-label" for="validationTextarea" >Descripción:</label>
-                    <textarea class="form-control is-invalidCheck" rows="3" name="descripcion" id="validationTextarea" pattern="{,400}" required placeholder="Descripcion..........."></textarea>
+                    <textarea class="form-control is-invalidCheck" rows="3" name="descripcionM" id="validationTextarea" pattern="{,400}" required placeholder="<?php echo $datos['Descripcion']?>"></textarea>
+                    <input type="hidden" name="desc" value="<?php echo $datos['Descripcion']?>">
                     <div class="valid-feedback">
                     </div>
                     <div class="invalid-feedback">
                      Debe dar una descripcion simple del producto
                     </div>
                   </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="true"id="invalidCheck" required name="terminos">
-                    <label class="form-check-label" for="invalidCheck">
-                      Acepto los Terminos y Condiciones
-                    </label>
-                    
-                    <div class="invalid-feedback">
-                      Debes estar de acuerdo con los terminos y condiciones, Sino no podes Registrar un Producto!
-                    </div>
-          
-                  </div>
-                </div> 
+                
                 <div class="d-grid gap-2" style="text-align: center;">
-                  <button type="submit" class="btn btn-lg btn-primary" >Publicar</button>
+                  <button type="submit" class="btn btn-lg btn-primary" >Modificar</button>
                 </div>
               </form>
               <br>
