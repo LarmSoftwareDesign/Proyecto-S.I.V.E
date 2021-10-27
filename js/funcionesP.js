@@ -87,7 +87,7 @@ function carrito() {
 }
 
 
-// funciones para la pagina carrita
+// funciones para la pagina carrito
 
 function cargarEn(){
   var xmlhttp = new XMLHttpRequest();
@@ -101,3 +101,19 @@ function cargarEn(){
   xmlhttp.send();
   
 }
+
+//* funcion para encontrar las 
+
+
+function cargarProductosE() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("productosCreados").innerHTML = this.responseText;
+    }
+  };
+  xmlhttp.open("GET","php/MostrarProductosEmpresa.php",true);
+  xmlhttp.send();
+}
+
+

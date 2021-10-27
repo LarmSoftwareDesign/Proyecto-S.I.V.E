@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/footer.css">
     <!--js-->
+    <script src="js/funcionesP.js"></script>
     <title>Mi Perfil</title>
 </head>
-<body>
+<body onload="cargarProductosE()">
   
     <header>
     <?php 
@@ -43,6 +44,7 @@
         <script src="js/header.js">
       </script>
         <script src="js/funciones.js"></script>
+        
     </header>
     <!--form-->
     
@@ -98,6 +100,9 @@
             </div>
         </div>
 
+    </section>
+    <section class="container" style="background-color:white; padding:2em; border-radius:10px;" id="productosCreados">
+      
     </section>
     
     <footer>

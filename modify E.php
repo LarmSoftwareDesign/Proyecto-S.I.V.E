@@ -18,7 +18,7 @@
     </header>
     <?php
     include("php/conexion.php");
-    include("php/empresF.php");
+    include("php/productF.php");
     session_start();
      if (isset($_GET['Rut'])){
         
@@ -147,9 +147,8 @@
     </section>
     <?php
       }else{
-          echo "<div class='container'><h1>ERROR</h1></div>";
+          echo "<div class='container' align= 'center'><h1>ERROR</h1></div>";
       }
-      
     ?>
 
     <script>
