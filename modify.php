@@ -95,7 +95,7 @@
 
             <div class="col-md-8">
               <label for="form-label" class="validationCustom05">Dirección:</label>
-              <input type="text" class="form-control" name="direccionM" id="validationCustom05" value="<?php echo $datos['Direccion'];?>" required pattern="[a-zA-Z0-9]{5,30}" placeholder="" autofocus>
+              <input type="text" class="form-control" name="direccionM" id="validationCustom05" value="<?php echo $datos['Direccion'];?>" required pattern="[a-zA-Z0-9\s]{5,30}" placeholder="" autofocus>
               <div class="valid-feedback">
                  OK!
               </div>

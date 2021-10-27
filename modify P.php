@@ -77,7 +77,7 @@
                   <!--* Al ingresar el required en el input nos enviará una alerta si detecta el campo vacio -->
                   <!--* Con el pattern="[a-z]{3,20}" restringimos los rangos de caracteres a chequear y solo letras -->
                   <!--* Autofus permite posicionar el cursos en un input al cargar el formulario -->
-                  <input type="text" class="form-control" id="validationCustom01" autofocus required pattern="[a-zA-Z0-9]{5,50}" placeholder="" value="<?php echo $datos['Nombre_Producto'] ?>" name="nombre_productoM">
+                  <input type="text" class="form-control" id="validationCustom01" autofocus required pattern="[a-zA-Z0-9\s]{5,50}" placeholder="" value="<?php echo $datos['Nombre_Producto'] ?>" name="nombre_productoM">
                   <div class="valid-feedback">
                     Nombre OK!
                   </div>

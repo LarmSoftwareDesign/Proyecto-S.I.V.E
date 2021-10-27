@@ -73,7 +73,7 @@
               El telefono son solo 9 numeros sin guion
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
               <label for="validationCustom03" class="form-label">Rut:</label>
 
               <h4><?php echo $datos['Rut'] ?></h4>
@@ -81,9 +81,9 @@
               
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-7">
               <label for="form-label" class="validationCustom05">Dirección:</label>
-              <input type="text" value="<?php echo $datos['Direccion'] ?>" class="form-control" name="direccionM" id="validationCustom04" required pattern="{15,35}" placeholder="" autofocus>
+              <input type="text" value="<?php echo $datos['Direccion'] ?>" class="form-control" name="direccionM" id="validationCustom04" required pattern="[a-zA-Z0-9\s]{5,30}" placeholder="" autofocus>
               <div class="valid-feedback">
                  OK!
               </div>
