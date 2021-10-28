@@ -40,7 +40,7 @@
           <form action="php/registeragenda.php" method="post" class="row g-3 needs-validation" novalidate>
             <div class="col-md-12">
               <label for="validationCustomUsername" class="form-label">Email:</label>  
-              <input type="email" name="emailM" class="form-control" id="validationCustomUsername" value="<?php echo $datos['Email'];?>" aria-describedby="inputGroupPrepend" required placeholder="example@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$">
+              <input type="email" name="emailM" class="form-control" id="validationCustomUsername" value="<?php echo $datos['Email'];?>" aria-describedby="inputGroupPrepend" required placeholder="example@gmail.com" pattern="[a-zA-Z0-9._%+-\s]+@[a-z.-]+\.[a-z]{2,}$">
               <div class="valid-feedback">
                 OK!
               </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="col-md-4">
               <label for="validationCustom01" class="form-label">Ci: <?php echo $CiO;?></label>
-              <input type="hidden" name="ciM" class="form-control" id="validationCustom01" required placeholder="" value="<?php echo $CiO;?>" pattern="[0-9]{8}">
+              <input type="hidden" name="ciM" class="form-control" id="validationCustom01" required placeholder="" value="<?php echo $CiO;?>" pattern="[0-9]{8,9}">
               <div class="valid-feedback">
                 OK!
               </div>
@@ -95,7 +95,7 @@
 
             <div class="col-md-8">
               <label for="form-label" class="validationCustom05">Dirección:</label>
-              <input type="text" class="form-control" name="direccionM" id="validationCustom05" value="<?php echo $datos['Direccion'];?>" required pattern="[a-zA-Z0-9\s]{5,30}" placeholder="" autofocus>
+              <input type="text" class="form-control" name="direccionM" id="validationCustom05" value="<?php echo $datos['Direccion'];?>" required pattern="[a-zA-Z0-9\s]{5,35}" placeholder="" autofocus>
               <div class="valid-feedback">
                  OK!
               </div>

@@ -10,7 +10,7 @@
 		include("conexion.php");
 		include("empresF.php");
 		$conexion = abrirConexion();
-		
+		session_start();
 		if(isset($_POST['rutM'])){
 			$empresa["rut"] = intval($_POST["rutM"]);
 			$empresa["nomempresa"] = $_POST["nomempresaM"];
@@ -28,7 +28,7 @@
 				$verificacion=VerificarEmail($conexion,$email);
 				if ($verificacion == false) {
 				
-				modificarUsuario($conexion, $usuario);
+					modificarEmpresa($conexion, $empresa);
 				// a perfil
 				header('Location:..\perfil1E.php');
 				}else{
@@ -38,6 +38,8 @@
 						echo "se modificara";
 						modificarEmpresa($conexion, $empresa);
 						//a perfil
+						$_SESSION['emailE']=$empresa['email'];
+
 						header('Location:..\perfil1E.php');
 					}else{
 						echo "<script>alert('el email ya existe en otra cuenta');</script>";

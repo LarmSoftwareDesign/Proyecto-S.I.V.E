@@ -19,6 +19,7 @@
     <?php
     include("php/conexion.php");
     include("php/productF.php");
+    include("php/empresF.php");
     session_start();
      if (isset($_GET['Rut'])){
         
@@ -40,7 +41,7 @@
           <form action="php/registerEagenda.php" method="post" class="row g-3 needs-validation" novalidate>
             <div class="col-md-12">
               <label for="validationCustomUsername" class="form-label">Email:</label>  
-              <input type="text" name="emailM" value="<?php echo $datos['Email'] ?>" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required pattern="[a-zA-Z0-9._%+-]+@[a-z.-]+\.[a-z]{2,}$">
+              <input type="text" name="emailM" value="<?php echo $datos['Email'] ?>" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required pattern="[a-zA-Z0-9._%+-\s]+@[a-z.-]+\.[a-z]{2,}$">
               <div class="valid-feedback">
                 OK!
               </div>
@@ -54,7 +55,7 @@
               <!--* Al ingresar el required en el input nos enviará una alerta si detecta el campo vacio -->
               <!--* Con el pattern="[a-z]{3,20}" restringimos los rangos de caracteres a chequear y solo letras -->
               <!--* Autofus permite posicionar el cursos en un input al cargar el formulario -->
-              <input type="text" class="form-control" id="validationCustom01" value="<?php echo $datos['Nomempresa'] ?>" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,20}" placeholder="" autofocus name="nomempresaM">
+              <input type="text" class="form-control" id="validationCustom01" value="<?php echo $datos['Nomempresa'] ?>" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ.\s]{3,20}" placeholder="" autofocus name="nomempresaM">
               <div class="valid-feedback">
                 Nombre Valido!
               </div>
@@ -65,7 +66,7 @@
 
             <div class="col-md-6">
               <label for="validationCustom02" class="form-label">Telefono:</label>
-              <input type="text" value="<?php echo $datos['Telefono'] ?>" name="telefonoM" class="form-control" id="validationCustom02" required placeholder="" pattern="[0-9]{9}">
+              <input type="text" value="<?php echo $datos['Telefono'] ?>" name="telefonoM" class="form-control" id="validationCustom02" required placeholder="" pattern="[0-9]{8,9}">
               <div class="valid-feedback">
                 OK!
               </div>
