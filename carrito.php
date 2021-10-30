@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,19 +11,16 @@
     <link rel="stylesheet" href="css/productos.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
-<body >
+<body onload="cargarEn()">
 
     <header>
         <script src="js/header.js"></script>
+        <script src="js/funcionesP.js"></script>
     </header>
-    <section class="container">
-        <div class="row justify-content-between">
-            <div class="MS col" id="txtencargos">
-                
-            </div>
-            <div class="col">
-
-            </div>
+    <section class="container-fluid">    
+        <div class="row justify-content-between" id="CED">
+                    
+            
         </div>
     </section>
 
