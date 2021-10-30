@@ -24,7 +24,7 @@
             unset($_SESSION['email']);
             echo "location.href = 'index.html'</script>";
             
-            }else{
+        }else{
             if (isset($_SESSION['email'])){
                 $EMAIL=$_SESSION['email'];
                 $NC = obtenerusuarioE($conexion, $EMAIL);
@@ -36,10 +36,10 @@
                 echo "sessionStorage.setItem('es', MYAPP.es);</script>";
                 $fecha_nacimiento= $NC['Fnac'];
                 $Edad = obtener_edad($fecha_nacimiento);
-    
-            }else{
-                echo "<script>location.href = 'index.html'</script>";
-            }
+            }    
+            // }else{
+            //     echo "<script>location.href = 'index.html'</script>";
+            // }
         }
 
         ?>

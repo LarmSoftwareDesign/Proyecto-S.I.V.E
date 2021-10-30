@@ -155,7 +155,7 @@
     </section>
     <?php
       }else{
-          echo "<div class='container'><h1>ERROR</h1></div>";
+          echo "<div class='container bg-light'><h1>ERROR al Modificar</h1></div>";
       }
       
     ?>

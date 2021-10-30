@@ -18,10 +18,12 @@ function ingresarUsuario($conexion, $usuario){
     $dml .= "','" . $usuario["es"] . "')";
     
     if ($conexion->query($dml) === TRUE){
-        echo "Usuario ingresado";
+        return true;
       
     }else{
+        return false;
         die("Error al ingresar: $dml. Error: " . $conexion->connect_error);
+        
     }
 
 }
@@ -52,8 +54,10 @@ function modificarUsuario($conexion, $usuario){
 
 
     if ($conexion->query($dml) === TRUE){
-        echo "Usuario modificado";
+        return true;
+
     }else{
+        return false;
         die("Error al modificar: $dml. Error: " . $conexion->connect_error);
     }		
 }
@@ -100,6 +104,7 @@ function obtenerusuarioE($conexion, $EMAIL ){
         
     }
 }
+//* calcular la edad
 function obtener_edad($fecha_nacimiento)
 {
     $nacimiento = new DateTime($fecha_nacimiento);
@@ -107,6 +112,7 @@ function obtener_edad($fecha_nacimiento)
     $diferencia = $ahora->diff($nacimiento);
     return $diferencia->format("%y");
 }
+//* obtenerusuarioCi por la cedula 
 function obtenerusuarioCi($conexion, $CiO ){
     $sql = "SELECT * FROM usuario WHERE Ci='".$CiO . "'";
     $resultado = $conexion->query($sql);
