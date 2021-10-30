@@ -13,8 +13,9 @@
 		$dml .= ", UPPER(SHA1(UNHEX(SHA1('" . $empresa["contraseña"] . "')))))";
 		
 		if ($conexion->query($dml) === TRUE){
-			echo "Empresa ingresada";
+			return true;
 		}else{
+			return false;
 			die("<br>Error al ingresar: $dml Error: " . $conexion->connect_error);
 		}
 
@@ -44,8 +45,9 @@
 
 		if ($conexion->query($dml) === TRUE){
 			//Es exactamente igual a TRUE
-			echo "Empresa modificada";
+			return true;
 		}else{
+			return false;
 			die("Error al modificar: $dml. Error: " . $conexion->connect_error);
 		}		
 	}
@@ -140,6 +142,23 @@ function VerificarEmail($conexion, $email){
 			echo "<br>se creo $carpetaE <br>";
 		}else {
 			echo "falló";
+		}
+	}
+	}
+	function cambiarCarpetaEmpresa($carpetaName, $carpetaNameN){
+		if (file_exists($carpetaName)){
+			if (rename($carpetaName, $carpetaNameN)) {
+				return true;
+			}else{
+				return false;
+			}
+			
+		}else{
+		mkdir($carpetaName, 0777);
+		if (file_exists($carpetaName)){
+			echo "<br>se creo $carpetaName<br>";
+		}else {
+			echo "fallo";
 		}
 	}
 	}

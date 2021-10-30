@@ -27,20 +27,42 @@
 				$email =$empresa["email"];
 				$verificacion=VerificarEmail($conexion,$email);
 				if ($verificacion == false) {
+					$_SESSION['emailE'] = $empresa['email'];
+					$empresav =obtenerempresaE($conexion, $email);
+					$exito =modificarEmpresa($conexion, $empresa);
+					if ($exito){
+						// a perfil
+						$carpetaName ='Archivos/'.$empresav['Nomempresa'].'/';
+						$carpetaNameN = 'Archivos/'.$empresa['nomempresa'].'/';
+						$exitoC=cambiarCarpetaEmpresa($carpetaName, $carpetaNameN);
+						if($exito){
+							header("Location:../perfil1E.php");
+						}else{
+							header('Location: ..\modify E.php');
+						}
+					}else{
+						header('Location: ..\modify E.php');
+					}
 				
-					modificarEmpresa($conexion, $empresa);
-				// a perfil
-				header('Location:..\perfil1E.php');
+				
 				}else{
 					$empresav =obtenerempresaE($conexion, $email);
 					if ($empresav['Rut'] == $empresa["rut"] ) {
 						
-						echo "se modificara";
-						modificarEmpresa($conexion, $empresa);
-						//a perfil
-						$_SESSION['emailE']=$empresa['email'];
-
-						header('Location:..\perfil1E.php');
+						$exito =modificarEmpresa($conexion, $empresa);
+						if ($exito){
+							// a perfil
+							$carpetaName ='Archivos/'.$empresav['Nomempresa'].'/';
+							$carpetaNameN = 'Archivos/'.$empresa['nomempresa'].'/';
+							$exitoC=cambiarCarpetaEmpresa($carpetaName, $carpetaNameN);
+							if($exito){
+								header("Location:../perfil1E.php");
+							}else{
+								header('Location: ..\modify E.php');
+							}
+						}else{
+							header('Location: ..\modify E.php');
+						}
 					}else{
 						echo "<script>alert('el email ya existe en otra cuenta');</script>";
 						header('Location: ..\modify E.php');
@@ -69,10 +91,17 @@
 				header("Location: ../register E.html");
 			}else{
 				if (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) == 0) {
-					ingresarEmpresa($conexion, $empresa);
-					session_start();//iniciando 
+					$exito =ingresarEmpresa($conexion, $empresa);
+
+					if ($exito){
+						session_start();//iniciando 
 					$_SESSION['emailE'] = $empresa['email'];
 					header("Location:../perfil1E.php");
+					}else{
+						header('Location: ..\register E.html');
+					}
+					
+					
 				}elseif (strcmp ($empresa["contraseña"] , $empresa["verificar"] ) != 0) {
 					header('Location: ..\register E.html');
 				}
