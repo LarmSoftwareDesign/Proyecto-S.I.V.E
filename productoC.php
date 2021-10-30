@@ -14,16 +14,17 @@
       include("php/conexion.php");
       include("php/productF.php");
       include("php/empresF.php");
-      session_start();//iniciando
+      session_start();//iniciando 
+      $conexion = abrirConexion();
       if (isset($_GET['id'])){
-        $conexion = abrirConexion();
+       
         $idp=$_GET['id'];
         $productoi=obtenerProductoE($conexion, $idp);
         $NCE = obtenerProducto($conexion, $idp);
         $productoid = $productoi['IdProducto'];
         $_SESSION['idpV']= $productoid;
       }elseif(isset($_SESSION['idp'])){
-        $EMAIL=$_SESSION['emailE'];
+      $EMAIL=$_SESSION['emailE'];
       $ID =$_SESSION['idp'];
       $conexion = abrirConexion();
       $producto= obtenerProducto($conexion, $ID );
@@ -31,8 +32,9 @@
       $NCE = $empresa['Nomempresa'];
       $productoid = $producto['IdProducto'];
       $_SESSION['idpV']= $productoid;
-      }
       
+      }
+      cerrarConexion($conexion);
 
      
       ?>
@@ -203,8 +205,5 @@
     <script src="bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
 
 
-    <?php
-    cerrarConexion($conexion);
-    ?>
 </body>
 </html>

@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="css/productos.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
+<?php
+
+
+
+?>
 <body onload="cargarEn()">
 
     <header>

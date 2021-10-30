@@ -70,27 +70,36 @@
 		$producto['precio']=(float) $_POST['precioM'];
 		$producto['cantidad']=intval($_POST['cantidadM']);
 		$producto['rut']=$_POST['rut'];
-		modificarProducto($conexion, $producto);
-		$idp = $producto['idproducto'];
+		$idp =$producto['idproducto'];
 		$carpetaOld=obtenerproductoE($conexion,$idp);
 		$carpetaName='Archivos/'.$carpetaOld['Nomempresa'].'/'.$carpetaOld['IdProducto'].'-'.$carpetaOld['Nombre_Producto'].'/';
 		$carpetaNameN='Archivos/'.$carpetaOld['Nomempresa'].'/'.$carpetaOld['IdProducto'].'-'.$producto['nombre_producto'].'/';
-		cambiarCarpetaproducto($carpetaName, $carpetaNameN);
-		if (file_exists($carpetaNameN)){
-			if (isset($_POST['archivoM[]'])){
-				$num=1;
+		modificarProducto($conexion, $producto);
+		
+		if (strcmp($carpetaName, $carpetaNameN)==0){
+			$carpeta=obtenerproductoE($conexion,$idp);
+			$carpetaName='Archivos/'.$carpeta['Nomempresa'].'/'.$carpeta['IdProducto'].'-'.$carpeta['Nombre_Producto'].'/';
+			
+			
+			$num=1;
 			foreach ( $_FILES['archivoM']['tmp_name'] as $imagen => $tmp_name ) {
 				$el_archivo = $_FILES['archivoM']['name'][$imagen];
-				$ruta_archivo = $carpetaNameN.basename($el_archivo);
+				$ruta_archivo = $carpetaName.basename($el_archivo);
 				if (move_uploaded_file($_FILES['archivoM']['tmp_name'][$imagen], $ruta_archivo)){
 					echo "El archivo es válido y se cargó correctamente.<br><br>";
 					
 				}else{
 				echo "Error al intentar subir el archivo";
 				}
-				$t = $carpetaNameN.'/*.*';
-				$u=1;
-            	foreach (glob($t) as $imagen){
+				
+
+            	
+			}
+			
+			
+			$t = $carpetaName.'/*.*';
+			$u=1;
+			foreach (glob($t) as $imagen){
 				$ruta_archivo = $imagen;
 				$nomA ='Archivo'.$u;
 				$extension = pathinfo($ruta_archivo, PATHINFO_EXTENSION);
@@ -103,13 +112,55 @@
                 $u++;
 			
 			} 
-			}
 			
-            }
-			$_SESSION['idp']=$idP;
+			$_SESSION['idp']=$producto['idproducto'];
 			header('Location:productoC.php');
+
+		}elseif(strcmp($carpetaName, $carpetaNameN)!=0){
 			
-		}
+			$exito =cambiarCarpetaproducto($carpetaName, $carpetaNameN);
+			if ($exito){
+				$carpeta=obtenerproductoE($conexion,$idp);
+				$carpetaName='Archivos/'.$carpeta['Nomempresa'].'/'.$carpeta['IdProducto'].'-'.$carpeta['Nombre_Producto'].'/';
+			
+				if (isset($_POST['archivoM[]']))
+				$num=1;
+				foreach ( $_FILES['archivoM']['tmp_name'] as $imagen => $tmp_name ) {
+					$el_archivo = $_FILES['archivoM']['name'][$imagen];
+					$ruta_archivo = $carpetaName.basename($el_archivo);
+					if (move_uploaded_file($_FILES['archivoM']['tmp_name'][$imagen], $ruta_archivo)){
+						echo "El archivo es válido y se cargó correctamente.<br><br>";
+						
+					}else{
+						echo "Error al intentar subir el archivo<br>";
+					}
+				}
+				
+				$t = $carpetaName.'/*.*';
+				$u=1;
+				foreach (glob($t) as $imagen){
+					$ruta_archivo = $imagen;
+					$nomA ='Archivo'.$u;
+					$extension = pathinfo($ruta_archivo, PATHINFO_EXTENSION);
+					$nuevaR=$carpetaName.$nomA.'.'.$extension;
+					if(rename ($ruta_archivo, $nuevaR)){
+						echo "<br>cambiado<br>";
+					}else{
+						echo "<br>Error al cambiar el nombre<br>";
+					}
+					$u++;
+				
+				} 
+				
+				$_SESSION['idp']=$producto['idproducto'];
+				header('Location:productoC.php');
+				
+			}else {
+				echo "error";
+			}
+		} 
+
+		
 		
 
 	} elseif (isset($_POST['idproducto'])){

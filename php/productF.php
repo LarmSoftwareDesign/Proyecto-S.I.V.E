@@ -181,27 +181,29 @@
 	function cambiarCarpetaproducto($carpetaName, $carpetaNameN){
 		if (file_exists($carpetaName)){
 			if (rename($carpetaName, $carpetaNameN)) {
-				echo "cambio existoso";
+				return true;
 			}else{
-				echo "error en el cambio";
+				return false;
 			}
 			
 		}else{
-		mkdir($carpetaName, 0777);
-		if (file_exists($carpetaName)){
-			echo "<br>se creo $carpetaName<br>";
-		}else {
-			echo "fallo";
+		
+			echo "ls $carpetaName fallo";
 		}
 	}
-	}
+	
+
 
 	function eliminarCarpetaproducto($carpetaName){
 		if (file_exists($carpetaName)){
-			if (unlink($carpetaName)) {
-				echo "cambio existoso";
+			$t=$carpetaName.'/*.*';
+			foreach(glob($t) as $imagen){
+				unlink($imagen);
+			}
+			if (rmdir($carpetaName)) {
+				return true;
 			}else{
-				echo "error al eliminar";
+				return false;
 			}
 			
 		}else{

@@ -201,7 +201,7 @@
                 <div class="col-mb-3">
                     <label class="form-label" for="validationTextarea" >Descripción:</label>
                     <textarea class="form-control is-invalidCheck" rows="3" name="descripcionM" id="validationTextarea" pattern="{,400}" required placeholder="<?php echo $datos['Descripcion']?>"></textarea>
-                    <input type="hidden" name="desc" value="<?php echo $datos['Descripcion']?>">
+                    <input type="hidden" name="desc" value="<?php echo $datos['Descripcion'];?>">
                     <div class="valid-feedback">
                     </div>
                     <div class="invalid-feedback">
