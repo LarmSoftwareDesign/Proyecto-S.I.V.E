@@ -31,11 +31,22 @@ function ingresarUsuario($conexion, $usuario){
 //! funcion para eliminar usuario
 
 function eliminarUsuario($conexion, $ci){
-    $dml = "DELETE FROM usuario WHERE ci = " . $ci;
+    $dml = "DELETE FROM usuario WHERE Ci = ". $ci;
     
     if ($conexion->query($dml) === TRUE){
-        echo "Usuario eliminado";
+        return true;
     }else{
+        return false;
+        die("Error al eliminar: $dml. Error: " . $conexion->connect_error);
+    }		
+}
+function eliminarComprasUsuario($conexion, $ci){
+    $dml = "DELETE u,c from usuario u join compra c on u.Ci = c.Ci WHERE c.Ci = ".$ci." and u.Ci=". $ci;
+    
+    if ($conexion->query($dml) === TRUE){
+        return true;
+    }else{
+        return false;
         die("Error al eliminar: $dml. Error: " . $conexion->connect_error);
     }		
 }

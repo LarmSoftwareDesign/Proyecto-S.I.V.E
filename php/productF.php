@@ -37,6 +37,7 @@
 			die("Error al eliminar: $dml. Error: " . $conexion->connect_error);
 		}		
 	}
+	
 
 	function modificarProducto($conexion, $producto){
 	
