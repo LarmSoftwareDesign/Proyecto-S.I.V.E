@@ -199,7 +199,7 @@
 		if (file_exists($carpetaName)){
 			$t=$carpetaName.'/*.*';
 			foreach(glob($t) as $imagen){
-				unlink($imagen);
+			unlink($imagen);
 			}
 			if (rmdir($carpetaName)) {
 				return true;
@@ -211,7 +211,43 @@
 			echo "fallo";
 		}
 	}
-	
+	function eliminarProductos($conexion, $rut)
+	{
+		$sql="SELECT Nomempresa, IdProducto, Nombre_Producto FROM producto p join empresa e on p.Rut = e.Rut WHERE e.Rut=".$rut;
+    	$resultado = $conexion->query($sql);
+		if ($resultado){
+			while($fila = $resultado->fetch_assoc()) {
+				$carpetaName='Archivos/'.$fila['Nomempresa'].'/'.$fila['IdProducto'].'-'.$fila['Nombre_Producto'];
+				if (file_exists($carpetaName)){
+					$t=$carpetaName.'/*.*';
+					foreach(glob($t) as $imagen){
+						unlink($imagen);
+					}
+					if (rmdir($carpetaName)) {
+						echo "borrador";
+					}else{
+						echo "no borrador";
+					}
+				}else{
+					echo "no existe";
+				}
+				$carpetaE='Archivos/'.$fila['Nomempresa'].'/';
+		
+			}
+			
+			$carpeta = @scandir($carpetaE);
+			
+			if (count($carpeta) > 2){
+  				return false;
+			}else{
+  				return true;
+			}
+			
+		}
+		
+
+
+	}
 	
 	
 	function obtenerCategorias($conexion)

@@ -23,11 +23,23 @@
 
 	function eliminarEmpresa($conexion, $rut){
 
-		$dml = "DELETE FROM empresa WHERE rut = " . $rut;
+		$dml = "DELETE FROM empresa WHERE Rut = " . $rut;
 		
 		if ($conexion->query($dml) === TRUE){
-			echo "Empresa eliminada";
+			return true;
 		}else{
+			return false;
+			die("Error al eliminar: $dml. Error: " . $conexion->connect_error);
+		}		
+	}
+	function eliminarProductosEmpresa($conexion, $rut){
+
+		$dml = "DELETE p,c FROM producto p join compra c on c.IdProducto = p.IdProducto WHERE p.Rut =".$rut;
+		
+		if ($conexion->query($dml) === TRUE){
+			return true;
+		}else{
+			return false;
 			die("Error al eliminar: $dml. Error: " . $conexion->connect_error);
 		}		
 	}
@@ -160,6 +172,17 @@ function VerificarEmail($conexion, $email){
 		}else {
 			echo "fallo";
 		}
+	}
+	}
+	function eliminarCarpetaEmpresa($carpetaE){
+		if (file_exists($carpetaE)){
+			if (rmdir($carpetaE)){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+		echo "no existe $carpetaE";
 	}
 	}
 ?>
