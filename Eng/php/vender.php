@@ -7,7 +7,7 @@
     <!--otros css-->
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/vender.css">
-    <title>crear un producto</title>
+    <title>create a product</title>
 </head>
 <body>
     <header>
@@ -55,7 +55,7 @@
                                 <svg src="bootstrap-5.1.0-dist/SVG/tags.svg" width="16" height="16" fill="currentColor" class="bi bi-tags" viewBox="0 0 16 16">
                                     <path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
                                     <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
-                                  </svg> Categorias
+                                  </svg> Categories
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">
@@ -74,7 +74,7 @@
                                 <svg xmlns="bootstrap-5.1.0-dist/SVG/bag.svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                   <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                                 </svg>
-                                Comprar</a>
+                                to buy</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
@@ -84,7 +84,7 @@
                                         <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
                                         <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
                                       </svg>
-                                    Vender
+                                    Sell
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -93,7 +93,7 @@
                                         <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                                         <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
                                       </svg>
-                                    historial</a>
+                                    history</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link " href="#">
@@ -101,7 +101,7 @@
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                     <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                                   </svg>
-                                  ayuda</a>
+                                  Help</a>
                             </li>
                           </ul>
                     </div>
@@ -118,32 +118,32 @@
             <h1>Nuevo Producto</h1>
             <form action="venderagenda.php ?>" class="row g-3">
                 <div class="col-12">
-                  <label for="inputName" class="form-label">Nombre del Producto:</label>
+                  <label for="inputName" class="form-label">Name of product:</label>
                   <input type="text" name="nomproducto" class="form-control" id="inputName" placeholder="ProductoX">
                 </div>
                 <div class="col-mb-3">
-                    <label for="formFileMultiple" class="form-label">imagenes del producto</label>
+                    <label for="formFileMultiple" class="form-label">images of product</label>
                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                   </div>
                 <div class="col-md-4">
                   <!--tipo de producto-->
-                  <label for="inputState" class="form-label">Categoria:</label>
+                  <label for="inputState" class="form-label">Category:</label>
                   <select id="inputState" name="categoria" class="form-select">
                       <option selected></option>
-                      <option>Vehículos</option>
-                      <option>Tecnología</option>
-                      <option>Deporte</option>
-                      <option>Nutrición</option>
-                      <option>Vestimenta</option>
-                      <option>Servicios</option>
-                      <option>Arte</option>
-                      <option>Hogar</option>
-                      <option>Electrodomésticos</option>
+                      <option>Vehicles</option>
+                      <option>Tecnologi</option>
+                      <option>Sports</option>
+                      <option>Nutrition</option>
+                      <option>Clothes</option>
+                      <option>Services</option>
+                      <option>Art</option>
+                      <option>Home</option>
+                      <option>Home appliances</option>
                   </select>
                 </div>
                 <div class="col-md-6">
                     <!--condicion de producto-->
-                    <label for="exampleDataList" class="form-label">Codicion del producto:</label>
+                    <label for="exampleDataList" class="form-label">Product condition:</label>
                     <input class="form-control" name="condicion" list="datalistOptions" id="exampleDataList" placeholder="Nuevo, renovado, etc..">
                     <datalist id="datalistOptions">
                       <option value="Nuevo">
@@ -152,7 +152,7 @@
                     </datalist>
                 </div>
                 <div class="col-md-2">
-                    <label for="inputPrecio" class="form-label">Precio:</label>
+                    <label for="inputPrecio" class="form-label">Price:</label>
                     <input type="number" name="precio" class="form-control" id="inputPrecio">
                   </div>
                 <div class="col-mb-3">
@@ -161,7 +161,7 @@
                   </div>
                 
                  <!--tipo de producto-->
-                  <label for="inputState" class="form-label">Nacionalidad:</label>
+                  <label for="inputState" class="form-label">Nationality:</label>
                   <select id="inputState" name="nacionalidad" class="form-select">
                       <option selected></option>
                       <option>Uruguay</option>
@@ -175,12 +175,12 @@
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">
                     <label class="form-check-label" for="gridCheck">
-                      Terminos y Condiciones
+                    Terms and Conditions
                     </label>
                   </div>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Publicar</button>
+                  <button type="submit" class="btn btn-primary">To post</button>
                 </div>
               </form>
                 </div>
@@ -199,7 +199,7 @@
             </div>
             <div class= "row justify-content-between" >
               <p class="terminos">
-                  derechos reservados by S.I.V.E
+              all rights reserved by S.I.V.E
               </p>
             </div>
           </div>
