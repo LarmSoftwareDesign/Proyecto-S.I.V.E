@@ -43,28 +43,27 @@
     //elimar empresa
     if (isset($_GET['RutD'])){
       $rut =$_GET['RutD'];
-      $exitoP = eliminarProductos($conexion, $rut);
-      if ($exitoP){
-
-        $exitoPe = eliminarProductosEmpresa($conexion, $rut);
-
-        if ($exitoPe){
-
-          $EMAIL=$_SESSION['emailE'];
-          $NCE = obtenerempresaE($conexion, $EMAIL);
-          $carpetaE ='Archivos/'.$NCE["Nomempresa"].'/';
-          $exitoE = eliminarCarpetaEmpresa($carpetaE);
-          
-          if ($exitoE){
-
+      $CCE =obtenerusuarioRut($conexion, $Rut);
+      $carpetaE='Archivos/'.$CCE['Nomempresa'].'/';
+      $exitoEC=eliminarCarpetaEmpresa($carpetaE);
+      
+      if ($exitoEC){
+        $sql = "SELECT IdProducto from producto WHERE Rut=".$rut;
+        $resultado = $conexion->query($sql);
+        if ($resultado){
+          while ($fila = $resultado->fetch_assoc()){
+            $dml = "DELETE from compra WHERE IdProducto =".$fila['IdProducto'];
+          }
+          $exitoPE = eliminarPDE($conexion, $rut);
+          if ($exitoPE){
             $exito =eliminarEmpresa($conexion, $rut);
             if ($exito){
-              
               echo "<script> sessionStorage.removeItem('es');";
               unset($_SESSION['email']);
               unset($_GET['RutD']);
+              unset($CCE);
+              unset($carpetaE);
               echo "location.href = 'index.html'</script>";
-
             }else{
               echo "error 1";
             }
@@ -72,11 +71,12 @@
             echo "error 2";
           }
         }else{
-          echo "error 3";
         }
       }else {
-        echo "error 4";
+        echo "error 3";
       }
+          
+      
     }elseif (isset($_GET['Rut'])){
       unset($_SESSION['emailE']);
       echo "<script> sessionStorage.removeItem('es');";

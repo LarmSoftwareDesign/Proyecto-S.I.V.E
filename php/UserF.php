@@ -43,7 +43,7 @@ function eliminarUsuario($conexion, $ci){
 
 //* funcion para eliminar 
 function eliminarComprasUsuario($conexion, $ci){
-    $dml = "DELETE c from usuario u join compra c on u.Ci = c.Ci WHERE c.Ci = ".$ci." and u.Ci=". $ci;
+    $dml = "DELETE from compra WHERE Ci=". $ci;
     
     if ($conexion->query($dml) === TRUE){
         return true;
