@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!--* css de boostrap-->
+    <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <!--* otros-->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <title>login</title>
+</head>
+<body>
+    <header>
+       <script src="js/header.js"></script>
+    </header>
+    <script src="js/funciones.js"></script>
+
+
+
+    <!--* section inicio de secion-->
+    <section class="container">
+        <!--* caja contenedora-->
+        <div class="caja-ingreso">
+            <!--! titulo de formulario-->
+            <h1>Login</h1>
+            <br>
+            <!--todo: Switch del registro-->
+          <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="login.html">Client</a> <!--? registro cliente o comun (actual)-->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="login E.html">Company</a><!--* registro de empresa-->
+            </li>
+            
+          </ul>
+          <br>
+
+            <form action="php/login.php" method="post" class="row g-3 needs-validation" novalidate>
+              <div class="form-floating mb-3"> 
+                <input type="text" name="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required placeholder="example@gmail.com" pattern="[a-zA-Z0-9._%+-\s]+@[a-z.-]+\.[a-z]{2,}$" autofocus>
+                <label for="validationCustomUsername" class="form-label">Email:</label> 
+                <div class="valid-feedback">
+                  OK!
+                </div>
+                <div class="invalid-feedback">
+                  This is not an email
+                </div>
+                </div>
+              <div class="form-floating">
+                
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="cont" required pattern="{8,20}" autofocus>
+              <label for="floatingPassword" class="form-label">Password:</label>
+              <div class="valid-feedback">
+                OK!
+              </div>
+              <div class="invalid-feedback">
+              
+              </div>
+              <!--*boton de mostrar-->
+              <div class="Ms form-check">
+                <input class="form-check-input" type="checkbox" onclick="myFunction2()" >
+                <label class="form-check-label">
+                  Show
+                </label>
+              </div>
+              
+              </div>
+              <br>
+              
+              
+              <div class="d-grid gap-2">
+                <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                
+              </div>
+              </form>
+              
+              <div class="Esp d-grid gap-2">
+                <button type="submit" class="btn btn-lg btn-outline-primary" onclick="location.href='register.html'">Register</button>
+              </div>
+
+    </section>
+    <script>
+      // Ejemplo de JavaScript de inicio para deshabilitar el envío de formularios si hay campos no válidos
+      (function () {
+        'use strict'
+
+        //Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+        // Buscamos la clase .needs-validation en el DOM (documento)
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Bucle sobre ellos y evitar la presentación
+        Array.prototype.slice.call(forms)
+          .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }else{
+                       alert('Correctly Validated Data !!')
+              }
+
+              form.classList.add('was-validated')
+            }, false)
+          })
+        })()
+
+      </script>
+
+    <!--todo script de footer-->
+    <footer>
+      <script src="js/footer.js"></script>
+    </footer>
+    
+
+
+
+
+    <!-- scripts de boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

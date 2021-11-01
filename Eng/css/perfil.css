@@ -1,0 +1,26 @@
+body{
+    background-color: #24303C;
+}
+.logo-perfil{
+    background-color:black;
+    padding: 1em;
+    width: 40%;
+    height:auto;
+    border-radius: 10px;
+}
+
+
+
+.MS {
+    
+    padding: 2em;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    text-align: left;
+    margin-bottom: 4em;
+    
+
+}
+.Esp{
+    margin-top: 10px;
+}

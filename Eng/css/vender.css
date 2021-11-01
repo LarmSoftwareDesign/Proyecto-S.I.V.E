@@ -1,0 +1,33 @@
+body{
+    background-color:#24303C;
+}
+.container {
+     width: 840px;
+    margin-top: 1em;
+    margin-bottom:2em;
+}
+.caja-producto{
+
+    padding: 2em;
+    background-color: whitesmoke;
+    border-radius: 20px;
+
+}
+.Cimg{
+    text-align: center;
+}
+ .img{
+    
+    width: 120px;
+    height:auto;
+}
+.Cimg .btn {
+    margin-top: 5px;
+}
+
+
+
+.regi{
+    color: white;
+    font-size: 28px;
+}
