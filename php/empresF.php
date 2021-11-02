@@ -21,10 +21,10 @@
 
 	}
 
+	
 	function eliminarEmpresa($conexion, $rut){
 
-		$dml = "DELETE FROM empresa WHERE Rut = " . $rut;
-		
+		$dml = "DELETE FROM empresa WHERE Rut =".$rut;
 		if ($conexion->query($dml) === TRUE){
 			return true;
 		}else{
@@ -32,16 +32,15 @@
 			die("Error al eliminar: $dml. Error: " . $conexion->connect_error);
 		}		
 	}
-	function eliminarProductosEmpresa($conexion, $rut){
-
-		$dml = "DELETE p,c FROM producto p join compra c on c.IdProducto = p.IdProducto WHERE p.Rut =".$rut;
-		
+	function eliminarPDE($conexion, $rut)
+	{
+		$dml = "DELETE FROM producto WHERE Rut =".$rut;
 		if ($conexion->query($dml) === TRUE){
 			return true;
 		}else{
 			return false;
 			die("Error al eliminar: $dml. Error: " . $conexion->connect_error);
-		}		
+		}
 	}
 
 	function modificarEmpresa($conexion, $empresa){
@@ -176,13 +175,32 @@ function VerificarEmail($conexion, $email){
 	}
 	function eliminarCarpetaEmpresa($carpetaE){
 		if (file_exists($carpetaE)){
-			if (rmdir($carpetaE)){
-				return true;
-			}else{
-				return false;
-			}
+			$carpeta = @scandir($carpetaE);
+
+			if (count($carpeta) > 2){
+				$path=$carpetaE;
+				if (PHP_OS === 'Windows' or PHP_OS === 'WINNT' or PHP_OS === 'WIN32')
+				{
+    				exec("rd /s /q {$path}");
+				}else if(PHP_OS=== 'Unix' or PHP_OS === 'Linux'){
+    				exec("rm -rf {$path}");
+				}
+				if (file_exists($carpetaE)){
+					return true;
+				}else{
+					return false;
+				}
+
+			  }else{
+				if (rmdir ($carpetaE)){
+					return true;
+				}else{
+					return false;
+				}
+				
+			  }
 		}else{
-		echo "no existe $carpetaE";
+			return true;
 	}
 	}
 ?>
