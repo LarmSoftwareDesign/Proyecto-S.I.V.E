@@ -18,8 +18,17 @@
         <?php
         include("php/conexion.php");
         include("php/UserF.php");
+        
         if (isset($_GET['numcompraBD'])){
-
+            $conexion = abrirConexion();
+            $numC = $_GET['numcompraBD'];
+            $exito=eliminarEncargos($conexion, $numC);
+            if ($exito){
+                unset($_GET['numcompraBD']);
+            }else{
+                echo "error";
+            }
+            cerrarConexion($conexion);
         }
         ?>
         <script src="js/header.js"></script>
