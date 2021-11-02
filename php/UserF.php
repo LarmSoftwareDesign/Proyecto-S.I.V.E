@@ -53,6 +53,17 @@ function eliminarComprasUsuario($conexion, $ci){
     }		
 }
 
+function eliminarEncargos($conexion, $numC){
+    $dml = "DELETE FROM compra WHERE Numcompra = ". $numC;
+    
+    if ($conexion->query($dml) === TRUE){
+        return true;
+    }else{
+        return false;
+        die("Error al eliminar: $dml. Error: " . $conexion->connect_error);
+    }		
+}
+
 
 //* modificar un perfil de un usuario
 function modificarUsuario($conexion, $usuario){

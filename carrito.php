@@ -16,18 +16,20 @@
 
     <header>
         <?php
-        if (isset($_GET['numcompra'])){
-            echo "<script> alert ('el encargo fue eliminado');</script>";
+        include("php/conexion.php");
+        include("php/UserF.php");
+        if (isset($_GET['numcompraBD'])){
+
         }
         ?>
         <script src="js/header.js"></script>
         <script src="js/funcionesP.js"></script>
     </header>
     <section class="container-fluid">    
-        <div class="row justify-content-between" id="CED">
+        <form method="get" action="compra.php" class="row justify-content-between" id="CED">
                     
             
-        </div>
+        </form>
     </section>
 
 
