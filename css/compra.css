@@ -1,0 +1,19 @@
+body{
+    background-color: #24303C;
+}
+.MS{
+    background-color: white;
+}
+#RegistraC{
+    padding:1em;
+    border-radius: 10px;
+    margin-right: 2em;
+    margin-left: 2em;
+}
+#Compra{
+
+    padding:1.5em;
+    border-radius: 10px;
+    margin-left: 2em;
+    margin-right: 2em;
+}
