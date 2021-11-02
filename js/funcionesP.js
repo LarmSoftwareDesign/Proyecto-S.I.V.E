@@ -116,4 +116,22 @@ function cargarProductosE() {
   xmlhttp.send();
 }
 
+// funciones de comprar
 
+function CargarCompras(){
+  cargarTotal();
+}
+
+
+function cargarTotal(){
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("Compra").innerHTML = this.responseText;
+    }
+  };
+  
+  xmlhttp.open("GET","php/mostrarCompra.php",true);
+  xmlhttp.send();
+  
+}
