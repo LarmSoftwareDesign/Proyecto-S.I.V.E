@@ -107,9 +107,23 @@
             if (strcmp ($usuario["contraseña"] , $usuario["verificarC"] ) == 0) {
 				//* se llamara la funcion ingresarUsuario para crear un usuario en la base de datos
 				
-				$fecha_nacimiento= $usuario['Fnac'];
+				$fecha_nacimiento= $usuario['fnac'];
 				$Edad = obtener_edad($fecha_nacimiento);
-                if ($Edad >=18 ) {
+				echo $Edad;
+                if ($Edad > 18 ) {
+					
+					$fila=ingresarUsuario($conexion, $usuario);
+					if($fila ==true){
+						$_SESSION['email'] = $usuario['email'];
+						// a perfil
+						header('Location:..\perfil.php');
+					}elseif($fila == false){
+						header('Location: ..\register.html');
+					}else{
+						echo $fila;
+					}
+					
+				}elseif($Edad == 18){
 					$fila=ingresarUsuario($conexion, $usuario);
 					if($fila){
 						$_SESSION['email'] = $usuario['email'];
@@ -118,6 +132,7 @@
 					}else{
 						header('Location: ..\register.html');
 					}
+
 				}else{
 					header('Location: ..\register.html');
 				}
