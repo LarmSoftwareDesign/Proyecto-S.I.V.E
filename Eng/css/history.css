@@ -1,0 +1,31 @@
+body{
+    background-color: #24303C;
+}
+table {
+    border-radius: 20px;
+}
+th {
+    font-size:24px;
+}
+
+/** tabla*/
+.SS{
+    background-color:#00ccffe8;
+}
+/*imagen*/
+td .img-item{
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 1em;
+    width:180px ;
+    height: 125px;
+}
+.item{
+    font-size: 24px;
+    text-align: center;
+}
+.item-C{
+    font-size: 32px;
+    text-align: center;
+}

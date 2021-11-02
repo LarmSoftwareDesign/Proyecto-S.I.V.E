@@ -1,0 +1,29 @@
+body{
+    background-color: #24303C;
+
+}
+
+
+
+.container{
+    margin-top: 1em;
+    margin-bottom: 2em;
+    width:650px;
+
+}
+.caja-ingreso {
+    padding: 1.5em;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    
+   
+
+}
+.Esp{
+    margin-top: 5px;
+
+}
+
+
+
+

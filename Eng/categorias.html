@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- css de boostrap-->
+    <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <!-- otros css-->
+    <link rel="stylesheet" href="css/categorias.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>S.I.V.E: Search</title>
+</head>
+<body onload="cargarCategorias()">
+  <!--? script de header o la caberezera-->
+<header>
+    <script src="js/header.js"></script>
+</header>
+<script src="js/funcionesP.js"></script>
+<section>
+  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="container">
+          <div class="categorys">
+            <ul class="menu" id="selSeleccion">
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+        <div class="row">
+            <div class="col-md-auto">
+                <div class="caja" style= "background-color: white; border-radius: 10px">
+                    <div class="container">
+                        <h4>Most selled products</h4>
+                        <hr>
+                        <div>
+                          <div class="card" style="width:180px;">
+                            <img src="img/producto.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="LSM card-title"><a href = "#" >Name of the product:</a></h5>
+                              <p class="card-text">Price</p>
+                            </div>
+                            <div class="card-footer">
+                              <a href="#">Read more...</a>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" id="txtSeleccion">
+              
+                
+            </div>
+            
+
+        </div>
+        
+
+    </div>
+</section>
+
+<footer>
+    <script src="js/footer.js"></script>
+</footer>
+
+    <!-- scripts de boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
