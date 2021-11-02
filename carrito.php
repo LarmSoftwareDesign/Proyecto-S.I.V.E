@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/productos.css">
     <link rel="stylesheet" href="css/footer.css">
+    
 </head>
-<?php
-
-
-
-?>
 <body onload="cargarEn()">
 
     <header>
+        <?php
+        if (isset($_GET['numcompra'])){
+            echo "<script> alert ('el encargo fue eliminado');</script>";
+        }
+        ?>
         <script src="js/header.js"></script>
         <script src="js/funcionesP.js"></script>
     </header>
