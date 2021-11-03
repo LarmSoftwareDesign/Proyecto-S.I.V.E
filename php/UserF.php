@@ -128,6 +128,28 @@ function obtenerusuarioE($conexion, $EMAIL ){
         
     }
 }
+
+function obtenerPickup($conexion ){
+    $sql = "SELECT * FROM pickup";
+    $resultado = $conexion->query($sql);
+
+    if ( $resultado){ 
+        if($resultado->num_rows > 0){
+    
+            return $resultado;
+
+        }else{
+            return false;
+        }
+        
+    }else{
+        $ls ="Error in ".$resultado."<br>".$conexion->error;
+       return $ls;
+        
+    }
+}
+
+
 //* calcular la edad
 function obtener_edad($fecha_nacimiento)
 {
