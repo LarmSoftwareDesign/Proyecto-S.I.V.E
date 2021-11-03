@@ -8,14 +8,23 @@ $sql= "SELECT * from compra where Ci=".$fila['Ci']." AND Estado ='Orden en camin
 $resultado = $conexion->query($sql);
 if ( $resultado){
     if ($resultado->num_rows > 0){
-
+        $verdadero= true;
     }else {
-        return false;
+        $verdadero= false;
     }
 }else{
-    return false;
+    
     $ls ="Error in ".$resultado."<br>".$conexion->error;
-    return $ls;
+    $verdadero= $ls;
 }
+
+if ( $verdadero == true){
+
+}elseif($verdadero == false){
+
+}else{
+    
+}
+
 
 ?>
