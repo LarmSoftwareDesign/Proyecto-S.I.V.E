@@ -33,7 +33,7 @@
 		}		
 	}
 	function eliminarPDE($conexion, $rut)
-	{
+	{   
 		$dml = "DELETE FROM producto WHERE Rut =".$rut;
 		if ($conexion->query($dml) === TRUE){
 			return true;

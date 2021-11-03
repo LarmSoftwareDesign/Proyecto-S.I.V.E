@@ -27,7 +27,7 @@ if ( $verdadero == true){
     }
 
 }elseif($verdadero == false){
-    echo "error";
+    echo "<h1>Usted no tiene Compras</h1>";
 }else{
     echo $verdadero;
 }

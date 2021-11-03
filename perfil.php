@@ -18,7 +18,7 @@
         <?php 
         include("php/conexion.php");
         include("php/UserF.php");
-        session_start();
+        
         $conexion = abrirConexion();
         
         if (isset($_GET['CiB'])){
@@ -73,7 +73,7 @@
                     <img src="img/login.png" class="logo-perfil">
                 </div>
                 <div class="col-md-7">
-                    <h1 style="font-size: 84px;"><?php echo $nombre . $ContraseñaDelServidor?></h1>
+                    <h1 style="font-size: 84px;"><?php echo $nombre?></h1>
                     
                 </div>
             </div>

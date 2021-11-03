@@ -3,18 +3,19 @@ include("conexion.php");
 $conexion = abrirConexion();
 $num=1;
 $unidad='U$S';
-session_start();//iniciando
+
 if (isset($_GET['categorias'])){
     $categorias=$_GET['categorias'];
-    $sql="SELECT Nomempresa, IdProducto, Nombre_Producto, Descripcion, Precio FROM producto p join empresa e on p.Rut = e.Rut WHERE Categorias='".$categorias."'";
+    $sql="SELECT Nomempresa, IdProducto, Nombre_Producto, Descripcion,Categorias, Precio FROM producto p join empresa e on p.Rut = e.Rut where Categorias ='".$categorias."'";
     $resultado = $conexion->query($sql);
     $_SESSION['categorias']=$categorias;
+    
 }elseif (isset($_GET['condicion'])){
     $condicion=$_GET['condicion'];
-    
-    $sql="SELECT Nomempresa, IdProducto, Nombre_Producto, Descripcion, Precio FROM producto p join empresa e on p.Rut = e.Rut WHERE Condicion='".$condicion."'";
+    $sql="SELECT Nomempresa, IdProducto, Nombre_Producto, Descripcion,Condicion, Precio  FROM producto p join empresa e on p.Rut = e.Rut where Condicion = '".$condicion."'";
     $resultado = $conexion->query($sql);
     $_SESSION['condicion']= $condicion;
+    
 }
 
 // if (isset($_SESSION['condicion']) && isset($_SESSION['categorias'])){
@@ -27,11 +28,11 @@ if (isset($_GET['categorias'])){
 
 
 
-echo "<div class=\"container\">";    
+echo "<div class=\"container\">";  
+
 if($resultado){
     while($fila = $resultado->fetch_assoc()) {
-        
-        
+    
         if ($num == 1){
             echo "<div class=\"Mar row justify-content-between\">";
         }

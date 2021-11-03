@@ -19,7 +19,7 @@
     include("php/conexion.php");
     include("php/empresF.php");
     include("php/productF.php");
-    session_start();
+
     $conexion = abrirConexion();
     
 
