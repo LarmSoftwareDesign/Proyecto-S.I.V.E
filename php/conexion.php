@@ -1,11 +1,11 @@
 <?php
 session_start();
 	if (isset($_SESSION['emailE'])){
-
+		$usuario = '';
 	}elseif($_SESSION['email']){
 
 	}else{
-		
+
 	}
 	
 	// ? Definimos constantes para almacenar los datos de la conexión

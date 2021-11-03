@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/footer.css">
+    <script src="js/funcionesP.js"></script>
     <!--js-->
     <title>Mi Perfil</title>
 </head>
-<body>
+<body onload="CargarComprasFiniquitadas()">
   
     <header>
         <?php 
@@ -125,13 +126,14 @@
                 
                     
             </div>
-            <div class="row">
-                
-            </div>
+           
             
         
             
-        </div>
+        </div> 
+        <div class="MS row" id ="compras">
+
+            </div>
 </div>
     </section>
     

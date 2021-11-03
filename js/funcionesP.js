@@ -148,3 +148,16 @@ function cargarTotal(){
   xmlhttp.send();
   
 }
+
+function CargarComprasFiniquitadas(){
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("compras").innerHTML = this.responseText;
+    }
+  };
+  
+  xmlhttp.open("GET","php/Mostrarcompras.php",true);
+  xmlhttp.send();
+  
+}

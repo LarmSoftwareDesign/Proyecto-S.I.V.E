@@ -1,7 +1,7 @@
 <?php
 include("conexion.php");
 include("UserF.php");
-session_start();
+$conexion = abrirConexion();
 $email = $_SESSION['email'];
 $fila=obtenerusuarioE($conexion, $email);
 $sql= "SELECT * from compra where Ci=".$fila['Ci']." AND Estado ='Orden en camino'";
@@ -19,12 +19,18 @@ if ( $resultado){
 }
 
 if ( $verdadero == true){
+    while ($fila = $resultado->fetch_assoc()) {
+        echo "<div class = 'row'>";
+        echo "<h2>Compra ".$fila['Numcompra']."<h1>";
+        echo "<h4>".$fila['Estado']."<h4>";
+        echo "</div>";
+    }
 
 }elseif($verdadero == false){
-
+    echo "error";
 }else{
-    
+    echo $verdadero;
 }
 
-
+cerrarConexion($conexion);
 ?>
