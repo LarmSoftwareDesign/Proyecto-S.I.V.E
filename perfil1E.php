@@ -19,9 +19,9 @@
     include("php/conexion.php");
     include("php/empresF.php");
     include("php/productF.php");
-    $conexion = abrirConexion();
     session_start();
-
+    $conexion = abrirConexion();
+    
 
     //! eliminar productos de empresa
     if (isset($_GET['idpB'])){

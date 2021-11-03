@@ -1,17 +1,20 @@
 <?php
 session_start();
 	if (isset($_SESSION['emailE'])){
-		$usuario = '';
-	}elseif($_SESSION['email']){
-
+		$UsuarioDelServidor = "alando";
+		$ContraseñaDelServidor ="53572256";
+	}elseif(isset($_SESSION['email'])){
+		$UsuarioDelServidor = "jsanchez";
+		$ContraseñaDelServidor ="62617843";
 	}else{
-
+		$UsuarioDelServidor = "root";
+		$ContraseñaDelServidor ="250279Yita04";
 	}
 	
 	// ? Definimos constantes para almacenar los datos de la conexión
 	define('SERVIDOR', "localhost");
-	define('USUARIO', "root");
-	define('CONTRA', "250279Yita04");
+	define('USUARIO', $UsuarioDelServidor);
+	define('CONTRA', $ContraseñaDelServidor);
 	define('BD', "larmsoftwaredesign");
 
 	function abrirConexion(){
