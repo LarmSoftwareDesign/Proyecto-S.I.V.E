@@ -29,12 +29,26 @@ while ($lisa = $resultado->fetch_assoc()){
     echo "<div class=\"form-check\">";
     echo "<input class=\"form-check-input\" type=\"radio\" name=\"pickup\" value =\"".$lisa['IdPickup']."\">";
     echo "<label class=\"form-check-label\">";
-    echo $lisa['NomPickup'].' - '.$lisa['Direccion'];
+    $horarioA= substr($lisa['Horario_abre'], 0, -3);
+    $horarioC= substr($lisa['Horario_cierra'], 0, -3);
+    echo $lisa['NomPickup'].' - '.$lisa['Direccion'].'. Esta abierto entre: '.$horarioA.' y '.$horarioC;
     echo "</label>";
     echo "</div>";
 
 }
 echo "<br>";
+echo "<h5>Metodo de pago:</h5>";
+echo "<div class = 'col-sm-6'>";
+echo "<select class=\"form-select\" name=\"tipo\"  required>";
+echo "<option selected disabled value=\"\">Metodo de pago </option>";
+echo "<option selected value=\"debito\" >Debito</option>";
+echo "<option selected value=\"credito\"> Credito</option>";
+echo "<option selected value=\"red de cobranza\" >Red de cobranza</option>";
+echo "</select>";
+echo "</div>";
+echo "<br>";
+echo "<div id = 'cobro' >";
+echo "</div>";
 echo "<div class=\"Esp d-grid gap-2\">";
 echo "<button class =\"btn btn-success btn-lg\" type = 'submit'>comprar</button>";
 echo "</div>";

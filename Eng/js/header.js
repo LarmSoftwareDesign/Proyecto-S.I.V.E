@@ -11,7 +11,7 @@ let headerV =`
         <!--logo-->
         <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="" width="100" height="50"></a>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="busqueda...." aria-label="Search" >
+          <input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" >
         </form>
         <form class="justify-content-end">
           
@@ -174,6 +174,9 @@ let headerV =`
                           </svg>
                           Help</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link"href="../index.html">Change laguage to Spanish</a>
+                    </li>
                   </ul>
             </div>
 
@@ -192,7 +195,7 @@ let headerC =`
               <!--logo-->
               <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="" width="100" height="50"></a>
               <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="busqueda...." aria-label="Search" >
+                <input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" >
               </form>
               <form class="justify-content-end">
               
@@ -352,6 +355,9 @@ let headerC =`
                                 </svg>
                                 Help</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link"href="../index.html">Change laguage to Spanish</a>
+                          </li>
                         </ul>
                   </div>
   
@@ -371,7 +377,7 @@ let headerE =`
               <!--logo-->
               <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="" width="100" height="50"></a>
               <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="busqueda...." aria-label="Search" >
+                <input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" >
               </form>
               <form class="justify-content-end">
                   
@@ -526,6 +532,9 @@ let headerE =`
                                   <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                                 </svg>
                                 Help</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link"href="../index.html">Change laguage to Spanish</a>
                           </li>
                         </ul>
                   </div>

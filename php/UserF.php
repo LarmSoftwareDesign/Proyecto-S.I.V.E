@@ -130,7 +130,7 @@ function obtenerusuarioE($conexion, $EMAIL ){
 }
 
 function obtenerPickup($conexion ){
-    $sql = "SELECT * FROM pickup";
+    $sql = "SELECT p.IdPickup IdPickup, NomPickup, Direccion, Horario_abre, Horario_cierra FROM pickup p join horario_pickup h on p.IdPickup = h.IdPickup";
     $resultado = $conexion->query($sql);
 
     if ( $resultado){ 
