@@ -10,23 +10,35 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/productos.css">
     <link rel="stylesheet" href="css/footer.css">
+    
 </head>
-<?php
-
-
-
-?>
 <body onload="cargarEn()">
 
     <header>
+        <?php
+        include("php/conexion.php");
+        include("php/UserF.php");
+        
+        if (isset($_GET['numcompraBD'])){
+            $conexion = abrirConexion();
+            $numC = $_GET['numcompraBD'];
+            $exito=eliminarEncargos($conexion, $numC);
+            if ($exito){
+                unset($_GET['numcompraBD']);
+            }else{
+                echo "error";
+            }
+            cerrarConexion($conexion);
+        }
+        ?>
         <script src="js/header.js"></script>
         <script src="js/funcionesP.js"></script>
     </header>
     <section class="container-fluid">    
-        <div class="row justify-content-between" id="CED">
+        <form method="get" action="compra.php" class="row justify-content-between" id="CED">
                     
             
-        </div>
+        </form>
     </section>
 
 
