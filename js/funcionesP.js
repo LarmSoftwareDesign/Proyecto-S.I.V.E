@@ -119,10 +119,23 @@ function cargarProductosE() {
 // funciones de comprar
 
 function CargarCompras(){
+  cargarRegistro();
   cargarTotal();
 }
 
 
+function cargarRegistro(){
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("RegistraC").innerHTML = this.responseText;
+    }
+  };
+  
+  xmlhttp.open("GET","php/compra.php",true);
+  xmlhttp.send();
+  
+}
 function cargarTotal(){
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
