@@ -1,4 +1,12 @@
 <?php
+session_start();
+	if (isset($_SESSION['emailE'])){
+
+	}elseif($_SESSION['email']){
+
+	}else{
+		
+	}
 	
 	// ? Definimos constantes para almacenar los datos de la conexión
 	define('SERVIDOR', "localhost");

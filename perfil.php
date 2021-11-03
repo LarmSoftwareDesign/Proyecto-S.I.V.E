@@ -71,7 +71,7 @@
                     <img src="img/login.png" class="logo-perfil">
                 </div>
                 <div class="col-md-7">
-                    <h1 style="font-size: 84px;"><?php echo $nombre;?></h1>
+                    <h1 style="font-size: 84px;"><?php echo $nombre?></h1>
                     
                 </div>
             </div>
@@ -125,8 +125,9 @@
                 
                     
             </div>
-
-
+            <div class="row">
+                
+            </div>
             
         
             
