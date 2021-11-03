@@ -7,8 +7,8 @@ session_start();
 		$UsuarioDelServidor = "jsanchez";
 		$ContraseñaDelServidor ="62617843";
 	}else{
-		$UsuarioDelServidor = "root";
-		$ContraseñaDelServidor ="250279Yita04";
+		$UsuarioDelServidor = "Lcorbo";
+		$ContraseñaDelServidor ="56275346";
 	}
 	
 	// ? Definimos constantes para almacenar los datos de la conexión
